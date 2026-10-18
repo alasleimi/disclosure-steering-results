@@ -1,0 +1,226 @@
+{
+  "version": "generated-history-contrasts-v2",
+  "exported": "2026-10-18T09:32:09+00:00",
+  "status": "validation",
+  "config": {
+    "train_cases": 192,
+    "validation_cases": 96,
+    "test_cases": 192,
+    "seed": 20261018,
+    "batch_size": 12,
+    "min_accepted_cases": 64,
+    "layers": [
+      5,
+      11,
+      17,
+      21
+    ],
+    "alphas": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "device": "auto",
+    "dtype": "auto",
+    "readouts": [
+      "response_mean"
+    ],
+    "max_new_tokens": 80
+  },
+  "model": {
+    "name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "model_type": "qwen2",
+    "layers": 24,
+    "width": 896,
+    "config_hash": "3a32b572173e726f08f096a3f9a563982bc1bb9e23328420a6e5d963eabe2d57",
+    "tokenizer_hash": "a3833016a0892676e98b4e285d6335263055116610a77cb4b28a73692521ee60",
+    "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "hook_site": "decoder_block_output",
+    "layer_numbering": "zero_based",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.51.3",
+    "attention": "sdpa",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "python": "3.12.12",
+    "generation_config": {
+      "max_length": 20,
+      "max_new_tokens": null,
+      "min_length": 0,
+      "min_new_tokens": null,
+      "early_stopping": false,
+      "max_time": null,
+      "stop_strings": null,
+      "do_sample": true,
+      "num_beams": 1,
+      "num_beam_groups": 1,
+      "penalty_alpha": null,
+      "dola_layers": null,
+      "use_cache": true,
+      "cache_implementation": null,
+      "cache_config": null,
+      "return_legacy_cache": null,
+      "prefill_chunk_size": null,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8,
+      "min_p": null,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "diversity_penalty": 0.0,
+      "repetition_penalty": 1.1,
+      "encoder_repetition_penalty": 1.0,
+      "length_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "bad_words_ids": null,
+      "force_words_ids": null,
+      "renormalize_logits": false,
+      "constraints": null,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": false,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "forced_decoder_ids": null,
+      "sequence_bias": null,
+      "token_healing": false,
+      "guidance_scale": null,
+      "low_memory": null,
+      "watermarking_config": null,
+      "num_return_sequences": 1,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "output_scores": false,
+      "output_logits": null,
+      "return_dict_in_generate": false,
+      "pad_token_id": 151643,
+      "bos_token_id": 151643,
+      "eos_token_id": [
+        151645,
+        151643
+      ],
+      "encoder_no_repeat_ngram_size": 0,
+      "decoder_start_token_id": null,
+      "is_assistant": false,
+      "num_assistant_tokens": 20,
+      "num_assistant_tokens_schedule": "constant",
+      "assistant_confidence_threshold": 0.4,
+      "prompt_lookup_num_tokens": null,
+      "max_matching_ngram_size": null,
+      "assistant_early_exit": null,
+      "assistant_lookbehind": 10,
+      "target_lookbehind": 10,
+      "disable_compile": false,
+      "generation_kwargs": {},
+      "_from_model_config": false,
+      "transformers_version": "4.51.3"
+    },
+    "decoding_overrides": {
+      "do_sample": false,
+      "num_beams": 1,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "temperature": null,
+      "top_p": null,
+      "top_k": null
+    }
+  },
+  "source_commit": "6f688fd5e64692f84950298427342262d85420f1",
+  "source_hashes": {
+    "pyproject.toml": "f5a4adadfa0bb4966a5d0ba53e6a5d75a18e925c1a18ab90e61ba3785e45e42b",
+    "uv.lock": "c747bf729777ac67cdfa8e97d7888d67bbb8eb0725e879fc1d4d8b570e413dd5",
+    "src/adlm_practical_ws26/__init__.py": "bc8297c147ff426c96761d35008ed11fce78570c7b983d638deef33235ceb5aa",
+    "src/adlm_practical_ws26/disclosure.py": "c62a8475ab3e986bea5b65eca3e77884428b6bed9f0a6a469812578012e6dd31",
+    "src/adlm_practical_ws26/runtime.py": "de3868f38e9cc6ba6a9cb3cc5bedf3bc69a309114abc5972e4d10924e3bc8383",
+    "src/adlm_practical_ws26/study.py": "f35de26415cc3cee084e81b46cea29b96a480a90610c381a55ba2c5870cbf47e"
+  },
+  "data_hash": "8d7bbac88a8340893c424ca75bfc803733403adc2e84bdab5b3b0f66e82c149f",
+  "case_counts": {
+    "train": 192,
+    "validation": 96,
+    "test": 192
+  },
+  "conversation_counts": {
+    "validation": 156,
+    "test": 0
+  },
+  "contrasts": {
+    "attempted_pairs": 352,
+    "accepted_pairs": 240,
+    "accepted_cases": 140,
+    "accepted_by_turn": {
+      "1": 110,
+      "3": 43,
+      "2": 87
+    },
+    "rejection_reasons": {
+      "selective:incomplete_requested_facts": 13,
+      "oversharing:incomplete_requested_facts": 8,
+      "oversharing:no_premature_fact": 16,
+      "length_ratio_below_half": 54,
+      "identical_or_prefix_answers": 32,
+      "selective:wrong_value_flag": 2,
+      "oversharing:wrong_value_flag": 2,
+      "oversharing:cutoff_or_repetition": 8,
+      "selective:cutoff_or_repetition": 6
+    },
+    "mean_tokens": {
+      "selective": 14.216666666666667,
+      "oversharing": 18.458333333333332
+    },
+    "capture": "Teacher-forced generated answers under identical neutral prompts; elicitation instructions are removed before capture.",
+    "weighting": "Token mean within answer; context mean within case; equal case means."
+  },
+  "limitations": [
+    "Synthetic nonmedical task; no patient-dialogue transfer established.",
+    "Scores use lexical aliases and limited negation, not semantic entailment.",
+    "Generated contrasts are behavior-filtered but can retain length/style effects.",
+    "One checkpoint and extraction seed; bootstrap resamples cases only."
+  ],
+  "checks": {
+    "zero_equals_baseline": true,
+    "hooks_removed": true,
+    "cached_tokens_identical": true,
+    "cache_logit_comparisons": [
+      {
+        "step": 0,
+        "max_abs_error": 0.0,
+        "relative_rms_error": 0.0,
+        "max_abs_tolerance": 0.3515625,
+        "relative_rms_tolerance": 0.015625,
+        "close": true
+      },
+      {
+        "step": 1,
+        "max_abs_error": 0.1875,
+        "relative_rms_error": 0.008281574584543705,
+        "max_abs_tolerance": 0.287109375,
+        "relative_rms_tolerance": 0.015625,
+        "close": true
+      },
+      {
+        "step": 2,
+        "max_abs_error": 0.25,
+        "relative_rms_error": 0.009633689187467098,
+        "max_abs_tolerance": 0.32421875,
+        "relative_rms_tolerance": 0.015625,
+        "close": true
+      },
+      {
+        "step": 3,
+        "max_abs_error": 0.1875,
+        "relative_rms_error": 0.007572866976261139,
+        "max_abs_tolerance": 0.267578125,
+        "relative_rms_tolerance": 0.015625,
+        "close": true
+      }
+    ],
+    "cached_logits_close": true
+  }
+}
