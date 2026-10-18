@@ -126,7 +126,7 @@ function overview() {
     if(a.test_review?.status==='complete') html+=`<p class="small">${esc(a.test_review.summary)}</p><p class="small muted">${esc(a.test_review.reviewer)}; this is not independent human annotation. Cases were sampled before test generation.</p>${details('Transcript review notes',a.test_review)}`;
     html+='</div>';
   }
-  html += `<div class="downloads"><a href="data/overview.json" download>Download results JSON ↓</a><a href="data/cases.json" download>Dataset ↓</a><a href="data/contrasts.json" download>Contrast pairs ↓</a><a href="data/test.json" download>Test responses & scores ↓</a></div>`;
+  html += `<div class="downloads"><a href="data/overview.json" download>Download results JSON ↓</a><a href="data/cases.json" download>Dataset ↓</a><a href="data/contrasts.json" download>Contrast pairs ↓</a><a href="data/test.json" download>Test responses & scores ↓</a><a href="data/training-drafts.zip" download>Exact training drafts & review ↓</a></div>`;
   return html;
 }
 

@@ -1,6 +1,6 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T14:21:59+00:00",
+  "exported": "2026-10-18T14:24:23+00:00",
   "status": "validation",
   "config": {
     "train_cases": 192,
@@ -271,7 +271,7 @@
     "test": 192
   },
   "conversation_counts": {
-    "validation": 300,
+    "validation": 456,
     "test": 0
   },
   "contrasts": {
