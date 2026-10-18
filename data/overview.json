@@ -1,6 +1,6 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T17:56:22+00:00",
+  "exported": "2026-10-18T18:03:43+00:00",
   "status": "test",
   "config": {
     "train_cases": 192,
@@ -272,7 +272,7 @@
   },
   "conversation_counts": {
     "validation": 1248,
-    "test": 636
+    "test": 1020
   },
   "contrasts": {
     "attempted_pairs": 352,
@@ -768,12 +768,14 @@
       },
       "reviewed_conditions": [
         "baseline",
+        "brief",
+        "instruction",
         "opposite",
         "steered"
       ],
-      "reviewed_conversations": 36,
-      "reviewed_responses": 144,
-      "summary": "Reviewed 144 responses from 12 preselected test cases across 3 conditions. Lexical scores miss unsupported details and can credit values about the wrong subject; clean-turn scores are not full factual-quality judgments.",
+      "reviewed_conversations": 60,
+      "reviewed_responses": 240,
+      "summary": "Reviewed 240 responses from 12 preselected test cases across 5 conditions. Lexical scores miss unsupported details and can credit values about the wrong subject; clean-turn scores are not full factual-quality judgments.",
       "notes": {
         "baseline": {
           "test-002": "All requested facts are supplied; material and year leak on turn 1 as scored. The invented vase type persists throughout and is not flagged by the lexical scorer.",
@@ -816,6 +818,34 @@
           "test-142": "Retains the unflagged gold-versus-iron contradiction and invented coin. Turn 3 mainly restates an era while mentioning Ghana; country-origin entailment is weaker than the coverage score implies.",
           "test-095": "Clear early material disclosure, then correct requested values. No unsupported specific claim identified.",
           "test-017": "Invents vase/provenance, historical context and material explanations. An early partial decade is outside the disclosure metric. Final exact-year coverage is restored relative to selected steering, but semantic defects remain."
+        },
+        "instruction": {
+          "test-180": "Still reveals country and material on turn 1 despite the selective instruction. Iron matches the record, but the woman statue is invented. Later requested facts are present.",
+          "test-138": "Shifts origin, manufacture and the final record to the wood used in the object. Those raw-material assertions do not necessarily establish the object's own origin or manufacture year, despite full lexical coverage.",
+          "test-175": "Omits Kenya initially and leaks the exact year. The black-man depiction is invented and is not necessarily surface-color disclosure, so that lexical leakage match is questionable. Later requested values are supplied.",
+          "test-157": "Greek describes a period rather than clearly stating country of origin, so country leakage/coverage is overcredited. Marble is a regional/background comparison while the object is explicitly wood, producing questionable wrong-material flags. First-turn exact year is absent as scored.",
+          "test-002": "Avoids the initial material/year leaks but invents Andhra Pradesh provenance. The final answer omits purple, correctly scoring 75% requested coverage.",
+          "test-086": "First answer substitutes an 1820s decade for 1829 and leaks ceramic/Norway, as scored. Invents a vase. Later exact requested facts, including the final record, are supplied.",
+          "test-009": "All requested values are supplied and all fields are eligible from turn 1. No unsupported specific claim identified.",
+          "test-141": "Supplies the record values but invents a coin, alloy composition and a causal explanation for the orange color. Those unsupported details escape wrong-value flags.",
+          "test-046": "Still leaks wood/year despite the instruction and invents sculpture and collection membership. Requested values are otherwise supplied as scored.",
+          "test-142": "Leaks both iron and year; invents denomination and gold-coin identity, contradicting iron without a flag for gold. Initial Ghana credit comes through a currency name rather than an explicit origin statement. Later lists contain all four correct values.",
+          "test-095": "Still discloses bronze on turn 1; later requested values are correct. No unsupported specific claim identified.",
+          "test-017": "Retains the vase, partial decade and speculative material explanation; later specifies unsupported red clay. Mexico leaks as scored. Final exact record values are complete."
+        },
+        "brief": {
+          "test-180": "Requested facts are supplied without early disclosure or invented statue details. Scores agree with all four responses.",
+          "test-138": "Leaks wood and black on turn 1 and invents a causal inference from black wood to Norwegian manufacture. Later requested values are supplied, but the unsupported inference is not flagged.",
+          "test-175": "States Kenya and steel correctly and leaks the year. The invented black-man depiction makes the initial surface-color leakage credit questionable. The statue/person interpretation persists in the final response.",
+          "test-157": "Gives a decade instead of 1889 on turn 1 and leaks Greece, as scored. Invented statue remains; later requested values are complete.",
+          "test-002": "Only material leaks initially; all requested values are supplied. No unsupported specific object type or provenance identified.",
+          "test-086": "Material and country leak on turn 1, then requested values are supplied correctly. No unsupported specific claim identified.",
+          "test-009": "All facts are eligible from turn 1 and requested coverage is complete. Repeating the already requested year on turn 3 is not premature disclosure.",
+          "test-141": "Correct catalogue lists and targeted answers, without the invented coin, plate or museum provenance seen in other conditions. Scores agree with the visible facts.",
+          "test-046": "Repeats the full record in every short answer. The first response leaks material/year; after the all-facts request those repeats are eligible. Brevity alone does not prevent oversharing, and cross-turn repetition is outside the repetition diagnostic.",
+          "test-142": "Retains invented gold coin and the unflagged gold-versus-iron contradiction. Exact-year leak and requested values are otherwise present as scored.",
+          "test-095": "Discloses bronze early and supplies later requested values. No unsupported specific claim identified.",
+          "test-017": "No early exact-value leak is scored, but an unrequested 1950s decade is given repeatedly. The final response supplies 1957 and all other requested fields. Partial-year disclosure remains outside the metric."
         }
       },
       "scorer_limitations_observed": [
@@ -869,6 +899,11 @@
       "selection": "Largest and smallest selected-minus-baseline utility changes, chosen after testing for illustration only; separate from the preselected audit.",
       "test-015": "The largest utility gain replaces repeated cutoffs with fact-containing answers, but both conditions invent statues and cities. A score improvement does not establish grounded provenance.",
       "test-063": "The largest utility loss replaces the record year 1838 with an invented Statue of Liberty year 1886 and introduces cutoffs and dimensions. Baseline also invents a Minerva statue."
+    },
+    "training_artifact": {
+      "data_hash": "8d7bbac88a8340893c424ca75bfc803733403adc2e84bdab5b3b0f66e82c149f",
+      "sha256": "1f86542a98151932fdf3733b4797d6e4d407487d34f857eface8bf9aaabb7227",
+      "bytes": 139126
     }
   }
 }
