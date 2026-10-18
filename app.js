@@ -120,6 +120,12 @@ function overview() {
     for (const [name,m] of Object.entries(s.metrics).sort((a,b)=>calcUtility(b[1])-calcUtility(a[1]))) html += `<tr class="${name===s.condition.name?'selected':''}"><td>${esc(label(name))}</td><td class="number">${calcUtility(m).toFixed(3)}</td><td class="number">${pct(m.premature_fraction)}</td><td class="number">${pct(m.requested_coverage)}</td><td class="number">${pct(m.truncation_rate)}</td><td class="number">${pct(s.stability.candidate_win_fractions_including_baseline[name])}</td></tr>`;
     html += `</tbody></table></div>${details('Selection stability: bootstrap and leave-one-case-out',s.stability)}</div>`;
   }
+  if (o.audit) {
+    const a=o.audit;
+    html+=`<div class="panel"><h2>Quality audit</h2><p class="small">${num(a.dataset.distinct_records)} distinct records; no record overlap with the original pilot and no exact question overlap between splits. The task still uses a small vocabulary and templated questions.</p>${details('Dataset checks and remaining limitations',a.dataset)}`;
+    if(a.test_review?.status==='complete') html+=`<p class="small">${esc(a.test_review.summary)}</p><p class="small muted">${esc(a.test_review.reviewer)}; this is not independent human annotation. Cases were sampled before test generation.</p>${details('Transcript review notes',a.test_review)}`;
+    html+='</div>';
+  }
   html += `<div class="downloads"><a href="data/overview.json" download>Download results JSON ↓</a><a href="data/cases.json" download>Dataset ↓</a><a href="data/contrasts.json" download>Contrast pairs ↓</a><a href="data/test.json" download>Test responses & scores ↓</a></div>`;
   return html;
 }

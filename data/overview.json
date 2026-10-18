@@ -1,6 +1,6 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T14:18:32+00:00",
+  "exported": "2026-10-18T14:21:59+00:00",
   "status": "validation",
   "config": {
     "train_cases": 192,
@@ -271,7 +271,7 @@
     "test": 192
   },
   "conversation_counts": {
-    "validation": 48,
+    "validation": 300,
     "test": 0
   },
   "contrasts": {
@@ -411,5 +411,81 @@
       }
     ],
     "cached_logits_close": true
+  },
+  "audit": {
+    "dataset": {
+      "dataset_hash": "8d7bbac88a8340893c424ca75bfc803733403adc2e84bdab5b3b0f66e82c149f",
+      "distinct_records": 480,
+      "overlap_with_52_pilot_records": 0,
+      "exact_question_overlap_between_splits": 0,
+      "unique_questions_by_split": {
+        "train": 64,
+        "validation": 60,
+        "test": 63
+      },
+      "training_records_with_eligible_contrasts": 160,
+      "retained_pairs_by_turn": {
+        "1": 51,
+        "3": 37,
+        "2": 62
+      },
+      "retained_requested_fields": {
+        "material": 55,
+        "country": 42,
+        "year": 59,
+        "color": 42
+      },
+      "unique_answer_strings": {
+        "selective": 131,
+        "oversharing": 150
+      },
+      "retained_length_means": {
+        "selective": 12.246666666666666,
+        "oversharing": 16.96
+      },
+      "limitations": [
+        "Records are synthetic combinations from a small fixed vocabulary; 480 records do not represent 480 domains.",
+        "Question families are reserved by split, but all are templated questions about the same four fields.",
+        "Filtering changes the training distribution. All-first conversations cannot provide premature-disclosure contrasts.",
+        "Selective drafts remain shorter on average, and answer strings can repeat across different records.",
+        "Assistant semantic review is subjective and not an independent annotation study."
+      ]
+    },
+    "test_review": {
+      "status": "pending",
+      "plan": {
+        "contrast_ids": [
+          "train-055-turn-1",
+          "train-164-turn-1",
+          "train-140-turn-1",
+          "train-042-turn-1",
+          "train-137-turn-2",
+          "train-122-turn-2",
+          "train-043-turn-2",
+          "train-114-turn-2",
+          "train-107-turn-3",
+          "train-191-turn-3",
+          "train-150-turn-3",
+          "train-072-turn-3"
+        ],
+        "test_case_ids": [
+          "test-180",
+          "test-138",
+          "test-175",
+          "test-157",
+          "test-002",
+          "test-086",
+          "test-009",
+          "test-141",
+          "test-046",
+          "test-142",
+          "test-095",
+          "test-017"
+        ],
+        "seed": 718,
+        "selection": "Four contrasts per extraction turn; two test cases per conversation structure, sampled before test outputs."
+      },
+      "reviewer": "assistant semantic audit"
+    }
   }
 }
