@@ -1,7 +1,7 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T17:23:49+00:00",
-  "status": "validation",
+  "exported": "2026-10-18T17:31:46+00:00",
+  "status": "test",
   "config": {
     "train_cases": 192,
     "validation_cases": 96,
@@ -271,8 +271,8 @@
     "test": 192
   },
   "conversation_counts": {
-    "validation": 972,
-    "test": 0
+    "validation": 1248,
+    "test": 24
   },
   "contrasts": {
     "attempted_pairs": 352,
@@ -372,6 +372,286 @@
     "Generated contrasts are behavior-filtered but can retain length/style effects.",
     "One checkpoint and extraction seed; bootstrap resamples cases only."
   ],
+  "selection": {
+    "condition": {
+      "name": "response_mean.block_11.mean.a1",
+      "policy": "baseline",
+      "vector": "response_mean.block_11.mean",
+      "layer": 11,
+      "alpha": 1.0,
+      "readout": "response_mean",
+      "estimator": "mean"
+    },
+    "objective": "coverage - premature - wrong - truncation",
+    "metrics": {
+      "baseline": {
+        "premature_fraction": 0.22916666666666666,
+        "requested_coverage": 0.9641927083333334,
+        "final_coverage": 0.9375,
+        "clean_turn_rate": 0.7161458333333334,
+        "wrong_value_rate": 0.057291666666666664,
+        "truncation_rate": 0.010416666666666666,
+        "mean_tokens": 28.309895833333332,
+        "disclosure_auc": 0.8430989583333334,
+        "repetition_rate": 0.0005795090472966378,
+        "cases": 96,
+        "disclosure_curve": [
+          0.7057291666666666,
+          0.8177083333333334,
+          0.890625,
+          0.9583333333333334
+        ]
+      },
+      "response_mean.block_5.mean.a0.5": {
+        "premature_fraction": 0.22395833333333334,
+        "requested_coverage": 0.962890625,
+        "final_coverage": 0.9244791666666666,
+        "clean_turn_rate": 0.7083333333333334,
+        "wrong_value_rate": 0.052083333333333336,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 27.317708333333332,
+        "disclosure_auc": 0.83984375,
+        "repetition_rate": 0.0011051233912680865,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6979166666666666,
+          0.8203125,
+          0.890625,
+          0.9505208333333334
+        ]
+      },
+      "response_mean.block_5.mean.a1": {
+        "premature_fraction": 0.22135416666666666,
+        "requested_coverage": 0.9622395833333334,
+        "final_coverage": 0.9270833333333334,
+        "clean_turn_rate": 0.703125,
+        "wrong_value_rate": 0.052083333333333336,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 27.653645833333332,
+        "disclosure_auc": 0.8359375,
+        "repetition_rate": 0.0010522591462876752,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6901041666666666,
+          0.8151041666666666,
+          0.8880208333333334,
+          0.9505208333333334
+        ]
+      },
+      "response_mean.block_5.mean.a2": {
+        "premature_fraction": 0.22916666666666666,
+        "requested_coverage": 0.9661458333333334,
+        "final_coverage": 0.9296875,
+        "clean_turn_rate": 0.7109375,
+        "wrong_value_rate": 0.0546875,
+        "truncation_rate": 0.013020833333333334,
+        "mean_tokens": 28.557291666666668,
+        "disclosure_auc": 0.8509114583333334,
+        "repetition_rate": 0.0015791030579216617,
+        "cases": 96,
+        "disclosure_curve": [
+          0.7083333333333334,
+          0.8385416666666666,
+          0.9036458333333334,
+          0.953125
+        ]
+      },
+      "response_mean.block_11.mean.a0.5": {
+        "premature_fraction": 0.2109375,
+        "requested_coverage": 0.9440104166666666,
+        "final_coverage": 0.9296875,
+        "clean_turn_rate": 0.6927083333333334,
+        "wrong_value_rate": 0.0625,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 28.9765625,
+        "disclosure_auc": 0.82421875,
+        "repetition_rate": 0.0021485155581158523,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6666666666666666,
+          0.7994791666666666,
+          0.875,
+          0.9557291666666666
+        ]
+      },
+      "response_mean.block_11.mean.a1": {
+        "premature_fraction": 0.2109375,
+        "requested_coverage": 0.9609375,
+        "final_coverage": 0.9479166666666666,
+        "clean_turn_rate": 0.7395833333333334,
+        "wrong_value_rate": 0.049479166666666664,
+        "truncation_rate": 0.005208333333333333,
+        "mean_tokens": 30.557291666666668,
+        "disclosure_auc": 0.83984375,
+        "repetition_rate": 0.0032627514962314586,
+        "cases": 96,
+        "disclosure_curve": [
+          0.671875,
+          0.8255208333333334,
+          0.8880208333333334,
+          0.9739583333333334
+        ]
+      },
+      "response_mean.block_11.mean.a2": {
+        "premature_fraction": 0.17708333333333334,
+        "requested_coverage": 0.8997395833333334,
+        "final_coverage": 0.90625,
+        "clean_turn_rate": 0.671875,
+        "wrong_value_rate": 0.052083333333333336,
+        "truncation_rate": 0.049479166666666664,
+        "mean_tokens": 34.526041666666664,
+        "disclosure_auc": 0.78515625,
+        "repetition_rate": 0.008059102641550357,
+        "cases": 96,
+        "disclosure_curve": [
+          0.5859375,
+          0.7604166666666666,
+          0.84375,
+          0.9505208333333334
+        ]
+      },
+      "response_mean.block_17.mean.a0.5": {
+        "premature_fraction": 0.234375,
+        "requested_coverage": 0.9661458333333334,
+        "final_coverage": 0.953125,
+        "clean_turn_rate": 0.7135416666666666,
+        "wrong_value_rate": 0.059895833333333336,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 29.502604166666668,
+        "disclosure_auc": 0.8509114583333334,
+        "repetition_rate": 0.0018643450549606013,
+        "cases": 96,
+        "disclosure_curve": [
+          0.7135416666666666,
+          0.8255208333333334,
+          0.8958333333333334,
+          0.96875
+        ]
+      },
+      "response_mean.block_17.mean.a1": {
+        "premature_fraction": 0.22395833333333334,
+        "requested_coverage": 0.9557291666666666,
+        "final_coverage": 0.9453125,
+        "clean_turn_rate": 0.7135416666666666,
+        "wrong_value_rate": 0.046875,
+        "truncation_rate": 0.010416666666666666,
+        "mean_tokens": 30.440104166666668,
+        "disclosure_auc": 0.845703125,
+        "repetition_rate": 0.0028331808422511363,
+        "cases": 96,
+        "disclosure_curve": [
+          0.703125,
+          0.828125,
+          0.890625,
+          0.9609375
+        ]
+      },
+      "response_mean.block_17.mean.a2": {
+        "premature_fraction": 0.2682291666666667,
+        "requested_coverage": 0.9680989583333334,
+        "final_coverage": 0.9609375,
+        "clean_turn_rate": 0.703125,
+        "wrong_value_rate": 0.07552083333333333,
+        "truncation_rate": 0.0234375,
+        "mean_tokens": 33.557291666666664,
+        "disclosure_auc": 0.8736979166666666,
+        "repetition_rate": 0.004163334855224546,
+        "cases": 96,
+        "disclosure_curve": [
+          0.7526041666666666,
+          0.8567708333333334,
+          0.9166666666666666,
+          0.96875
+        ]
+      },
+      "response_mean.block_21.mean.a0.5": {
+        "premature_fraction": 0.21354166666666666,
+        "requested_coverage": 0.9427083333333334,
+        "final_coverage": 0.9322916666666666,
+        "clean_turn_rate": 0.6875,
+        "wrong_value_rate": 0.057291666666666664,
+        "truncation_rate": 0.005208333333333333,
+        "mean_tokens": 27.989583333333332,
+        "disclosure_auc": 0.8229166666666666,
+        "repetition_rate": 0.0027808171061188738,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6666666666666666,
+          0.796875,
+          0.875,
+          0.953125
+        ]
+      },
+      "response_mean.block_21.mean.a1": {
+        "premature_fraction": 0.20833333333333334,
+        "requested_coverage": 0.9563802083333334,
+        "final_coverage": 0.9375,
+        "clean_turn_rate": 0.7109375,
+        "wrong_value_rate": 0.049479166666666664,
+        "truncation_rate": 0.010416666666666666,
+        "mean_tokens": 27.90625,
+        "disclosure_auc": 0.8313802083333334,
+        "repetition_rate": 0.002121366259427959,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6666666666666666,
+          0.8151041666666666,
+          0.8854166666666666,
+          0.9583333333333334
+        ]
+      },
+      "response_mean.block_21.mean.a2": {
+        "premature_fraction": 0.23697916666666666,
+        "requested_coverage": 0.9485677083333334,
+        "final_coverage": 0.921875,
+        "clean_turn_rate": 0.703125,
+        "wrong_value_rate": 0.028645833333333332,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 28.317708333333332,
+        "disclosure_auc": 0.8548177083333334,
+        "repetition_rate": 0.0011706734879168349,
+        "cases": 96,
+        "disclosure_curve": [
+          0.7161458333333334,
+          0.8515625,
+          0.8958333333333334,
+          0.9557291666666666
+        ]
+      }
+    },
+    "selected_utility": 0.6953125,
+    "baseline_utility": 0.6673177083333335,
+    "stability": {
+      "cases": 96,
+      "bootstrap_samples": 2000,
+      "seed": 20261018,
+      "candidate_win_fractions_including_baseline": {
+        "baseline": 0.005,
+        "response_mean.block_5.mean.a0.5": 0.039,
+        "response_mean.block_11.mean.a0.5": 0.0215,
+        "response_mean.block_17.mean.a0.5": 0.008,
+        "response_mean.block_21.mean.a0.5": 0.012,
+        "response_mean.block_5.mean.a1": 0.0725,
+        "response_mean.block_11.mean.a1": 0.3975,
+        "response_mean.block_17.mean.a1": 0.0635,
+        "response_mean.block_21.mean.a1": 0.2245,
+        "response_mean.block_5.mean.a2": 0.054,
+        "response_mean.block_11.mean.a2": 0.0065,
+        "response_mean.block_17.mean.a2": 0.0,
+        "response_mean.block_21.mean.a2": 0.096
+      },
+      "selected_minus_baseline_utility_ci95": [
+        -0.014355468749999998,
+        0.07421875
+      ],
+      "leave_one_case_out_winners": {
+        "response_mean.block_11.mean.a1": 94,
+        "response_mean.block_21.mean.a1": 2
+      },
+      "deployment_recommendation": "baseline",
+      "rule": "Use steering only if its paired validation utility interval is above zero. Always evaluate the best active candidate on held-out test as an experiment."
+    }
+  },
   "checks": {
     "zero_equals_baseline": true,
     "hooks_removed": true,

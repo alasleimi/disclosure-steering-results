@@ -1,1 +1,6919 @@
-[]
+[
+  {
+    "case_id": "test-000",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-000",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 17.5,
+      "disclosure_auc": 0.625,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its color.",
+        "text": "The color of the glass object is red.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 10,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [
+            "color",
+            "material"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 17,
+                "end": 22
+              }
+            ],
+            "color=red": [
+              {
+                "text": "red",
+                "start": 33,
+                "end": 36
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 10,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its material.",
+        "text": "The material of the glass object is glass.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 10,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 20,
+                "end": 25
+              },
+              {
+                "text": "glass",
+                "start": 36,
+                "end": 41
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": true,
+          "truncated": false,
+          "tokens": 10,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its color with me?",
+        "text": "Certainly! The color of the glass object is red.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 12,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 28,
+                "end": 33
+              }
+            ],
+            "color=red": [
+              {
+                "text": "red",
+                "start": 44,
+                "end": 47
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": true,
+          "truncated": false,
+          "tokens": 12,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Here is the complete information from the catalogue record:\n\n- **Material:** Glass\n- **Country:** Mexico\n- **Year:** 1885\n- **Color:** Red",
+        "requested": [
+          "year",
+          "material",
+          "country",
+          "color"
+        ],
+        "tokens": 38,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "country",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "Glass",
+                "start": 77,
+                "end": 82
+              }
+            ],
+            "country=Mexico": [
+              {
+                "text": "Mexico",
+                "start": 98,
+                "end": 104
+              }
+            ],
+            "year=1885": [
+              {
+                "text": "1885",
+                "start": 117,
+                "end": 121
+              }
+            ],
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 135,
+                "end": 138
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 38,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-001",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-001",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.5,
+      "wrong_value_rate": 0.25,
+      "truncation_rate": 0.0,
+      "mean_tokens": 42.0,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.008064516129032258,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Could you share its year of manufacture and its material with me?",
+        "text": "Certainly! The object in question is a copper coin from the 1850s, specifically a 100 paisa note. It was made in India in 1857 and is characterized by its pink color.",
+        "requested": [
+          "year",
+          "material"
+        ],
+        "tokens": 49,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "color",
+            "country"
+          ],
+          "wrong": [],
+          "evidence": {
+            "year=1857": [
+              {
+                "text": "1857",
+                "start": 122,
+                "end": 126
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 113,
+                "end": 118
+              }
+            ],
+            "color=pink": [
+              {
+                "text": "pink",
+                "start": 155,
+                "end": 159
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 39,
+                "end": 45
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 49,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its country of origin.",
+        "text": "The 100 paisa note you're referring to was made in India in 1857.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 24,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1857": [
+              {
+                "text": "1857",
+                "start": 60,
+                "end": 64
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 51,
+                "end": 56
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 24,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its material and its color.",
+        "text": "The 100 paisa note you're describing is made of copper, which is a reddish-brown metal. It is also pink in color, which is a characteristic feature of this type of coin.",
+        "requested": [
+          "material",
+          "color"
+        ],
+        "tokens": 44,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "color",
+              "value": "brown"
+            }
+          ],
+          "evidence": {
+            "color=pink": [
+              {
+                "text": "pink",
+                "start": 99,
+                "end": 103
+              }
+            ],
+            "color=brown": [
+              {
+                "text": "brown",
+                "start": 75,
+                "end": 80
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 48,
+                "end": 54
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 44,
+          "repetition": 0.03225806451612903
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the 100 paisa note from India:\n\n- **Year of Manufacture:** 1857\n- **Country:** India\n- **Material:** Copper\n- **Color:** Pink",
+        "requested": [
+          "material",
+          "color",
+          "country",
+          "year"
+        ],
+        "tokens": 51,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1857": [
+              {
+                "text": "1857",
+                "start": 112,
+                "end": 116
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 77,
+                "end": 82
+              },
+              {
+                "text": "India",
+                "start": 132,
+                "end": 137
+              }
+            ],
+            "color=pink": [
+              {
+                "text": "Pink",
+                "start": 174,
+                "end": 178
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "Copper",
+                "start": 154,
+                "end": 160
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 51,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-002",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-002",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 25.25,
+      "disclosure_auc": 0.875,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Please identify its country of origin for this object.",
+        "text": "The object in question is a ceramic vase from the 1902 period in India, and its country of origin is India.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 28,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "material",
+            "year"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 28,
+                "end": 35
+              }
+            ],
+            "year=1902": [
+              {
+                "text": "1902",
+                "start": 50,
+                "end": 54
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 65,
+                "end": 70
+              },
+              {
+                "text": "India",
+                "start": 101,
+                "end": 106
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 28,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its year of manufacture and its material.",
+        "text": "The vase was manufactured in 1902 and is made of ceramic.",
+        "requested": [
+          "year",
+          "material"
+        ],
+        "tokens": 17,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 49,
+                "end": 56
+              }
+            ],
+            "year=1902": [
+              {
+                "text": "1902",
+                "start": 29,
+                "end": 33
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 17,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its color with me?",
+        "text": "The vase is purple in color.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 8,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=purple": [
+              {
+                "text": "purple",
+                "start": 12,
+                "end": 18
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 8,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete record for the ceramic vase from 1902 in India:\n\n- **Material:** Ceramic\n- **Year:** 1902\n- **Country:** India\n- **Color:** Purple",
+        "requested": [
+          "color",
+          "country",
+          "year",
+          "material"
+        ],
+        "tokens": 48,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 47,
+                "end": 54
+              },
+              {
+                "text": "Ceramic",
+                "start": 97,
+                "end": 104
+              }
+            ],
+            "year=1902": [
+              {
+                "text": "1902",
+                "start": 65,
+                "end": 69
+              },
+              {
+                "text": "1902",
+                "start": 117,
+                "end": 121
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 73,
+                "end": 78
+              },
+              {
+                "text": "India",
+                "start": 137,
+                "end": 142
+              }
+            ],
+            "color=purple": [
+              {
+                "text": "Purple",
+                "start": 156,
+                "end": 162
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 48,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-003",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-003",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 1.0,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 40.75,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the object you requested:\n\n**Catalogue Record:**\n\n**Color:** Black\n**Material:** Copper\n**Country:** Japan\n**Year:** 1979\n\nThis record provides all the necessary information about the object, including its color, material, country of origin, and year of creation.",
+        "requested": [
+          "country",
+          "material",
+          "year",
+          "color"
+        ],
+        "tokens": 71,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "Black",
+                "start": 114,
+                "end": 119
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "Copper",
+                "start": 134,
+                "end": 140
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 154,
+                "end": 159
+              }
+            ],
+            "year=1979": [
+              {
+                "text": "1979",
+                "start": 170,
+                "end": 174
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 71,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its material.",
+        "text": "The material of the object is copper.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 9,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 30,
+                "end": 36
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 9,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its country of origin and its color.",
+        "text": "The object is from Japan and has a black color.",
+        "requested": [
+          "country",
+          "color"
+        ],
+        "tokens": 12,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "black",
+                "start": 35,
+                "end": 40
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 19,
+                "end": 24
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 12,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the object you requested:\n\n**Catalogue Record:**\n\n**Color:** Black\n**Material:** Copper\n**Country:** Japan\n**Year:** 1979\n\nThis record provides all the necessary information about the object, including its color, material, country of origin, and year of creation.",
+        "requested": [
+          "country",
+          "material",
+          "color",
+          "year"
+        ],
+        "tokens": 71,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "Black",
+                "start": 114,
+                "end": 119
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "Copper",
+                "start": 134,
+                "end": 140
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 154,
+                "end": 159
+              }
+            ],
+            "year=1979": [
+              {
+                "text": "1979",
+                "start": 170,
+                "end": 174
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 71,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-004",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-004",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 37.75,
+      "disclosure_auc": 0.9375,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Please identify its color and its material for this object.",
+        "text": "The object in question is a ceramic vase from the 1860s, specifically from Japan. The vase is brown in color, which is a common color for Japanese ceramics.",
+        "requested": [
+          "color",
+          "material"
+        ],
+        "tokens": 38,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material"
+          ],
+          "premature": [
+            "country"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramics",
+                "start": 147,
+                "end": 155
+              },
+              {
+                "text": "ceramic",
+                "start": 28,
+                "end": 35
+              }
+            ],
+            "color=brown": [
+              {
+                "text": "brown",
+                "start": 94,
+                "end": 99
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japanese",
+                "start": 138,
+                "end": 146
+              },
+              {
+                "text": "Japan",
+                "start": 75,
+                "end": 80
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 38,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the ceramic vase from 1862, Japan:\n\n**Catalogue Record:**\n\n**Material:** Ceramic\n**Color:** Brown\n**Country:** Japan\n**Year:** 1862",
+        "requested": [
+          "country",
+          "year",
+          "color",
+          "material"
+        ],
+        "tokens": 51,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 57,
+                "end": 64
+              },
+              {
+                "text": "Ceramic",
+                "start": 126,
+                "end": 133
+              }
+            ],
+            "color=brown": [
+              {
+                "text": "Brown",
+                "start": 145,
+                "end": 150
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 81,
+                "end": 86
+              },
+              {
+                "text": "Japan",
+                "start": 164,
+                "end": 169
+              }
+            ],
+            "year=1862": [
+              {
+                "text": "1862",
+                "start": 75,
+                "end": 79
+              },
+              {
+                "text": "1862",
+                "start": 180,
+                "end": 184
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 51,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its material for this object.",
+        "text": "The ceramic vase in question is made of ceramic.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 11,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 4,
+                "end": 11
+              },
+              {
+                "text": "ceramic",
+                "start": 40,
+                "end": 47
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 11,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the ceramic vase from 1862, Japan:\n\n**Catalogue Record:**\n\n**Material:** Ceramic\n**Color:** Brown\n**Country:** Japan\n**Year:** 1862",
+        "requested": [
+          "color",
+          "country",
+          "material",
+          "year"
+        ],
+        "tokens": 51,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 57,
+                "end": 64
+              },
+              {
+                "text": "Ceramic",
+                "start": 126,
+                "end": 133
+              }
+            ],
+            "color=brown": [
+              {
+                "text": "Brown",
+                "start": 145,
+                "end": 150
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 81,
+                "end": 86
+              },
+              {
+                "text": "Japan",
+                "start": 164,
+                "end": 169
+              }
+            ],
+            "year=1862": [
+              {
+                "text": "1862",
+                "start": 75,
+                "end": 79
+              },
+              {
+                "text": "1862",
+                "start": 180,
+                "end": 184
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 51,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-005",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-005",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 55.0,
+      "disclosure_auc": 0.875,
+      "repetition_rate": 0.004545454545454545,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its material and its color.",
+        "text": "The ceramic object you're referring to is likely a blue pottery vessel from the 1800s, specifically from the region of Kenya. This type of pottery was popular in the region during the colonial era, reflecting the cultural and economic ties between Europe and Africa. The blue coloration is characteristic of this period, often used in decorative arts and as a symbol of wealth and status.",
+        "requested": [
+          "material",
+          "color"
+        ],
+        "tokens": 79,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material"
+          ],
+          "premature": [
+            "country"
+          ],
+          "wrong": [],
+          "evidence": {
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 119,
+                "end": 124
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 4,
+                "end": 11
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 51,
+                "end": 55
+              },
+              {
+                "text": "blue",
+                "start": 271,
+                "end": 275
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 79,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its color for this object.",
+        "text": "The blue coloration on the ceramic object you mentioned is characteristic of the 1800s, specifically from the region of Kenya. This type of pottery was popular during the colonial era, reflecting the cultural and economic ties between Europe and Africa. The blue coloration is often used in decorative arts and as a symbol of wealth and status.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 70,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 120,
+                "end": 125
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 27,
+                "end": 34
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 4,
+                "end": 8
+              },
+              {
+                "text": "blue",
+                "start": 258,
+                "end": 262
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 70,
+          "repetition": 0.01818181818181818
+        }
+      },
+      {
+        "question": "I need the information on its year of manufacture.",
+        "text": "The year of manufacture for this blue pottery vessel is 1803.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 17,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1803": [
+              {
+                "text": "1803",
+                "start": 56,
+                "end": 60
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 33,
+                "end": 37
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 17,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete information for the blue pottery vessel from the 1800s, Kenya:\n\n- **Year of Manufacture:** 1803\n- **Material:** Ceramic\n- **Country:** Kenya\n- **Color:** Blue",
+        "requested": [
+          "year",
+          "material",
+          "country",
+          "color"
+        ],
+        "tokens": 54,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1803": [
+              {
+                "text": "1803",
+                "start": 123,
+                "end": 127
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 88,
+                "end": 93
+              },
+              {
+                "text": "Kenya",
+                "start": 167,
+                "end": 172
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "Ceramic",
+                "start": 144,
+                "end": 151
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 52,
+                "end": 56
+              },
+              {
+                "text": "Blue",
+                "start": 186,
+                "end": 190
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 54,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-006",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-006",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 0.4375,
+      "final_coverage": 0.75,
+      "clean_turn_rate": 0.0,
+      "wrong_value_rate": 1.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 28.0,
+      "disclosure_auc": 0.5625,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        0.5,
+        0.5,
+        0.75
+      ]
+    },
+    "turns": [
+      {
+        "question": "Could you share its material with me?",
+        "text": "Certainly! The object in question is a bronze statue of a lion, which was created in 1983 in Kenya.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 27,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "material"
+          ],
+          "revealed": [
+            "country",
+            "year"
+          ],
+          "new": [
+            "country",
+            "year"
+          ],
+          "premature": [
+            "country",
+            "year"
+          ],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 39,
+                "end": 45
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 93,
+                "end": 98
+              }
+            ],
+            "year=1983": [
+              {
+                "text": "1983",
+                "start": 85,
+                "end": 89
+              }
+            ]
+          },
+          "coverage": 0.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 27,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its year of manufacture.",
+        "text": "The year of manufacture for this bronze statue is 1983.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 16,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 33,
+                "end": 39
+              }
+            ],
+            "year=1983": [
+              {
+                "text": "1983",
+                "start": 50,
+                "end": 54
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 16,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its material with me?",
+        "text": "Certainly! The material of this bronze statue is bronze.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 12,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 32,
+                "end": 38
+              },
+              {
+                "text": "bronze",
+                "start": 49,
+                "end": 55
+              }
+            ]
+          },
+          "coverage": 0.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 12,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Thank you for your request. Here is the complete record for the bronze statue of a lion, created in 1983 in Kenya:\n\n- **Color:** Brown\n- **Material:** Bronze\n- **Country:** Kenya\n- **Year:** 1983",
+        "requested": [
+          "year",
+          "color",
+          "country",
+          "material"
+        ],
+        "tokens": 57,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "year"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "color=brown": [
+              {
+                "text": "Brown",
+                "start": 129,
+                "end": 134
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 64,
+                "end": 70
+              },
+              {
+                "text": "Bronze",
+                "start": 151,
+                "end": 157
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 108,
+                "end": 113
+              },
+              {
+                "text": "Kenya",
+                "start": 173,
+                "end": 178
+              }
+            ],
+            "year=1983": [
+              {
+                "text": "1983",
+                "start": 100,
+                "end": 104
+              },
+              {
+                "text": "1983",
+                "start": 191,
+                "end": 195
+              }
+            ]
+          },
+          "coverage": 0.75,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 57,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-007",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-007",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 24.5,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Please identify its country of origin and its year of manufacture for this object.",
+        "text": "The object in question is a blue copper coin from Japan, manufactured in 1831.",
+        "requested": [
+          "country",
+          "year"
+        ],
+        "tokens": 21,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "year"
+          ],
+          "eligible": [
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "color",
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "year=1831": [
+              {
+                "text": "1831",
+                "start": 73,
+                "end": 77
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 33,
+                "end": 39
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 50,
+                "end": 55
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 28,
+                "end": 32
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 21,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its color.",
+        "text": "The blue copper coin from Japan was manufactured in 1831, and its color is blue.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 22,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1831": [
+              {
+                "text": "1831",
+                "start": 52,
+                "end": 56
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 9,
+                "end": 15
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 26,
+                "end": 31
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 4,
+                "end": 8
+              },
+              {
+                "text": "blue",
+                "start": 75,
+                "end": 79
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 22,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its material and its country of origin with me?",
+        "text": "Certainly! The blue copper coin from Japan was manufactured in 1831, and its material is copper.",
+        "requested": [
+          "material",
+          "country"
+        ],
+        "tokens": 24,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1831": [
+              {
+                "text": "1831",
+                "start": 63,
+                "end": 67
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 20,
+                "end": 26
+              },
+              {
+                "text": "copper",
+                "start": 89,
+                "end": 95
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 37,
+                "end": 42
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 15,
+                "end": 19
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 24,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The blue copper coin from Japan was manufactured in 1831, and its material is copper. It is also known as a blue coin.",
+        "requested": [
+          "color",
+          "year",
+          "country",
+          "material"
+        ],
+        "tokens": 31,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1831": [
+              {
+                "text": "1831",
+                "start": 52,
+                "end": 56
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 9,
+                "end": 15
+              },
+              {
+                "text": "copper",
+                "start": 78,
+                "end": 84
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 26,
+                "end": 31
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 4,
+                "end": 8
+              },
+              {
+                "text": "blue",
+                "start": 108,
+                "end": 112
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 31,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-008",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-008",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 26.5,
+      "disclosure_auc": 0.875,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Could you share its country of origin with me?",
+        "text": "Certainly! The object you're asking about is a copper statue from the 1930s, specifically from Norway.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 26,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [
+            "country",
+            "material"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "country=Norway": [
+              {
+                "text": "Norway",
+                "start": 95,
+                "end": 101
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 47,
+                "end": 53
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 26,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its color and its year of manufacture for this object.",
+        "text": "The copper statue you're referring to is red, and it was manufactured in 1935.",
+        "requested": [
+          "color",
+          "year"
+        ],
+        "tokens": 22,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=red": [
+              {
+                "text": "red",
+                "start": 41,
+                "end": 44
+              }
+            ],
+            "year=1935": [
+              {
+                "text": "1935",
+                "start": 73,
+                "end": 77
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 22,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its material.",
+        "text": "The copper statue you're interested in is made of copper.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 13,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "copper",
+                "start": 50,
+                "end": 56
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 13,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete information for the copper statue from Norway:\n\n- **Country:** Norway\n- **Color:** Red\n- **Material:** Copper\n- **Year of Manufacture:** 1935",
+        "requested": [
+          "country",
+          "material",
+          "color",
+          "year"
+        ],
+        "tokens": 45,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Norway": [
+              {
+                "text": "Norway",
+                "start": 71,
+                "end": 77
+              },
+              {
+                "text": "Norway",
+                "start": 95,
+                "end": 101
+              }
+            ],
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 115,
+                "end": 118
+              }
+            ],
+            "year=1935": [
+              {
+                "text": "1935",
+                "start": 169,
+                "end": 173
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 52,
+                "end": 58
+              },
+              {
+                "text": "Copper",
+                "start": 135,
+                "end": 141
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 45,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-009",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-009",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 1.0,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 35.0,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete catalogue record for the 1870 glass object is as follows:\n\nCountry: Mexico\nColor: Blue\nMaterial: Glass\n\nThis object was created in 1870 and is described as a glass object.",
+        "requested": [
+          "material",
+          "year",
+          "country",
+          "color"
+        ],
+        "tokens": 48,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Mexico": [
+              {
+                "text": "Mexico",
+                "start": 81,
+                "end": 87
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "Blue",
+                "start": 95,
+                "end": 99
+              }
+            ],
+            "year=1870": [
+              {
+                "text": "1870",
+                "start": 38,
+                "end": 42
+              },
+              {
+                "text": "1870",
+                "start": 144,
+                "end": 148
+              }
+            ],
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 43,
+                "end": 48
+              },
+              {
+                "text": "Glass",
+                "start": 110,
+                "end": 115
+              },
+              {
+                "text": "glass",
+                "start": 171,
+                "end": 176
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 48,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its year of manufacture.",
+        "text": "The year of manufacture for this 1870 glass object is 1870.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 21,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1870": [
+              {
+                "text": "1870",
+                "start": 33,
+                "end": 37
+              },
+              {
+                "text": "1870",
+                "start": 54,
+                "end": 58
+              }
+            ],
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 38,
+                "end": 43
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 21,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its material and its color.",
+        "text": "The material of this 1870 glass object is glass. The color of this object is blue.",
+        "requested": [
+          "material",
+          "color"
+        ],
+        "tokens": 23,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=blue": [
+              {
+                "text": "blue",
+                "start": 77,
+                "end": 81
+              }
+            ],
+            "year=1870": [
+              {
+                "text": "1870",
+                "start": 21,
+                "end": 25
+              }
+            ],
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 26,
+                "end": 31
+              },
+              {
+                "text": "glass",
+                "start": 42,
+                "end": 47
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 23,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete catalogue record for the 1870 glass object is as follows:\n\nCountry: Mexico\nColor: Blue\nMaterial: Glass\n\nThis object was created in 1870 and is described as a glass object.",
+        "requested": [
+          "material",
+          "year",
+          "color",
+          "country"
+        ],
+        "tokens": 48,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Mexico": [
+              {
+                "text": "Mexico",
+                "start": 81,
+                "end": 87
+              }
+            ],
+            "color=blue": [
+              {
+                "text": "Blue",
+                "start": 95,
+                "end": 99
+              }
+            ],
+            "year=1870": [
+              {
+                "text": "1870",
+                "start": 38,
+                "end": 42
+              },
+              {
+                "text": "1870",
+                "start": 144,
+                "end": 148
+              }
+            ],
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 43,
+                "end": 48
+              },
+              {
+                "text": "Glass",
+                "start": 110,
+                "end": 115
+              },
+              {
+                "text": "glass",
+                "start": 171,
+                "end": 176
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 48,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-010",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-010",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 35.25,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Could you share its year of manufacture and its country of origin with me?",
+        "text": "Certainly! The bronze object you're asking about is from 1860 in Kenya. It has a pink color.",
+        "requested": [
+          "year",
+          "country"
+        ],
+        "tokens": 26,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "year"
+          ],
+          "eligible": [
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "color",
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 15,
+                "end": 21
+              }
+            ],
+            "year=1860": [
+              {
+                "text": "1860",
+                "start": 57,
+                "end": 61
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 65,
+                "end": 70
+              }
+            ],
+            "color=pink": [
+              {
+                "text": "pink",
+                "start": 81,
+                "end": 85
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 26,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Thank you for your request. Here is the complete catalogue record for the bronze object you mentioned:\n\n- **Material:** Bronze\n- **Year:** 1860\n- **Country:** Kenya\n- **Color:** Pink",
+        "requested": [
+          "color",
+          "country",
+          "year",
+          "material"
+        ],
+        "tokens": 47,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 74,
+                "end": 80
+              },
+              {
+                "text": "Bronze",
+                "start": 120,
+                "end": 126
+              }
+            ],
+            "year=1860": [
+              {
+                "text": "1860",
+                "start": 139,
+                "end": 143
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 159,
+                "end": 164
+              }
+            ],
+            "color=pink": [
+              {
+                "text": "Pink",
+                "start": 178,
+                "end": 182
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 47,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its year of manufacture with me?",
+        "text": "Certainly! The bronze object you're asking about was manufactured in 1860 in Kenya.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 21,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 15,
+                "end": 21
+              }
+            ],
+            "year=1860": [
+              {
+                "text": "1860",
+                "start": 69,
+                "end": 73
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 77,
+                "end": 82
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 21,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Thank you for your request. Here is the complete catalogue record for the bronze object you mentioned:\n\n- **Material:** Bronze\n- **Year:** 1860\n- **Country:** Kenya\n- **Color:** Pink",
+        "requested": [
+          "country",
+          "year",
+          "color",
+          "material"
+        ],
+        "tokens": 47,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 74,
+                "end": 80
+              },
+              {
+                "text": "Bronze",
+                "start": 120,
+                "end": 126
+              }
+            ],
+            "year=1860": [
+              {
+                "text": "1860",
+                "start": 139,
+                "end": 143
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 159,
+                "end": 164
+              }
+            ],
+            "color=pink": [
+              {
+                "text": "Pink",
+                "start": 178,
+                "end": 182
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 47,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-011",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-011",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.0,
+      "wrong_value_rate": 1.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 50.0,
+      "disclosure_auc": 0.6875,
+      "repetition_rate": 0.006756756756756757,
+      "disclosure_curve": [
+        0.5,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its country of origin and its material.",
+        "text": "The object in question is a bronze statue of a woman, likely from the 1860s, made in Ghana. The material is iron, which is a common material for bronze statues in Ghana.",
+        "requested": [
+          "country",
+          "material"
+        ],
+        "tokens": 43,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "material"
+          ],
+          "eligible": [
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [
+            "country",
+            "material"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "country=Ghana": [
+              {
+                "text": "Ghana",
+                "start": 85,
+                "end": 90
+              },
+              {
+                "text": "Ghana",
+                "start": 163,
+                "end": 168
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "bronze",
+                "start": 145,
+                "end": 151
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "iron",
+                "start": 108,
+                "end": 112
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 43,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its country of origin.",
+        "text": "The bronze statue of a woman, likely from the 1860s, made in Ghana, is an example of a traditional African sculpture. It is made of iron, a common material for bronze statues in Ghana.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 46,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "country=Ghana": [
+              {
+                "text": "Ghana",
+                "start": 61,
+                "end": 66
+              },
+              {
+                "text": "Ghana",
+                "start": 178,
+                "end": 183
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "bronze",
+                "start": 160,
+                "end": 166
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "iron",
+                "start": 132,
+                "end": 136
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 46,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its color for this object.",
+        "text": "The object in question is a bronze statue of a woman, likely from the 1860s, made in Ghana. The material is iron, which is a common material for bronze statues in Ghana. The color of the statue is orange.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 51,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "color=orange": [
+              {
+                "text": "orange",
+                "start": 197,
+                "end": 203
+              }
+            ],
+            "country=Ghana": [
+              {
+                "text": "Ghana",
+                "start": 85,
+                "end": 90
+              },
+              {
+                "text": "Ghana",
+                "start": 163,
+                "end": 168
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "bronze",
+                "start": 145,
+                "end": 151
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "iron",
+                "start": 108,
+                "end": 112
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 51,
+          "repetition": 0.02702702702702703
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the bronze statue of a woman, likely from the 1860s, made in Ghana:\n\n**Catalogue Record:**\n\n**Color:** Orange\n**Year:** 1869\n**Country:** Ghana\n**Material:** Iron",
+        "requested": [
+          "country",
+          "material",
+          "year",
+          "color"
+        ],
+        "tokens": 60,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "color=orange": [
+              {
+                "text": "Orange",
+                "start": 156,
+                "end": 162
+              }
+            ],
+            "year=1869": [
+              {
+                "text": "1869",
+                "start": 173,
+                "end": 177
+              }
+            ],
+            "country=Ghana": [
+              {
+                "text": "Ghana",
+                "start": 114,
+                "end": 119
+              },
+              {
+                "text": "Ghana",
+                "start": 191,
+                "end": 196
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 57,
+                "end": 63
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "Iron",
+                "start": 211,
+                "end": 215
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 60,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-012",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-012",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 36.25,
+      "disclosure_auc": 0.625,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its country of origin.",
+        "text": "The object you're referring to is a statue of a Roman goddess, likely the Roman goddess Minerva, which was created in the 18th century. The statue is made of steel and is located in the Vatican Museums in Rome, Italy.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 52,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [
+            "country",
+            "material"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=steel": [
+              {
+                "text": "steel",
+                "start": 158,
+                "end": 163
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 211,
+                "end": 216
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 52,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its material with me?",
+        "text": "Certainly! The statue you're asking about is made of steel.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 14,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=steel": [
+              {
+                "text": "steel",
+                "start": 53,
+                "end": 58
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": true,
+          "truncated": false,
+          "tokens": 14,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its country of origin.",
+        "text": "The statue you're interested in is from Italy, specifically from the 18th century. It was created in the Vatican Museums in Rome, Italy.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 33,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "country"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 40,
+                "end": 45
+              },
+              {
+                "text": "Italy",
+                "start": 130,
+                "end": 135
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": true,
+          "truncated": false,
+          "tokens": 33,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the statue you're asking about:\n\n**Catalogue Record:**\n\n**Material:** Steel\n**Color:** Black\n**Year:** 1834\n**Country:** Italy",
+        "requested": [
+          "material",
+          "color",
+          "country",
+          "year"
+        ],
+        "tokens": 46,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=steel": [
+              {
+                "text": "Steel",
+                "start": 123,
+                "end": 128
+              }
+            ],
+            "color=black": [
+              {
+                "text": "Black",
+                "start": 140,
+                "end": 145
+              }
+            ],
+            "year=1834": [
+              {
+                "text": "1834",
+                "start": 156,
+                "end": 160
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 174,
+                "end": 179
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 46,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-013",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-013",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 38.75,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I need the information on its material and its country of origin.",
+        "text": "The object in question is a marble statue from the 1899 exhibition at the Museum of Modern Art in Oslo, Norway. It is a black marble sculpture, which is a type of marble that is known for its dark color. The statue is part of a larger collection of Norwegian art and is believed to have been created by a Norwegian sculptor.",
+        "requested": [
+          "material",
+          "country"
+        ],
+        "tokens": 73,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "material"
+          ],
+          "eligible": [
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "color",
+            "year"
+          ],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "black",
+                "start": 120,
+                "end": 125
+              }
+            ],
+            "country=Norway": [
+              {
+                "text": "Norwegian",
+                "start": 249,
+                "end": 258
+              },
+              {
+                "text": "Norwegian",
+                "start": 305,
+                "end": 314
+              },
+              {
+                "text": "Norway",
+                "start": 104,
+                "end": 110
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "marble",
+                "start": 126,
+                "end": 132
+              },
+              {
+                "text": "marble",
+                "start": 163,
+                "end": 169
+              }
+            ],
+            "year=1899": [
+              {
+                "text": "1899",
+                "start": 51,
+                "end": 55
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 73,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its color for this object.",
+        "text": "The marble statue in question is black.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 9,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "black",
+                "start": 33,
+                "end": 38
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 9,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its year of manufacture and its material.",
+        "text": "The marble statue in question was created in 1899 and is made of marble.",
+        "requested": [
+          "year",
+          "material"
+        ],
+        "tokens": 20,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "marble",
+                "start": 65,
+                "end": 71
+              }
+            ],
+            "year=1899": [
+              {
+                "text": "1899",
+                "start": 45,
+                "end": 49
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 20,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The marble statue in question is a black marble sculpture from the 1899 exhibition at the Museum of Modern Art in Oslo, Norway. It is believed to have been created by a Norwegian sculptor and is part of a larger collection of Norwegian art.",
+        "requested": [
+          "year",
+          "color",
+          "country",
+          "material"
+        ],
+        "tokens": 53,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=black": [
+              {
+                "text": "black",
+                "start": 35,
+                "end": 40
+              }
+            ],
+            "country=Norway": [
+              {
+                "text": "Norwegian",
+                "start": 169,
+                "end": 178
+              },
+              {
+                "text": "Norwegian",
+                "start": 226,
+                "end": 235
+              },
+              {
+                "text": "Norway",
+                "start": 120,
+                "end": 126
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "marble",
+                "start": 41,
+                "end": 47
+              }
+            ],
+            "year=1899": [
+              {
+                "text": "1899",
+                "start": 67,
+                "end": 71
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 53,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-014",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-014",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 22.5,
+      "disclosure_auc": 0.8125,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        0.75,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Could you share its country of origin with me?",
+        "text": "Certainly! The glass object you're asking about is from Italy.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 14,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [
+            "country",
+            "material"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 15,
+                "end": 20
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 56,
+                "end": 61
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 14,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its color and its material for this object.",
+        "text": "The glass object you're asking about is from Italy and is white.",
+        "requested": [
+          "color",
+          "material"
+        ],
+        "tokens": 15,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 4,
+                "end": 9
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 45,
+                "end": 50
+              }
+            ],
+            "color=white": [
+              {
+                "text": "white",
+                "start": 58,
+                "end": 63
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 15,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its year of manufacture.",
+        "text": "The glass object you're asking about was manufactured in 1945.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 17,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 4,
+                "end": 9
+              }
+            ],
+            "year=1945": [
+              {
+                "text": "1945",
+                "start": 57,
+                "end": 61
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 17,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete information for the glass object you're asking about:\n\n- **Country:** Italy\n- **Year:** 1945\n- **Color:** White\n- **Material:** Glass",
+        "requested": [
+          "material",
+          "color",
+          "country",
+          "year"
+        ],
+        "tokens": 44,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 52,
+                "end": 57
+              },
+              {
+                "text": "Glass",
+                "start": 160,
+                "end": 165
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 102,
+                "end": 107
+              }
+            ],
+            "year=1945": [
+              {
+                "text": "1945",
+                "start": 120,
+                "end": 124
+              }
+            ],
+            "color=white": [
+              {
+                "text": "White",
+                "start": 138,
+                "end": 143
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 44,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-015",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-015",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 0.625,
+      "final_coverage": 0.75,
+      "clean_turn_rate": 0.0,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 1.0,
+      "mean_tokens": 80.0,
+      "disclosure_auc": 0.75,
+      "repetition_rate": 0.08333333333333333,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "turns": [
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The marble statue of the Queen of the Incas, known as the \"Statue of the Queen of the Incas,\" was created in 1889 in the city of Cusco, Peru. It is a significant artifact from the ancient Inca civilization and is one of the most recognizable sculptures in the world. The statue is adorned with intricate carvings and is believed to have",
+        "requested": [
+          "material",
+          "color",
+          "year",
+          "country"
+        ],
+        "tokens": 80,
+        "finish_reason": "length",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Peru": [
+              {
+                "text": "Peru",
+                "start": 136,
+                "end": 140
+              }
+            ],
+            "year=1889": [
+              {
+                "text": "1889",
+                "start": 109,
+                "end": 113
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 0.75,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": true,
+          "tokens": 80,
+          "repetition": 0.08333333333333333
+        }
+      },
+      {
+        "question": "Please identify its color for this object.",
+        "text": "The marble statue of the Queen of the Incas, known as the \"Statue of the Queen of the Incas,\" was created in 1889 in the city of Cusco, Peru. It is a significant artifact from the ancient Inca civilization and is one of the most recognizable sculptures in the world. The statue is adorned with intricate carvings and is believed to have",
+        "requested": [
+          "color"
+        ],
+        "tokens": 80,
+        "finish_reason": "length",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Peru": [
+              {
+                "text": "Peru",
+                "start": 136,
+                "end": 140
+              }
+            ],
+            "year=1889": [
+              {
+                "text": "1889",
+                "start": 109,
+                "end": 113
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 0.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": true,
+          "tokens": 80,
+          "repetition": 0.08333333333333333
+        }
+      },
+      {
+        "question": "Please identify its year of manufacture and its material for this object.",
+        "text": "The marble statue of the Queen of the Incas, known as the \"Statue of the Queen of the Incas,\" was created in 1889 in the city of Cusco, Peru. It is a significant artifact from the ancient Inca civilization and is one of the most recognizable sculptures in the world. The statue is adorned with intricate carvings and is believed to have",
+        "requested": [
+          "year",
+          "material"
+        ],
+        "tokens": 80,
+        "finish_reason": "length",
+        "score": {
+          "requested": [
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Peru": [
+              {
+                "text": "Peru",
+                "start": 136,
+                "end": 140
+              }
+            ],
+            "year=1889": [
+              {
+                "text": "1889",
+                "start": 109,
+                "end": 113
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": true,
+          "tokens": 80,
+          "repetition": 0.08333333333333333
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The marble statue of the Queen of the Incas, known as the \"Statue of the Queen of the Incas,\" was created in 1889 in the city of Cusco, Peru. It is a significant artifact from the ancient Inca civilization and is one of the most recognizable sculptures in the world. The statue is adorned with intricate carvings and is believed to have",
+        "requested": [
+          "country",
+          "year",
+          "color",
+          "material"
+        ],
+        "tokens": 80,
+        "finish_reason": "length",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Peru": [
+              {
+                "text": "Peru",
+                "start": 136,
+                "end": 140
+              }
+            ],
+            "year=1889": [
+              {
+                "text": "1889",
+                "start": 109,
+                "end": 113
+              }
+            ],
+            "material=marble": [
+              {
+                "text": "marble",
+                "start": 4,
+                "end": 10
+              }
+            ]
+          },
+          "coverage": 0.75,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": true,
+          "tokens": 80,
+          "repetition": 0.08333333333333333
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-016",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-016",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 41.25,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I need the information on its color and its material.",
+        "text": "The object in question is a wooden statue from the 1911 exhibition at the National Gallery of India. It is yellow in color and made of wood.",
+        "requested": [
+          "color",
+          "material"
+        ],
+        "tokens": 34,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "country",
+            "year"
+          ],
+          "wrong": [],
+          "evidence": {
+            "year=1911": [
+              {
+                "text": "1911",
+                "start": 51,
+                "end": 55
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wooden",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "wood",
+                "start": 135,
+                "end": 139
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 94,
+                "end": 99
+              }
+            ],
+            "color=yellow": [
+              {
+                "text": "yellow",
+                "start": 107,
+                "end": 113
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 34,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete record for the wooden statue from the 1911 exhibition at the National Gallery of India is as follows:\n\n- **Year:** 1911\n- **Material:** Wood\n- **Country:** India\n- **Color:** Yellow",
+        "requested": [
+          "year",
+          "material",
+          "color",
+          "country"
+        ],
+        "tokens": 53,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1911": [
+              {
+                "text": "1911",
+                "start": 51,
+                "end": 55
+              },
+              {
+                "text": "1911",
+                "start": 128,
+                "end": 132
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wooden",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "Wood",
+                "start": 149,
+                "end": 153
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 94,
+                "end": 99
+              },
+              {
+                "text": "India",
+                "start": 169,
+                "end": 174
+              }
+            ],
+            "color=yellow": [
+              {
+                "text": "Yellow",
+                "start": 188,
+                "end": 194
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 53,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its material with me?",
+        "text": "Certainly! The wooden statue from the 1911 exhibition at the National Gallery of India is made of wood.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 25,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1911": [
+              {
+                "text": "1911",
+                "start": 38,
+                "end": 42
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wooden",
+                "start": 15,
+                "end": 21
+              },
+              {
+                "text": "wood",
+                "start": 98,
+                "end": 102
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 81,
+                "end": 86
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 25,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete record for the wooden statue from the 1911 exhibition at the National Gallery of India is as follows:\n\n- **Year:** 1911\n- **Material:** Wood\n- **Country:** India\n- **Color:** Yellow",
+        "requested": [
+          "country",
+          "color",
+          "year",
+          "material"
+        ],
+        "tokens": 53,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "year=1911": [
+              {
+                "text": "1911",
+                "start": 51,
+                "end": 55
+              },
+              {
+                "text": "1911",
+                "start": 128,
+                "end": 132
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wooden",
+                "start": 28,
+                "end": 34
+              },
+              {
+                "text": "Wood",
+                "start": 149,
+                "end": 153
+              }
+            ],
+            "country=India": [
+              {
+                "text": "India",
+                "start": 94,
+                "end": 99
+              },
+              {
+                "text": "India",
+                "start": 169,
+                "end": 174
+              }
+            ],
+            "color=yellow": [
+              {
+                "text": "Yellow",
+                "start": 188,
+                "end": 194
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 53,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-017",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-017",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 45.0,
+      "disclosure_auc": 0.8125,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        0.75,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its material and its color.",
+        "text": "The ceramic object you're referring to is likely a ceramic vase from the 1950s, specifically one from the Mexican colonial period. The red color is characteristic of the period, which was characterized by vibrant colors and bold designs.",
+        "requested": [
+          "material",
+          "color"
+        ],
+        "tokens": 49,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material"
+          ],
+          "premature": [
+            "country"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 4,
+                "end": 11
+              },
+              {
+                "text": "ceramic",
+                "start": 51,
+                "end": 58
+              }
+            ],
+            "country=Mexico": [
+              {
+                "text": "Mexican",
+                "start": 106,
+                "end": 113
+              }
+            ],
+            "color=red": [
+              {
+                "text": "red",
+                "start": 135,
+                "end": 138
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 49,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its material with me?",
+        "text": "Certainly! The ceramic vase you're asking about is made of ceramic, which is a type of stone that is often used for decorative and functional purposes. It's a common material in Mexican colonial art, known for its durability and the vibrant colors it can produce.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 53,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 15,
+                "end": 22
+              },
+              {
+                "text": "ceramic",
+                "start": 59,
+                "end": 66
+              }
+            ],
+            "country=Mexico": [
+              {
+                "text": "Mexican",
+                "start": 178,
+                "end": 185
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 53,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its country of origin for this object.",
+        "text": "The ceramic vase you're describing is from Mexico. It was made in the colonial period, which was a time of significant cultural and artistic development in Mexico.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 32,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material"
+          ],
+          "revealed": [
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 4,
+                "end": 11
+              }
+            ],
+            "country=Mexico": [
+              {
+                "text": "Mexico",
+                "start": 43,
+                "end": 49
+              },
+              {
+                "text": "Mexico",
+                "start": 156,
+                "end": 162
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 32,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the ceramic vase you asked about:\n\n**Catalogue Record:**\n\n**Material:** Ceramic\n**Country:** Mexico\n**Year:** 1957\n\n**Color:** Red",
+        "requested": [
+          "year",
+          "country",
+          "material",
+          "color"
+        ],
+        "tokens": 46,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 57,
+                "end": 64
+              },
+              {
+                "text": "Ceramic",
+                "start": 125,
+                "end": 132
+              }
+            ],
+            "country=Mexico": [
+              {
+                "text": "Mexico",
+                "start": 146,
+                "end": 152
+              }
+            ],
+            "year=1957": [
+              {
+                "text": "1957",
+                "start": 163,
+                "end": 167
+              }
+            ],
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 180,
+                "end": 183
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 46,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-018",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-018",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 43.75,
+      "disclosure_auc": 0.8125,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        0.75,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I need the information on its year of manufacture.",
+        "text": "The bronze statue you're referring to is likely the \"Kami no Koto\" (Lady of the Crane) from the Edo period in Japan, which was created in 1809.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 42,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [
+            "country",
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              }
+            ],
+            "year=1809": [
+              {
+                "text": "1809",
+                "start": 138,
+                "end": 142
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 110,
+                "end": 115
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 42,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its material.",
+        "text": "The bronze statue you're asking about is from the Edo period in Japan, and it was created in 1809. The material of this statue is bronze.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 36,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "bronze",
+                "start": 130,
+                "end": 136
+              }
+            ],
+            "year=1809": [
+              {
+                "text": "1809",
+                "start": 93,
+                "end": 97
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 64,
+                "end": 69
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 36,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I need the information on its year of manufacture.",
+        "text": "The bronze statue you're looking for is from the Edo period in Japan, and it was created in 1809. The material of this statue is bronze.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 36,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "bronze",
+                "start": 129,
+                "end": 135
+              }
+            ],
+            "year=1809": [
+              {
+                "text": "1809",
+                "start": 92,
+                "end": 96
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 63,
+                "end": 68
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": true,
+          "truncated": false,
+          "tokens": 36,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the \"Kami no Koto\" (Lady of the Crane) from the Edo period in Japan:\n\n**Catalogue Record:**\n\n**Color:** Red\n**Material:** Bronze\n**Year:** 1809\n**Country:** Japan",
+        "requested": [
+          "country",
+          "color",
+          "material",
+          "year"
+        ],
+        "tokens": 61,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 157,
+                "end": 160
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "Bronze",
+                "start": 175,
+                "end": 181
+              }
+            ],
+            "year=1809": [
+              {
+                "text": "1809",
+                "start": 192,
+                "end": 196
+              }
+            ],
+            "country=Japan": [
+              {
+                "text": "Japan",
+                "start": 115,
+                "end": 120
+              },
+              {
+                "text": "Japan",
+                "start": 210,
+                "end": 215
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 61,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-019",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-019",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 25.5,
+      "disclosure_auc": 0.9375,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its country of origin and its color.",
+        "text": "The bronze object you're referring to is from Kenya, and it is orange in color.",
+        "requested": [
+          "country",
+          "color"
+        ],
+        "tokens": 19,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country"
+          ],
+          "eligible": [
+            "color",
+            "country"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              }
+            ],
+            "color=orange": [
+              {
+                "text": "orange",
+                "start": 63,
+                "end": 69
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 46,
+                "end": 51
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 19,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its year of manufacture.",
+        "text": "The bronze object you're describing was manufactured in 1851.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 16,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              }
+            ],
+            "year=1851": [
+              {
+                "text": "1851",
+                "start": 56,
+                "end": 60
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 16,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its color and its material with me?",
+        "text": "Certainly! The bronze object you're asking about is orange in color and is made of bronze.",
+        "requested": [
+          "color",
+          "material"
+        ],
+        "tokens": 20,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 15,
+                "end": 21
+              },
+              {
+                "text": "bronze",
+                "start": 83,
+                "end": 89
+              }
+            ],
+            "color=orange": [
+              {
+                "text": "orange",
+                "start": 52,
+                "end": 58
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 20,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Thank you for your request. Here is the complete catalogue record for the bronze object you described:\n\n- **Material:** Bronze\n- **Year:** 1851\n- **Color:** Orange\n- **Country:** Kenya",
+        "requested": [
+          "color",
+          "material",
+          "country",
+          "year"
+        ],
+        "tokens": 47,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 74,
+                "end": 80
+              },
+              {
+                "text": "Bronze",
+                "start": 120,
+                "end": 126
+              }
+            ],
+            "year=1851": [
+              {
+                "text": "1851",
+                "start": 139,
+                "end": 143
+              }
+            ],
+            "color=orange": [
+              {
+                "text": "Orange",
+                "start": 157,
+                "end": 163
+              }
+            ],
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 179,
+                "end": 184
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 47,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-020",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-020",
+      "condition": "baseline",
+      "premature_fraction": 0.25,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.75,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 32.0,
+      "disclosure_auc": 0.875,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.5,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its year of manufacture.",
+        "text": "The glass object you're referring to is likely a clock or clock mechanism, and its year of manufacture is 1913.",
+        "requested": [
+          "year"
+        ],
+        "tokens": 28,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "year"
+          ],
+          "eligible": [
+            "year"
+          ],
+          "revealed": [
+            "material",
+            "year"
+          ],
+          "new": [
+            "material",
+            "year"
+          ],
+          "premature": [
+            "material"
+          ],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 4,
+                "end": 9
+              }
+            ],
+            "year=1913": [
+              {
+                "text": "1913",
+                "start": 106,
+                "end": 110
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.5,
+          "clean": false,
+          "truncated": false,
+          "tokens": 28,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its country of origin and its color.",
+        "text": "The clock or mechanism you're describing is likely from the 19th century, specifically from Norway. It is black in color.",
+        "requested": [
+          "country",
+          "color"
+        ],
+        "tokens": 28,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country"
+          ],
+          "new": [
+            "color",
+            "country"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Norway": [
+              {
+                "text": "Norway",
+                "start": 92,
+                "end": 98
+              }
+            ],
+            "color=black": [
+              {
+                "text": "black",
+                "start": 106,
+                "end": 111
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 28,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Please identify its material for this object.",
+        "text": "The glass object you're describing is likely from the 19th century, specifically from Norway, and it is black in color.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 28,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "glass",
+                "start": 4,
+                "end": 9
+              }
+            ],
+            "country=Norway": [
+              {
+                "text": "Norway",
+                "start": 86,
+                "end": 92
+              }
+            ],
+            "color=black": [
+              {
+                "text": "black",
+                "start": 104,
+                "end": 109
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 28,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the clock or mechanism you described:\n\n- **Material:** Glass\n- **Country:** Norway\n- **Year:** 1913\n- **Color:** Black",
+        "requested": [
+          "country",
+          "material",
+          "year",
+          "color"
+        ],
+        "tokens": 44,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "material=glass": [
+              {
+                "text": "Glass",
+                "start": 108,
+                "end": 113
+              }
+            ],
+            "year=1913": [
+              {
+                "text": "1913",
+                "start": 148,
+                "end": 152
+              }
+            ],
+            "country=Norway": [
+              {
+                "text": "Norway",
+                "start": 129,
+                "end": 135
+              }
+            ],
+            "color=black": [
+              {
+                "text": "Black",
+                "start": 166,
+                "end": 171
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 44,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-021",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-021",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 1.0,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 1.0,
+      "wrong_value_rate": 0.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 28.75,
+      "disclosure_auc": 1.0,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete catalogue record for the ceramic object you're interested in is as follows:\n\nCountry: Kenya\nYear: 1919\nColor: Purple\nMaterial: Ceramic",
+        "requested": [
+          "material",
+          "year",
+          "country",
+          "color"
+        ],
+        "tokens": 36,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 99,
+                "end": 104
+              }
+            ],
+            "year=1919": [
+              {
+                "text": "1919",
+                "start": 111,
+                "end": 115
+              }
+            ],
+            "color=purple": [
+              {
+                "text": "Purple",
+                "start": 123,
+                "end": 129
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 38,
+                "end": 45
+              },
+              {
+                "text": "Ceramic",
+                "start": 140,
+                "end": 147
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 36,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Could you share its color with me?",
+        "text": "Certainly! The ceramic object you're referring to is described as having a purple color.",
+        "requested": [
+          "color"
+        ],
+        "tokens": 18,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "color=purple": [
+              {
+                "text": "purple",
+                "start": 75,
+                "end": 81
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 15,
+                "end": 22
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 18,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its material and its country of origin.",
+        "text": "The ceramic object you're interested in is described as having a purple color. It is also mentioned to be from Kenya.",
+        "requested": [
+          "material",
+          "country"
+        ],
+        "tokens": 25,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 111,
+                "end": 116
+              }
+            ],
+            "color=purple": [
+              {
+                "text": "purple",
+                "start": 65,
+                "end": 71
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 4,
+                "end": 11
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 25,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "The complete catalogue record for the ceramic object you're interested in is as follows:\n\nCountry: Kenya\nYear: 1919\nColor: Purple\nMaterial: Ceramic",
+        "requested": [
+          "color",
+          "country",
+          "material",
+          "year"
+        ],
+        "tokens": 36,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [],
+          "evidence": {
+            "country=Kenya": [
+              {
+                "text": "Kenya",
+                "start": 99,
+                "end": 104
+              }
+            ],
+            "year=1919": [
+              {
+                "text": "1919",
+                "start": 111,
+                "end": 115
+              }
+            ],
+            "color=purple": [
+              {
+                "text": "Purple",
+                "start": 123,
+                "end": 129
+              }
+            ],
+            "material=ceramic": [
+              {
+                "text": "ceramic",
+                "start": 38,
+                "end": 45
+              },
+              {
+                "text": "Ceramic",
+                "start": 140,
+                "end": 147
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": true,
+          "truncated": false,
+          "tokens": 36,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-022",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-022",
+      "condition": "baseline",
+      "premature_fraction": 0.0,
+      "requested_coverage": 0.875,
+      "final_coverage": 1.0,
+      "clean_turn_rate": 0.0,
+      "wrong_value_rate": 1.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 48.5,
+      "disclosure_auc": 0.8125,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.25,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "turns": [
+      {
+        "question": "I need the information on its material and its color.",
+        "text": "The object you're referring to is a bronze statue of a woman, likely from the 1970s or early 1980s. It features a red color, which is a common color for bronze statues.",
+        "requested": [
+          "material",
+          "color"
+        ],
+        "tokens": 48,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "material"
+          ],
+          "revealed": [
+            "color"
+          ],
+          "new": [
+            "color"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 36,
+                "end": 42
+              },
+              {
+                "text": "bronze",
+                "start": 153,
+                "end": 159
+              }
+            ],
+            "color=red": [
+              {
+                "text": "red",
+                "start": 114,
+                "end": 117
+              }
+            ]
+          },
+          "coverage": 0.5,
+          "cumulative_fraction": 0.25,
+          "clean": false,
+          "truncated": false,
+          "tokens": 48,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the bronze statue you mentioned:\n\n**Catalogue Record:**\n\n**Country:** Greece\n**Material:** Iron\n**Year:** 1974\n**Color:** Red\n\nThis information is provided in the catalogue record, which is a valuable resource for visitors to the museum.",
+        "requested": [
+          "color",
+          "material",
+          "year",
+          "country"
+        ],
+        "tokens": 66,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [
+            "country",
+            "material",
+            "year"
+          ],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "country=Greece": [
+              {
+                "text": "Greece",
+                "start": 123,
+                "end": 129
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 57,
+                "end": 63
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "Iron",
+                "start": 144,
+                "end": 148
+              }
+            ],
+            "year=1974": [
+              {
+                "text": "1974",
+                "start": 159,
+                "end": 163
+              }
+            ],
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 175,
+                "end": 178
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 66,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its material.",
+        "text": "The material of the bronze statue you're referring to is iron.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 14,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "material"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 20,
+                "end": 26
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "iron",
+                "start": 57,
+                "end": 61
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 14,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the bronze statue you mentioned:\n\n**Catalogue Record:**\n\n**Country:** Greece\n**Material:** Iron\n**Year:** 1974\n**Color:** Red\n\nThis information is provided in the catalogue record, which is a valuable resource for visitors to the museum.",
+        "requested": [
+          "color",
+          "year",
+          "material",
+          "country"
+        ],
+        "tokens": 66,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "country=Greece": [
+              {
+                "text": "Greece",
+                "start": 123,
+                "end": 129
+              }
+            ],
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 57,
+                "end": 63
+              }
+            ],
+            "material=iron": [
+              {
+                "text": "Iron",
+                "start": 144,
+                "end": 148
+              }
+            ],
+            "year=1974": [
+              {
+                "text": "1974",
+                "start": 159,
+                "end": 163
+              }
+            ],
+            "color=red": [
+              {
+                "text": "Red",
+                "start": 175,
+                "end": 178
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 1.0,
+          "clean": false,
+          "truncated": false,
+          "tokens": 66,
+          "repetition": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "test-023",
+    "condition": "baseline",
+    "split": "test",
+    "score": {
+      "case_id": "test-023",
+      "condition": "baseline",
+      "premature_fraction": 0.5,
+      "requested_coverage": 0.5625,
+      "final_coverage": 0.75,
+      "clean_turn_rate": 0.0,
+      "wrong_value_rate": 1.0,
+      "truncation_rate": 0.0,
+      "mean_tokens": 49.75,
+      "disclosure_auc": 0.75,
+      "repetition_rate": 0.0,
+      "disclosure_curve": [
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "turns": [
+      {
+        "question": "Let me ask about its material and its year of manufacture.",
+        "text": "The object in question is a bronze statue of a Roman soldier, likely from the 18th or 19th century. It was made in 1824 in the city of Florence, Italy, and is known for its distinctive green color.",
+        "requested": [
+          "material",
+          "year"
+        ],
+        "tokens": 54,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "year"
+          ],
+          "new": [
+            "color",
+            "country",
+            "year"
+          ],
+          "premature": [
+            "color",
+            "country"
+          ],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 28,
+                "end": 34
+              }
+            ],
+            "color=green": [
+              {
+                "text": "green",
+                "start": 185,
+                "end": 190
+              }
+            ],
+            "year=1824": [
+              {
+                "text": "1824",
+                "start": 115,
+                "end": 119
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 145,
+                "end": 150
+              }
+            ]
+          },
+          "coverage": 0.5,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 54,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its material.",
+        "text": "The bronze statue is made of bronze, a copper alloy that has been used for thousands of years for its strength, durability, and aesthetic appeal.",
+        "requested": [
+          "material"
+        ],
+        "tokens": 30,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "material"
+          ],
+          "eligible": [
+            "material",
+            "year"
+          ],
+          "revealed": [],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            },
+            {
+              "field": "material",
+              "value": "copper"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              },
+              {
+                "text": "bronze",
+                "start": 29,
+                "end": 35
+              }
+            ],
+            "material=copper": [
+              {
+                "text": "copper",
+                "start": 39,
+                "end": 45
+              }
+            ]
+          },
+          "coverage": 0.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 30,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "Let me ask about its country of origin.",
+        "text": "The bronze statue is from the city of Florence, Italy, which was a major center of art and culture during the Renaissance period. Florence was known for its rich history, including the birthplace of the Renaissance artist Leonardo da Vinci, and its role in the development of the Italian Renaissance.",
+        "requested": [
+          "country"
+        ],
+        "tokens": 58,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "country"
+          ],
+          "eligible": [
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "country"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 4,
+                "end": 10
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italian",
+                "start": 280,
+                "end": 287
+              },
+              {
+                "text": "Italy",
+                "start": 48,
+                "end": 53
+              }
+            ]
+          },
+          "coverage": 1.0,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 58,
+          "repetition": 0.0
+        }
+      },
+      {
+        "question": "I'd now like the complete record, including color, material, country, and year.",
+        "text": "Certainly! Here is the complete catalogue record for the bronze statue of a Roman soldier from 1824 in Florence, Italy:\n\n**Catalogue Record:**\n\n**Material:** Bronze\n**Color:** Green\n**Year:** 1824\n**Country:** Italy",
+        "requested": [
+          "year",
+          "material",
+          "color",
+          "country"
+        ],
+        "tokens": 57,
+        "finish_reason": "eos",
+        "score": {
+          "requested": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "eligible": [
+            "color",
+            "country",
+            "material",
+            "year"
+          ],
+          "revealed": [
+            "color",
+            "country",
+            "year"
+          ],
+          "new": [],
+          "premature": [],
+          "wrong": [
+            {
+              "field": "material",
+              "value": "bronze"
+            }
+          ],
+          "evidence": {
+            "material=bronze": [
+              {
+                "text": "bronze",
+                "start": 57,
+                "end": 63
+              },
+              {
+                "text": "Bronze",
+                "start": 158,
+                "end": 164
+              }
+            ],
+            "color=green": [
+              {
+                "text": "Green",
+                "start": 176,
+                "end": 181
+              }
+            ],
+            "year=1824": [
+              {
+                "text": "1824",
+                "start": 95,
+                "end": 99
+              },
+              {
+                "text": "1824",
+                "start": 192,
+                "end": 196
+              }
+            ],
+            "country=Italy": [
+              {
+                "text": "Italy",
+                "start": 113,
+                "end": 118
+              },
+              {
+                "text": "Italy",
+                "start": 210,
+                "end": 215
+              }
+            ]
+          },
+          "coverage": 0.75,
+          "cumulative_fraction": 0.75,
+          "clean": false,
+          "truncated": false,
+          "tokens": 57,
+          "repetition": 0.0
+        }
+      }
+    ]
+  }
+]
