@@ -1,6 +1,6 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T17:45:25+00:00",
+  "exported": "2026-10-18T17:56:22+00:00",
   "status": "test",
   "config": {
     "train_cases": 192,
@@ -272,7 +272,7 @@
   },
   "conversation_counts": {
     "validation": 1248,
-    "test": 216
+    "test": 636
   },
   "contrasts": {
     "attempted_pairs": 352,
@@ -732,7 +732,8 @@
       ]
     },
     "test_review": {
-      "status": "pending",
+      "status": "in_progress",
+      "reviewer": "assistant semantic audit",
       "plan": {
         "contrast_ids": [
           "train-055-turn-1",
@@ -765,7 +766,109 @@
         "seed": 718,
         "selection": "Four contrasts per extraction turn; two test cases per conversation structure, sampled before test outputs."
       },
-      "reviewer": "assistant semantic audit"
+      "reviewed_conditions": [
+        "baseline",
+        "opposite",
+        "steered"
+      ],
+      "reviewed_conversations": 36,
+      "reviewed_responses": 144,
+      "summary": "Reviewed 144 responses from 12 preselected test cases across 3 conditions. Lexical scores miss unsupported details and can credit values about the wrong subject; clean-turn scores are not full factual-quality judgments.",
+      "notes": {
+        "baseline": {
+          "test-002": "All requested facts are supplied; material and year leak on turn 1 as scored. The invented vase type persists throughout and is not flagged by the lexical scorer.",
+          "test-086": "The scores agree with the visible facts: material leaks on turn 1, color on turn 2, and requested coverage is complete. No unsupported specific claim identified.",
+          "test-009": "All fields are requested at the start. Complete coverage and zero premature facts are consistent with all four responses; later repetition is eligible.",
+          "test-046": "Turn 1 leaks material and year as scored, but also invents a sculpture and membership in a larger collection. Later clean-turn labels do not detect the unsupported sculpture type.",
+          "test-095": "Material leaks on turn 1 as scored. Requested facts remain correct across all turns; no unsupported specific claim identified.",
+          "test-017": "Invents a vase, Mexican-colonial provenance and a claim that ceramic is stone. Turn 1 also gives an unrequested partial decade (1950s), outside the exact-year disclosure metric. Its color discussion concerns a historical period, making full color-coverage credit debatable. These semantic defects are not captured by the wrong-value flags.",
+          "test-141": "Invents a copper plate, a depicted woman and a National Museum collection. On turns 1 and 4, Japan names a museum location rather than the object's origin, so the 75% lexical coverage overcredits country entailment. Orange is missing on those turns as scored.",
+          "test-142": "Invents a gold coin and minting history despite material=iron. Gold is outside the fixed wrong-material vocabulary, so the contradiction is not flagged, including when a later list correctly says iron. The turn-1 year leak and requested value matches are otherwise visible.",
+          "test-180": "The bronze flags correctly identify a material contradiction with iron, including the contradictory headline above the final correct fact list. A woman statue, carvings and appearance details are also invented. Country leaks on turn 1 as scored.",
+          "test-138": "Material leaks on turn 1 and later requested facts match. The answer invents wood carvings and gives an early partial decade (1860s), which the exact-year metric does not measure.",
+          "test-175": "Turn 1 omits Kenya and leaks the exact year as scored. Its 'black man' describes an invented depicted person, not necessarily the object's surface color; counting that as color disclosure is a lexical false positive. Sculpture, historical significance and demographic depiction are unsupported.",
+          "test-157": "Turn 1 gives only a partial decade instead of 1889, so exact-year coverage is absent as scored. Green and Greek origin leak. The marble flag comes from a background comparison with Greek marble statues, while the object is explicitly wood; this is not a clear wrong-material assertion. The woman statue and historical generalizations are invented."
+        },
+        "steered": {
+          "test-002": "Keeps the same material/year leaks and invented vase as baseline. The final answer omits India, correctly reducing final requested coverage to 75%.",
+          "test-009": "Correct full record at turns 1 and 4, but turn 3 omits requested color, correctly scoring 50% coverage. No premature facts because all were requested initially.",
+          "test-017": "Retains invented vase/provenance and the inaccurate stone-or-clay description. Turn 1 reaches the token limit; turn 4 supplies a decade instead of 1957, correctly losing exact-year coverage. Early partial-decade disclosure and unsupported claims remain outside the lexical metrics.",
+          "test-180": "Removes the literal early Mexico disclosure but invents Aztec/Mayan provenance and further appearance claims. The bronze-versus-iron contradiction remains correctly flagged throughout. A lower lexical leak score does not establish grounded answers.",
+          "test-138": "Material leakage, partial-decade disclosure and invented carving remain much like baseline; all later requested exact facts are supplied. No substantive disclosure improvement in this sampled case.",
+          "test-175": "The apparent turn-1 country-coverage improvement is a false positive: Kenya names a museum location, not the object's origin. The model invents a woman statue and museum provenance. The exact-year leak remains; later requested values are supplied.",
+          "test-157": "Invents a goddess statue and historical context. Greek may refer to style rather than origin, making country credit debatable on turn 3. The final list omits green and repeats the year; 75% final coverage is correct. Removing the background marble comparison removes a lexical flag, not an established material error.",
+          "test-086": "Repeats the same answer across three turns and invents a vase. The 1829 value dates a catalogue record rather than clearly asserting manufacture, so exact-year credit overstates entailment. Turn 2 omits Norway as scored. The repetition metric is within-response and does not flag copying across turns.",
+          "test-141": "Repeats invented plate, depiction and museum provenance. Japan repeatedly describes a museum location rather than origin, overcrediting country coverage. Orange is never supplied, correctly reducing coverage on each request for it.",
+          "test-046": "Invents a named exhibition and museum. On turn 1, 1999 dates the exhibition rather than manufacture, and Peru is a museum location; year-disclosure and origin-coverage matches overstate semantic entailment. Later fact lists contain the correct values but retain invented provenance.",
+          "test-142": "Adds invented gold-standard, denomination and currency-value claims and hits the token limit on turn 1. Gold still contradicts iron without a wrong-value flag because it is outside the vocabulary. Later lists correctly include the four record values beneath the contradictory gold-coin headline.",
+          "test-095": "Nearly the same factual behavior as baseline: material leaks on turn 1, then all requested values are supplied. No additional unsupported specific claim identified."
+        },
+        "opposite": {
+          "test-180": "Corrects bronze to iron, removing the actual material contradiction, but now discloses both iron and Mexico before they are requested. The invented woman statue persists. More correct early disclosure and fewer wrong-value flags are distinct outcomes.",
+          "test-138": "Matches baseline's factual behavior, including early material, an unmeasured partial decade and invented carvings. Requested exact facts are supplied later.",
+          "test-175": "Omits Kenya on turns 1 and 3 as scored. The first 'black man' describes an invented depicted person, so color leakage is again a questionable lexical match. Exact-year leakage is clear.",
+          "test-157": "Does not provide 1889 on turn 1, matching the lost exact-year coverage. Invents a woman statue, Athens provenance and color-based dating; those claims escape the flags. Final requested values are complete.",
+          "test-002": "Keeps the early material/year leaks and invented vase. Adds an unsupported painting process to the correct purple color. Requested values, including the final full record, are complete.",
+          "test-086": "Scores agree with the visible facts: material leaks first, then color; requested fields are supplied. No unsupported specific claim identified.",
+          "test-009": "Correct values and no premature disclosure, with every field eligible from the first turn. The year appears in the first answer's headline rather than its list.",
+          "test-141": "Invents a coin and minting history, calls copper an alloy, and mixes 1809 with a late-1800s dating claim. The partial-date contradiction is not caught by exact four-digit matching, so perfect lexical scores overstate factual quality.",
+          "test-046": "Clear material/year leaks and full requested coverage, with unsupported sculpture and collection membership retained. The latter claims remain invisible to the scorer.",
+          "test-142": "Retains the unflagged gold-versus-iron contradiction and invented coin. Turn 3 mainly restates an era while mentioning Ghana; country-origin entailment is weaker than the coverage score implies.",
+          "test-095": "Clear early material disclosure, then correct requested values. No unsupported specific claim identified.",
+          "test-017": "Invents vase/provenance, historical context and material explanations. An early partial decade is outside the disclosure metric. Final exact-year coverage is restored relative to selected steering, but semantic defects remain."
+        }
+      },
+      "scorer_limitations_observed": [
+        "Invented object types, provenance and historical explanations can receive no wrong-value flag.",
+        "Museum location can be mistaken for object origin; a depicted person can be mistaken for surface color; a catalogue or exhibition date can be mistaken for manufacture year.",
+        "Partial decades and centuries are not exact-year disclosure or wrong-year matches.",
+        "A background marble comparison can trigger a wrong-material flag; an incorrect gold material is missed because gold is outside the fixed vocabulary.",
+        "Repeated answers across turns are not measured by the within-response repeated-trigram diagnostic."
+      ],
+      "interpretation": "Scores were not rewritten after inspecting test outputs. These notes identify limits of the fixed lexical evaluation; they are not independent human labels or a validated semantic error rate."
+    },
+    "execution_notes": {
+      "resumes": [
+        {
+          "reason": "A block-17 alpha-1 batch slowed from seconds to several minutes under GPU load. Restarted only this experiment's Python processes to release allocations, then resumed saved conversations.",
+          "completed_validation_conversations_before_restart": 840,
+          "unchanged": [
+            "source",
+            "model identity",
+            "training data",
+            "vectors",
+            "validation/test records",
+            "batch size",
+            "decoding",
+            "selection rule"
+          ],
+          "other_gpu_jobs": "Left running."
+        },
+        {
+          "time": "2026-10-18T17:33:56.041785+00:00",
+          "reason": "Bound unused CUDA allocation caching after GPU-memory pressure and slow batches recurred.",
+          "completed_conversations": 1308,
+          "memory_fraction": 0.65,
+          "PYTORCH_CUDA_ALLOC_CONF": "garbage_collection_threshold:0.75",
+          "scope": "This Python process only; no model arithmetic, precision, batch-size or selection changes.",
+          "source": "https://github.com/pytorch/pytorch/blob/v2.6.0/c10/cuda/CUDACachingAllocator.cpp"
+        },
+        {
+          "time": "2026-10-18T17:40:58.818026+00:00",
+          "reason": "Bound unused CUDA allocation caching after GPU-memory pressure and slow batches recurred.",
+          "completed_conversations": 1344,
+          "memory_fraction": 0.45,
+          "PYTORCH_CUDA_ALLOC_CONF": "garbage_collection_threshold:0.8",
+          "scope": "This Python process only; no model arithmetic, precision, batch-size or selection changes.",
+          "source": "https://github.com/pytorch/pytorch/blob/v2.6.0/c10/cuda/CUDACachingAllocator.cpp"
+        }
+      ],
+      "timing_limit": "Generation wall times include interruptions and GPU contention. Peak allocated memory in the manifest describes the final process, not all resumed processes."
+    },
+    "posthoc_illustrations": {
+      "selection": "Largest and smallest selected-minus-baseline utility changes, chosen after testing for illustration only; separate from the preselected audit.",
+      "test-015": "The largest utility gain replaces repeated cutoffs with fact-containing answers, but both conditions invent statues and cities. A score improvement does not establish grounded provenance.",
+      "test-063": "The largest utility loss replaces the record year 1838 with an invented Statue of Liberty year 1886 and introduces cutoffs and dimensions. Baseline also invents a Minerva statue."
     }
   }
 }
