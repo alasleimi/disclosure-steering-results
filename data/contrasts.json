@@ -151,7 +151,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-000-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-000-turn-2",
@@ -344,6 +352,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -575,7 +587,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-000-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-001-turn-1",
@@ -611,8 +631,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a marble statue; selective ambiguously dates the color."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -751,7 +773,15 @@
         "role": "user",
         "content": "Tell me its color and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-001-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a marble statue; selective ambiguously dates the color.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-001-turn-2",
@@ -946,7 +976,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-001-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-002-turn-1",
@@ -982,8 +1020,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a flower."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -1095,7 +1135,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-002-turn-1",
+      "accepted": false,
+      "reason": "Selective invents a flower.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-002-turn-2",
@@ -1310,7 +1358,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-002-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-004-turn-1",
@@ -1346,8 +1402,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -1481,7 +1539,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-004-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-005-turn-1",
@@ -1628,6 +1694,11 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:incomplete_requested_facts",
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -1819,7 +1890,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-005-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-005-turn-3",
@@ -2057,6 +2136,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -2093,8 +2176,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns the country to the museum guide, not the object."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -2211,7 +2296,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-006-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns the country to the museum guide, not the object.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-006-turn-2",
@@ -2265,8 +2358,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns the manufacture year to the museum."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -2404,7 +2499,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-006-turn-2",
+      "accepted": false,
+      "reason": "Selective assigns the manufacture year to the museum.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-006-turn-3",
@@ -2635,7 +2738,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-006-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-007-turn-1",
@@ -2806,7 +2917,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-007-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-007-turn-2",
@@ -3006,7 +3125,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-007-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-008-turn-1",
@@ -3042,8 +3169,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective describes the material of the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -3160,7 +3289,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-008-turn-1",
+      "accepted": false,
+      "reason": "Selective describes the material of the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-008-turn-2",
@@ -3356,6 +3493,12 @@
         "role": "user",
         "content": "I'd like to know its color and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "oversharing:incomplete_requested_facts",
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -3392,8 +3535,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a sculpture."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -3527,7 +3672,15 @@
         "role": "user",
         "content": "I'd like to know its color and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-010-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a sculpture.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-011-turn-1",
@@ -3698,7 +3851,15 @@
         "role": "user",
         "content": "Tell me its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-011-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-011-turn-2",
@@ -3753,8 +3914,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -3897,7 +4060,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-011-turn-2",
+      "accepted": false,
+      "reason": "Both answers invent a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-011-turn-3",
@@ -4133,7 +4304,15 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-011-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-012-turn-1",
@@ -4287,7 +4466,15 @@
         "role": "user",
         "content": "Tell me its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-012-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-012-turn-2",
@@ -4341,8 +4528,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -4488,7 +4677,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-012-turn-2",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-012-turn-3",
@@ -4719,7 +4916,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-012-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-013-turn-1",
@@ -4755,8 +4960,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a Nairobi museum and its construction history."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -4905,7 +5112,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-013-turn-1",
+      "accepted": false,
+      "reason": "Selective invents a Nairobi museum and its construction history.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-013-turn-2",
@@ -5100,7 +5315,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-013-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-014-turn-1",
@@ -5249,7 +5472,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-014-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-014-turn-2",
@@ -5466,6 +5697,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its year of manufacture."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -5502,8 +5737,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective adds an unsupported dark shade and locates material in the guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -5647,7 +5884,15 @@
         "role": "user",
         "content": "Tell me its material and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-016-turn-1",
+      "accepted": false,
+      "reason": "Selective adds an unsupported dark shade and locates material in the guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-017-turn-1",
@@ -5683,8 +5928,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent a sculpture or statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -5818,7 +6065,15 @@
         "role": "user",
         "content": "Tell me its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-017-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent a sculpture or statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-017-turn-2",
@@ -5873,8 +6128,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -6025,7 +6282,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-017-turn-2",
+      "accepted": false,
+      "reason": "Both answers invent a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-017-turn-3",
@@ -6261,7 +6526,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-017-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-018-turn-1",
@@ -6297,8 +6570,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns the country to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -6415,7 +6690,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-018-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns the country to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-018-turn-2",
@@ -6623,6 +6906,10 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -6854,7 +7141,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-018-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-019-turn-1",
@@ -7025,7 +7320,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-019-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-019-turn-2",
@@ -7225,7 +7528,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-019-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-020-turn-1",
@@ -7376,6 +7687,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -7599,7 +7914,15 @@
         "role": "user",
         "content": "Tell me its color and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-020-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-022-turn-1",
@@ -7635,8 +7958,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent a unique artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -7770,7 +8095,15 @@
         "role": "user",
         "content": "What are the details about its color and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-022-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent a unique artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-023-turn-1",
@@ -7941,7 +8274,15 @@
         "role": "user",
         "content": "I'd like to know its material and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-023-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-023-turn-2",
@@ -8137,7 +8478,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-023-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-023-turn-3",
@@ -8375,6 +8724,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -8524,7 +8877,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-024-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-024-turn-2",
@@ -8719,6 +9080,10 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -8790,8 +9155,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers assign manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -8950,7 +9317,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-024-turn-3",
+      "accepted": false,
+      "reason": "Both answers assign manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-025-turn-1",
@@ -9121,7 +9496,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-025-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-025-turn-2",
@@ -9329,6 +9712,10 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -9478,7 +9865,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-026-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-026-turn-2",
@@ -9695,6 +10090,11 @@
         "role": "user",
         "content": "What are the details about its country of origin and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -9731,8 +10131,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -9871,7 +10273,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-028-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-029-turn-1",
@@ -10044,6 +10454,10 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -10235,7 +10649,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-029-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-029-turn-3",
@@ -10473,6 +10895,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -10509,8 +10935,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns the country to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -10622,7 +11050,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-030-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns the country to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-030-turn-2",
@@ -10817,6 +11253,10 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -11048,7 +11488,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-030-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-031-turn-1",
@@ -11219,7 +11667,15 @@
         "role": "user",
         "content": "I'd like to know its color and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-031-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-031-turn-2",
@@ -11416,6 +11872,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -11556,6 +12016,10 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -11773,6 +12237,10 @@
         "role": "user",
         "content": "What are the details about its country of origin and its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -11809,8 +12277,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a distinctive marble variety; oversharing calls white a material."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -11949,7 +12419,15 @@
         "role": "user",
         "content": "Tell me its country of origin and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-034-turn-1",
+      "accepted": false,
+      "reason": "Selective invents a distinctive marble variety; oversharing calls white a material.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-035-turn-1",
@@ -12111,6 +12589,10 @@
         "role": "user",
         "content": "Tell me its country of origin and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -12302,7 +12784,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-035-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-035-turn-3",
@@ -12543,7 +13033,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-035-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-036-turn-1",
@@ -12730,6 +13228,12 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:wrong_value_flag",
+      "oversharing:wrong_value_flag",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -12933,7 +13437,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-036-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-036-turn-3",
@@ -13172,7 +13684,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-036-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-037-turn-1",
@@ -13208,8 +13728,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers add unsupported appearance and historical speculation."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -13363,7 +13885,15 @@
         "role": "user",
         "content": "Could you describe its material and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-037-turn-1",
+      "accepted": false,
+      "reason": "Answers add unsupported appearance and historical speculation.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-037-turn-2",
@@ -13574,7 +14104,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-037-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-038-turn-1",
@@ -13610,8 +14148,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -13733,7 +14273,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-038-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-038-turn-2",
@@ -13958,6 +14506,11 @@
         "role": "user",
         "content": "Could you describe its color and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -14129,7 +14682,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-040-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-041-turn-1",
@@ -14312,6 +14873,10 @@
         "role": "user",
         "content": "Tell me its color and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -14501,6 +15066,10 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -14737,7 +15306,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-041-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-042-turn-1",
@@ -14773,8 +15350,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns country to the guide; oversharing ambiguously describes an orange fruit."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -14891,7 +15470,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-042-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns country to the guide; oversharing ambiguously describes an orange fruit.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-042-turn-2",
@@ -15086,6 +15673,10 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -15315,6 +15906,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -15486,7 +16081,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-043-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-043-turn-2",
@@ -15686,7 +16289,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-043-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-044-turn-1",
@@ -15837,6 +16448,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -16052,7 +16667,15 @@
         "role": "user",
         "content": "I'd like to know its color and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-044-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-046-turn-1",
@@ -16214,6 +16837,10 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -16250,8 +16877,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -16395,7 +17024,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-047-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-047-turn-2",
@@ -16450,8 +17087,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing associates a color with Japan without stating the object's origin."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -16586,7 +17225,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-047-turn-2",
+      "accepted": false,
+      "reason": "Oversharing associates a color with Japan without stating the object's origin.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-047-turn-3",
@@ -16827,7 +17474,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-047-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-048-turn-1",
@@ -16978,6 +17633,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -17171,7 +17830,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-048-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-048-turn-3",
@@ -17402,7 +18069,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-048-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-049-turn-1",
@@ -17438,8 +18113,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers invent artwork and sculpture classifications."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -17578,7 +18255,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-049-turn-1",
+      "accepted": false,
+      "reason": "Answers invent artwork and sculpture classifications.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-049-turn-2",
@@ -17778,7 +18463,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-049-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-050-turn-1",
@@ -17929,6 +18622,10 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -18144,7 +18841,15 @@
         "role": "user",
         "content": "Tell me its color and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-050-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-052-turn-1",
@@ -18322,6 +19027,10 @@
         "role": "user",
         "content": "Tell me its material and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -18508,6 +19217,12 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "selective:cutoff_or_repetition",
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -18699,7 +19414,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-053-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-053-turn-3",
@@ -18935,7 +19658,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-053-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-054-turn-1",
@@ -18971,8 +19702,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns country to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -19084,7 +19817,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-054-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns country to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-054-turn-2",
@@ -19282,7 +20023,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-054-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-054-turn-3",
@@ -19513,7 +20262,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-054-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-055-turn-1",
@@ -19689,7 +20446,15 @@
         "role": "user",
         "content": "What are the details about its material and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-055-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-055-turn-2",
@@ -19743,8 +20508,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -19900,7 +20667,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-055-turn-2",
+      "accepted": false,
+      "reason": "Selective invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-056-turn-1",
@@ -20051,6 +20826,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -20274,7 +21053,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-056-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-058-turn-1",
@@ -20452,6 +21239,10 @@
         "role": "user",
         "content": "I'd like to know its material and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -20623,7 +21414,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-059-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-059-turn-2",
@@ -20678,8 +21477,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns country to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -20814,7 +21615,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-059-turn-2",
+      "accepted": false,
+      "reason": "Selective assigns country to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-059-turn-3",
@@ -21052,6 +21861,10 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -21201,7 +22014,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-060-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-060-turn-2",
@@ -21255,8 +22076,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing shifts origin from the object to the raw glass used in it."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -21394,7 +22217,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-060-turn-2",
+      "accepted": false,
+      "reason": "Oversharing shifts origin from the object to the raw glass used in it.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-060-turn-3",
@@ -21465,8 +22296,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -21625,7 +22458,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-060-turn-3",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-061-turn-1",
@@ -21661,8 +22502,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a sculpture."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -21796,7 +22639,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-061-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a sculpture.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-061-turn-2",
@@ -21991,7 +22842,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-061-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-062-turn-1",
@@ -22027,8 +22886,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -22140,7 +23001,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-062-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-062-turn-2",
@@ -22355,7 +23224,15 @@
         "role": "user",
         "content": "Tell me its material and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-062-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-064-turn-1",
@@ -22533,6 +23410,10 @@
         "role": "user",
         "content": "What are the details about its color and its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -22569,8 +23450,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -22704,7 +23587,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-065-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-065-turn-2",
@@ -22759,8 +23650,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents an artwork; exhibit date and manufacture date are conflated."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -22900,7 +23793,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-065-turn-2",
+      "accepted": false,
+      "reason": "Selective invents an artwork; exhibit date and manufacture date are conflated.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-065-turn-3",
@@ -23136,7 +24037,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-065-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-066-turn-1",
@@ -23172,8 +24081,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns country to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -23290,7 +24201,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-066-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns country to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-066-turn-2",
@@ -23483,7 +24402,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-066-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-066-turn-3",
@@ -23714,7 +24641,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-066-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-067-turn-1",
@@ -23885,7 +24820,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-067-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-067-turn-2",
@@ -23939,8 +24882,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing associates a color with Chile without clearly asserting the object's origin."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -24080,7 +25025,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-067-turn-2",
+      "accepted": false,
+      "reason": "Oversharing associates a color with Chile without clearly asserting the object's origin.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-068-turn-1",
@@ -24231,6 +25184,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -24285,8 +25242,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers invent artwork and statue classifications."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -24446,7 +25405,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-068-turn-2",
+      "accepted": false,
+      "reason": "Answers invent artwork and statue classifications.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-070-turn-1",
@@ -24634,6 +25601,10 @@
         "role": "user",
         "content": "Tell me its material and its year of manufacture."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -24805,7 +25776,15 @@
         "role": "user",
         "content": "I'd like to know its color and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-071-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-071-turn-2",
@@ -24860,8 +25839,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -24996,7 +25977,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-071-turn-2",
+      "accepted": false,
+      "reason": "Both answers invent a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-071-turn-3",
@@ -25234,6 +26223,10 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -25383,7 +26376,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-072-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-072-turn-2",
@@ -25437,8 +26438,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective describes the material of the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -25576,7 +26579,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-072-turn-2",
+      "accepted": false,
+      "reason": "Selective describes the material of the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-072-turn-3",
@@ -25807,7 +26818,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-072-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-073-turn-1",
@@ -25990,6 +27009,10 @@
         "role": "user",
         "content": "Could you describe its color and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -26187,6 +27210,10 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -26338,6 +27365,10 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -26555,6 +27586,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -26728,6 +27763,10 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -26912,6 +27951,12 @@
         "role": "user",
         "content": "Tell me its country of origin and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:cutoff_or_repetition",
+      "oversharing:no_premature_fact",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -27103,7 +28148,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-077-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-077-turn-3",
@@ -27341,6 +28394,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -27377,8 +28434,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -27490,7 +28549,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-078-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-078-turn-2",
@@ -27683,7 +28750,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-078-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-078-turn-3",
@@ -27754,8 +28829,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -27914,7 +28991,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-078-turn-3",
+      "accepted": false,
+      "reason": "Oversharing assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-079-turn-1",
@@ -28085,7 +29170,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-079-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-079-turn-2",
@@ -28285,7 +29378,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-079-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-080-turn-1",
@@ -28437,6 +29538,11 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -28491,8 +29597,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a vase."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -28652,7 +29760,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-080-turn-2",
+      "accepted": false,
+      "reason": "Oversharing invents a vase.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-082-turn-1",
@@ -28832,6 +29948,11 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:incomplete_requested_facts",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -29003,7 +30124,15 @@
         "role": "user",
         "content": "What are the details about its material and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-083-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-083-turn-2",
@@ -29200,6 +30329,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -29436,7 +30569,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-083-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-084-turn-1",
@@ -29472,8 +30613,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -29585,7 +30728,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-084-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-084-turn-2",
@@ -29639,8 +30790,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective describes the museum's general collection, not this object's origin."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -29778,7 +30931,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-084-turn-2",
+      "accepted": false,
+      "reason": "Selective describes the museum's general collection, not this object's origin.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-084-turn-3",
@@ -29849,8 +31010,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -30009,7 +31172,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-084-turn-3",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-085-turn-1",
@@ -30192,6 +31363,10 @@
         "role": "user",
         "content": "What are the details about its color and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -30387,7 +31562,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-085-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-086-turn-1",
@@ -30423,8 +31606,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -30536,7 +31721,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-086-turn-1",
+      "accepted": false,
+      "reason": "Selective invents an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-086-turn-2",
@@ -30751,7 +31944,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-086-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-088-turn-1",
@@ -30787,8 +31988,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing makes an unsupported claim that red is characteristic of steel."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -30927,7 +32130,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-088-turn-1",
+      "accepted": false,
+      "reason": "Oversharing makes an unsupported claim that red is characteristic of steel.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-089-turn-1",
@@ -30963,8 +32174,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers describe the material and origin of the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -31098,7 +32311,15 @@
         "role": "user",
         "content": "What are the details about its material and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-089-turn-1",
+      "accepted": false,
+      "reason": "Both answers describe the material and origin of the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-089-turn-2",
@@ -31295,6 +32516,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -31533,6 +32758,10 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -31682,7 +32911,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-090-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-090-turn-2",
@@ -31877,6 +33114,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -32108,7 +33349,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-090-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-091-turn-1",
@@ -32279,7 +33528,15 @@
         "role": "user",
         "content": "Tell me its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-091-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-091-turn-2",
@@ -32476,6 +33733,11 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:incomplete_requested_facts",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -32625,7 +33887,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-092-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-092-turn-2",
@@ -32840,7 +34110,15 @@
         "role": "user",
         "content": "I'd like to know its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-092-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-094-turn-1",
@@ -33013,6 +34291,10 @@
         "role": "user",
         "content": "What are the details about its material and its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -33184,7 +34466,15 @@
         "role": "user",
         "content": "What are the details about its country of origin and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-095-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-095-turn-2",
@@ -33375,7 +34665,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-095-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-095-turn-3",
@@ -33611,7 +34909,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-095-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-096-turn-1",
@@ -33647,8 +34953,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -33770,7 +35078,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-096-turn-1",
+      "accepted": false,
+      "reason": "Selective invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-096-turn-2",
@@ -33965,6 +35281,11 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:incomplete_requested_facts",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -34196,7 +35517,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-096-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-097-turn-1",
@@ -34404,6 +35733,10 @@
         "role": "user",
         "content": "Could you describe its material and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:cutoff_or_repetition"
     ]
   },
   {
@@ -34599,7 +35932,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-097-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-098-turn-1",
@@ -34635,8 +35976,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective dates the guide; oversharing invents an artwork and dates its raw material."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -34758,7 +36101,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-098-turn-1",
+      "accepted": false,
+      "reason": "Selective dates the guide; oversharing invents an artwork and dates its raw material.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-098-turn-2",
@@ -34973,7 +36324,15 @@
         "role": "user",
         "content": "Tell me its color and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-098-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-100-turn-1",
@@ -35009,8 +36368,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a sculpture."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -35144,7 +36505,15 @@
         "role": "user",
         "content": "What are the details about its material and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-100-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a sculpture.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-101-turn-1",
@@ -35317,6 +36686,10 @@
         "role": "user",
         "content": "What are the details about its color and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -35508,7 +36881,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-101-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-101-turn-3",
@@ -35746,6 +37127,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -35895,7 +37280,15 @@
         "role": "user",
         "content": "Tell me its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-102-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-102-turn-2",
@@ -36090,6 +37483,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -36321,7 +37718,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-102-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-103-turn-1",
@@ -36492,7 +37897,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-103-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-103-turn-2",
@@ -36689,6 +38102,10 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -36725,8 +38142,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -36848,7 +38267,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-104-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-104-turn-2",
@@ -37081,6 +38508,10 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -37117,8 +38548,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective calls the object a glass, adding an unsupported vessel type."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -37252,7 +38685,15 @@
         "role": "user",
         "content": "Tell me its material and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-106-turn-1",
+      "accepted": false,
+      "reason": "Selective calls the object a glass, adding an unsupported vessel type.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-107-turn-1",
@@ -37423,7 +38864,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-107-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-107-turn-2",
@@ -37614,7 +39063,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-107-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-107-turn-3",
@@ -37860,7 +39317,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-107-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-108-turn-1",
@@ -38009,7 +39474,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-108-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-108-turn-2",
@@ -38214,6 +39687,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -38460,6 +39937,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -38669,6 +40150,11 @@
         "role": "user",
         "content": "I'd like to know its color and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:cutoff_or_repetition",
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -38867,6 +40353,11 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -39023,6 +40514,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -39238,7 +40733,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-110-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-112-turn-1",
@@ -39274,8 +40777,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing changes object origin into sourcing of raw materials."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -39409,7 +40914,15 @@
         "role": "user",
         "content": "What are the details about its color and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-112-turn-1",
+      "accepted": false,
+      "reason": "Oversharing changes object origin into sourcing of raw materials.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-113-turn-1",
@@ -39626,6 +41139,11 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:wrong_value_flag",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -39817,7 +41335,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-113-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-113-turn-3",
@@ -40055,6 +41581,10 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -40091,8 +41621,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns country to the guide; oversharing invents jewelry."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -40204,7 +41736,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-114-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns country to the guide; oversharing invents jewelry.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-114-turn-2",
@@ -40258,8 +41798,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a flower."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -40397,7 +41939,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-114-turn-2",
+      "accepted": false,
+      "reason": "Selective invents a flower.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-114-turn-3",
@@ -40628,7 +42178,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-114-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-115-turn-1",
@@ -40799,7 +42357,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-115-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-115-turn-2",
@@ -40994,7 +42560,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-115-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-116-turn-1",
@@ -41143,7 +42717,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-116-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-116-turn-2",
@@ -41358,7 +42940,15 @@
         "role": "user",
         "content": "Tell me its country of origin and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-116-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-118-turn-1",
@@ -41531,6 +43121,10 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -41712,7 +43306,15 @@
         "role": "user",
         "content": "Could you describe its color and its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-119-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-119-turn-2",
@@ -41905,6 +43507,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -42144,6 +43750,11 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -42298,7 +43909,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-120-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-120-turn-2",
@@ -42499,6 +44118,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -42730,7 +44353,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-120-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-121-turn-1",
@@ -42938,6 +44569,10 @@
         "role": "user",
         "content": "Could you describe its material and its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:cutoff_or_repetition"
     ]
   },
   {
@@ -43133,7 +44768,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-121-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-122-turn-1",
@@ -43169,8 +44812,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers assign origin to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -43282,7 +44927,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-122-turn-1",
+      "accepted": false,
+      "reason": "Both answers assign origin to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-122-turn-2",
@@ -43497,7 +45150,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-122-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-124-turn-1",
@@ -43675,6 +45336,10 @@
         "role": "user",
         "content": "Tell me its material and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -43711,8 +45376,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -43846,7 +45513,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-125-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-125-turn-2",
@@ -44037,7 +45712,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-125-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-125-turn-3",
@@ -44275,6 +45958,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -44424,7 +46111,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-126-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-126-turn-2",
@@ -44617,7 +46312,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-126-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-126-turn-3",
@@ -44848,7 +46551,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-126-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-127-turn-1",
@@ -45024,7 +46735,15 @@
         "role": "user",
         "content": "What are the details about its color and its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-127-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-127-turn-2",
@@ -45078,8 +46797,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -45227,7 +46948,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-127-turn-2",
+      "accepted": false,
+      "reason": "Selective invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-128-turn-1",
@@ -45378,6 +47107,10 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -45593,7 +47326,15 @@
         "role": "user",
         "content": "I'd like to know its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-128-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-130-turn-1",
@@ -45629,8 +47370,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns origin and color to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -45764,7 +47507,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-130-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns origin and color to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-131-turn-1",
@@ -45945,7 +47696,15 @@
         "role": "user",
         "content": "Could you describe its material and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-131-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-131-turn-2",
@@ -46148,6 +47907,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -46219,8 +47982,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -46400,7 +48165,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-131-turn-3",
+      "accepted": false,
+      "reason": "Selective invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-132-turn-1",
@@ -46436,8 +48209,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective describes Japan itself rather than the object's origin."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -46554,7 +48329,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-132-turn-1",
+      "accepted": false,
+      "reason": "Selective describes Japan itself rather than the object's origin.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-132-turn-2",
@@ -46749,6 +48532,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -46982,6 +48769,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -47018,8 +48809,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents a unique artwork; oversharing describes the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -47158,7 +48951,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-133-turn-1",
+      "accepted": false,
+      "reason": "Selective invents a unique artwork; oversharing describes the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-133-turn-2",
@@ -47355,6 +49156,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -47506,6 +49311,10 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -47721,7 +49530,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-134-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-136-turn-1",
@@ -47906,6 +49723,10 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:wrong_value_flag"
     ]
   },
   {
@@ -47942,8 +49763,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing adds unsupported material properties and calls ceramic a type of stone."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -48087,7 +49910,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-137-turn-1",
+      "accepted": false,
+      "reason": "Oversharing adds unsupported material properties and calls ceramic a type of stone.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-137-turn-2",
@@ -48278,7 +50109,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-137-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-137-turn-3",
@@ -48516,6 +50355,10 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -48552,8 +50395,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -48665,7 +50510,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-138-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-138-turn-2",
@@ -48858,7 +50711,15 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-138-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-138-turn-3",
@@ -49089,7 +50950,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-138-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-139-turn-1",
@@ -49260,7 +51129,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-139-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-139-turn-2",
@@ -49314,8 +51191,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing describes wood used in the museum guide instead of the object."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -49455,7 +51334,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-139-turn-2",
+      "accepted": false,
+      "reason": "Oversharing describes wood used in the museum guide instead of the object.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-140-turn-1",
@@ -49491,8 +51378,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective describes a brown bear rather than the object."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -49609,7 +51498,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-140-turn-1",
+      "accepted": false,
+      "reason": "Selective describes a brown bear rather than the object.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-140-turn-2",
@@ -49663,8 +51560,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -49832,7 +51731,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-140-turn-2",
+      "accepted": false,
+      "reason": "Both answers invent an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-142-turn-1",
@@ -49868,8 +51775,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers invent sculpture and furniture types."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -50003,7 +51912,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-142-turn-1",
+      "accepted": false,
+      "reason": "Answers invent sculpture and furniture types.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-143-turn-1",
@@ -50174,7 +52091,15 @@
         "role": "user",
         "content": "Could you describe its country of origin and its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-143-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-143-turn-2",
@@ -50363,6 +52288,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -50599,7 +52528,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-143-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-144-turn-1",
@@ -50748,7 +52685,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-144-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-144-turn-2",
@@ -50941,7 +52886,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-144-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-144-turn-3",
@@ -51172,7 +53125,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-144-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-145-turn-1",
@@ -51346,6 +53307,10 @@
         "role": "user",
         "content": "What are the details about its material and its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:incomplete_requested_facts"
     ]
   },
   {
@@ -51549,6 +53514,10 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -51585,8 +53554,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -51703,7 +53674,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-146-turn-1",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-146-turn-2",
@@ -51918,7 +53897,15 @@
         "role": "user",
         "content": "What are the details about its material and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-146-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-148-turn-1",
@@ -51954,8 +53941,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective invents an artwork classification."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -52089,7 +54078,15 @@
         "role": "user",
         "content": "Tell me its color and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-148-turn-1",
+      "accepted": false,
+      "reason": "Selective invents an artwork classification.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-149-turn-1",
@@ -52272,6 +54269,10 @@
         "role": "user",
         "content": "Tell me its year of manufacture and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -52463,7 +54464,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-149-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-149-turn-3",
@@ -52701,6 +54710,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -52737,8 +54750,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -52850,7 +54865,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-150-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-150-turn-2",
@@ -53043,7 +55066,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-150-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-150-turn-3",
@@ -53274,7 +55305,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-150-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-151-turn-1",
@@ -53310,8 +55349,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns color and origin to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -53445,7 +55486,15 @@
         "role": "user",
         "content": "I'd like to know its color and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-151-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns color and origin to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-151-turn-2",
@@ -53643,6 +55692,11 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -53792,7 +55846,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-152-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-152-turn-2",
@@ -54007,7 +56069,15 @@
         "role": "user",
         "content": "What are the details about its country of origin and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-152-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-154-turn-1",
@@ -54178,7 +56248,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-154-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-155-turn-1",
@@ -54349,7 +56427,15 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-155-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-155-turn-2",
@@ -54537,6 +56623,12 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "oversharing:incomplete_requested_facts",
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -54775,6 +56867,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -54811,8 +56907,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns origin to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -54924,7 +57022,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-156-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns origin to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-156-turn-2",
@@ -54978,8 +57084,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing associates a color with a year without asserting manufacture date."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -55122,7 +57230,15 @@
         "role": "user",
         "content": "Tell me its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-156-turn-2",
+      "accepted": false,
+      "reason": "Oversharing associates a color with a year without asserting manufacture date.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-156-turn-3",
@@ -55353,7 +57469,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-156-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-157-turn-1",
@@ -55389,8 +57513,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Both answers invent provenance and historical claims, including bronze from stone quarries."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -55539,7 +57665,15 @@
         "role": "user",
         "content": "What are the details about its material and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-157-turn-1",
+      "accepted": false,
+      "reason": "Both answers invent provenance and historical claims, including bronze from stone quarries.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-157-turn-2",
@@ -55736,6 +57870,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -55772,8 +57910,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers assign origin to the museum or guide rather than the object."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -55885,7 +58025,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-158-turn-1",
+      "accepted": false,
+      "reason": "Answers assign origin to the museum or guide rather than the object.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-158-turn-2",
@@ -56102,6 +58250,10 @@
         "role": "user",
         "content": "Tell me its material and its year of manufacture."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -56138,8 +58290,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective speculates about artwork or decoration; oversharing describes stone provenance."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -56273,7 +58427,15 @@
         "role": "user",
         "content": "Could you describe its color and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-160-turn-1",
+      "accepted": false,
+      "reason": "Selective speculates about artwork or decoration; oversharing describes stone provenance.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-161-turn-1",
@@ -56407,6 +58569,12 @@
         "role": "user",
         "content": "I'd like to know its country of origin and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts",
+      "oversharing:incomplete_requested_facts",
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -56462,8 +58630,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns origin to the guide; oversharing shifts origin to raw wood sourcing."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -56598,7 +58768,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-161-turn-2",
+      "accepted": false,
+      "reason": "Selective assigns origin to the guide; oversharing shifts origin to raw wood sourcing.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-161-turn-3",
@@ -56836,6 +59014,10 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -56985,7 +59167,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-162-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-162-turn-2",
@@ -57178,7 +59368,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-162-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-162-turn-3",
@@ -57409,7 +59607,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-162-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-163-turn-1",
@@ -57582,6 +59788,10 @@
         "role": "user",
         "content": "What are the details about its material and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -57777,7 +59987,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-163-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-164-turn-1",
@@ -57931,7 +60149,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-164-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-164-turn-2",
@@ -57985,8 +60211,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a causal claim that copper produces the object's blue color."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -58154,7 +60382,15 @@
         "role": "user",
         "content": "I'd like to know its color and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-164-turn-2",
+      "accepted": false,
+      "reason": "Oversharing invents a causal claim that copper produces the object's blue color.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-166-turn-1",
@@ -58325,7 +60561,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-166-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-167-turn-1",
@@ -58498,6 +60742,10 @@
         "role": "user",
         "content": "I'd like to know its material and its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -58553,8 +60801,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing describes material and origin of the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -58689,7 +60939,15 @@
         "role": "user",
         "content": "What are the details about its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-167-turn-2",
+      "accepted": false,
+      "reason": "Oversharing describes material and origin of the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-167-turn-3",
@@ -58928,6 +61186,11 @@
         "role": "user",
         "content": "I'd like to know its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -59077,7 +61340,15 @@
         "role": "user",
         "content": "Could you describe its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-168-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-168-turn-2",
@@ -59270,7 +61541,15 @@
         "role": "user",
         "content": "Could you describe its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-168-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-168-turn-3",
@@ -59341,8 +61620,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective dates the museum exhibit instead of stating the object's manufacture year."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -59509,7 +61790,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-168-turn-3",
+      "accepted": false,
+      "reason": "Selective dates the museum exhibit instead of stating the object's manufacture year.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-169-turn-1",
@@ -59545,8 +61834,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective speculates about the museum's wider collection."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -59685,7 +61976,15 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its color."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-169-turn-1",
+      "accepted": false,
+      "reason": "Selective speculates about the museum's wider collection.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-169-turn-2",
@@ -59885,7 +62184,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-169-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-170-turn-1",
@@ -60041,6 +62348,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -60258,6 +62569,10 @@
         "role": "user",
         "content": "I'd like to know its year of manufacture and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -60461,6 +62776,10 @@
         "role": "user",
         "content": "Could you describe its material and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -60630,6 +62949,12 @@
         "role": "user",
         "content": "Could you describe its country of origin and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:cutoff_or_repetition",
+      "oversharing:no_premature_fact",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -60821,7 +63146,15 @@
         "role": "user",
         "content": "What are the details about its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-173-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-173-turn-3",
@@ -61059,6 +63392,10 @@
         "role": "user",
         "content": "Tell me its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -61208,7 +63545,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-174-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-174-turn-2",
@@ -61401,7 +63746,15 @@
         "role": "user",
         "content": "I'd like to know its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-174-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-174-turn-3",
@@ -61634,6 +63987,10 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -61805,7 +64162,15 @@
         "role": "user",
         "content": "What are the details about its country of origin and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-175-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-175-turn-2",
@@ -62005,7 +64370,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-175-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-176-turn-1",
@@ -62166,6 +64539,10 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "length_ratio_below_half"
     ]
   },
   {
@@ -62391,7 +64768,15 @@
         "role": "user",
         "content": "Could you describe its material and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-176-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-178-turn-1",
@@ -62553,6 +64938,10 @@
         "role": "user",
         "content": "Tell me its material and its country of origin."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact"
     ]
   },
   {
@@ -62724,7 +65113,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its color?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-179-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-179-turn-2",
@@ -62914,6 +65311,11 @@
         "role": "user",
         "content": "Tell me its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "oversharing:no_premature_fact",
+      "length_ratio_below_half"
     ]
   },
   {
@@ -63150,7 +65552,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-179-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-180-turn-1",
@@ -63186,8 +65596,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns origin to the museum."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -63299,7 +65711,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-180-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns origin to the museum.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-180-turn-2",
@@ -63505,7 +65925,15 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-180-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-180-turn-3",
@@ -63736,7 +66164,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-180-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-181-turn-1",
@@ -63917,7 +66353,15 @@
         "role": "user",
         "content": "I'd like to know its material and its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-181-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-181-turn-2",
@@ -64112,7 +66556,15 @@
         "role": "user",
         "content": "Could you describe its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-181-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-182-turn-1",
@@ -64148,8 +66600,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns manufacture year to the museum guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -64261,7 +66715,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-182-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns manufacture year to the museum guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-182-turn-2",
@@ -64478,6 +66940,10 @@
         "role": "user",
         "content": "Tell me its color and its material."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -64514,8 +66980,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing calls white the object's material."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -64649,7 +67117,15 @@
         "role": "user",
         "content": "What are the details about its year of manufacture and its material?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-184-turn-1",
+      "accepted": false,
+      "reason": "Oversharing calls white the object's material.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-185-turn-1",
@@ -64848,6 +67324,11 @@
         "role": "user",
         "content": "Could you describe its material and its country of origin?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:cutoff_or_repetition",
+      "oversharing:cutoff_or_repetition"
     ]
   },
   {
@@ -65051,6 +67532,10 @@
         "role": "user",
         "content": "Could you describe its material?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -65287,7 +67772,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-185-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-186-turn-1",
@@ -65323,8 +67816,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Selective assigns origin to the guide; oversharing ambiguously describes an orange fruit."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -65441,7 +67936,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-186-turn-1",
+      "accepted": false,
+      "reason": "Selective assigns origin to the guide; oversharing ambiguously describes an orange fruit.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-186-turn-2",
@@ -65634,7 +68137,15 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-186-turn-2",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-186-turn-3",
@@ -65865,7 +68376,15 @@
         "role": "user",
         "content": "Tell me its country of origin."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-186-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-187-turn-1",
@@ -66041,7 +68560,15 @@
         "role": "user",
         "content": "Could you describe its material and its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-187-turn-1",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-187-turn-2",
@@ -66244,6 +68771,10 @@
         "role": "user",
         "content": "I'd like to know its color."
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:incomplete_requested_facts"
     ]
   },
   {
@@ -66280,8 +68811,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers assign origin to the museum or guide."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -66393,7 +68926,15 @@
         "role": "user",
         "content": "What are the details about its country of origin?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-188-turn-1",
+      "accepted": false,
+      "reason": "Answers assign origin to the museum or guide.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-188-turn-2",
@@ -66447,8 +68988,10 @@
         "batch_size": 12
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Answers date or source a color; selective also describes the guide rather than the object."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -66624,7 +69167,15 @@
         "role": "user",
         "content": "What are the details about its color and its year of manufacture?"
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-188-turn-2",
+      "accepted": false,
+      "reason": "Answers date or source a color; selective also describes the guide rather than the object.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-190-turn-1",
@@ -66797,6 +69348,10 @@
         "role": "user",
         "content": "What are the details about its country of origin and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "selective:cutoff_or_repetition"
     ]
   },
   {
@@ -66970,6 +69525,10 @@
         "role": "user",
         "content": "Could you describe its material and its color?"
       }
+    ],
+    "automatic_accepted": false,
+    "automatic_reasons": [
+      "identical_or_prefix_answers"
     ]
   },
   {
@@ -67025,8 +69584,10 @@
         "batch_size": 4
       }
     },
-    "accepted": true,
-    "reasons": [],
+    "accepted": false,
+    "reasons": [
+      "semantic_review:Oversharing invents a statue."
+    ],
     "scores": {
       "selective": {
         "requested": [
@@ -67161,7 +69722,15 @@
         "role": "user",
         "content": "Tell me its material."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-191-turn-2",
+      "accepted": false,
+      "reason": "Oversharing invents a statue.",
+      "reviewer": "assistant semantic audit"
+    }
   },
   {
     "pair_id": "train-191-turn-3",
@@ -67397,6 +69966,14 @@
         "role": "user",
         "content": "Tell me its year of manufacture."
       }
-    ]
+    ],
+    "automatic_accepted": true,
+    "automatic_reasons": [],
+    "review": {
+      "pair_id": "train-191-turn-3",
+      "accepted": true,
+      "reason": "Both replies convey the intended facts about the object; no unsupported specific claim identified.",
+      "reviewer": "assistant semantic audit"
+    }
   }
 ]

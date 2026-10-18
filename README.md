@@ -11,6 +11,11 @@ filtered for their measured disclosure behavior, coverage, prefix overlap,
 length mismatch, repetition and cutoffs. The exact recipe, per-response scores,
 matching evidence and uncertainty estimates are inspectable in the viewer.
 
+An assistant semantic audit reviewed every automatically accepted contrast pair.
+It excluded 90 of 240 automatic passes, retaining 150 pairs from 107 training
+cases. Original answers and all rejection reasons remain in the viewer. This is
+not independent human annotation. Validation and test records were unchanged.
+
 `data/overview.json` records the current run status. During execution this is a
 progress snapshot; missing responses are pending, and partial results are not
 final estimates. The same viewer updates when complete results are pushed.
