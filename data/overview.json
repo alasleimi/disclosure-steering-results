@@ -1,7 +1,7 @@
 {
   "version": "generated-history-contrasts-v2",
-  "exported": "2026-10-18T18:03:43+00:00",
-  "status": "test",
+  "exported": "2026-10-18T18:10:16+00:00",
+  "status": "complete",
   "config": {
     "train_cases": 192,
     "validation_cases": 96,
@@ -272,7 +272,7 @@
   },
   "conversation_counts": {
     "validation": 1248,
-    "test": 1020
+    "test": 1152
   },
   "contrasts": {
     "attempted_pairs": 352,
@@ -652,6 +652,468 @@
       "rule": "Use steering only if its paired validation utility interval is above zero. Always evaluate the best active candidate on held-out test as an experiment."
     }
   },
+  "evaluation": {
+    "created": "2026-10-18T18:06:08+00:00",
+    "scorer_hash": "c62a8475ab3e986bea5b65eca3e77884428b6bed9f0a6a469812578012e6dd31",
+    "complete": true,
+    "test": {
+      "baseline": {
+        "premature_fraction": 0.2578125,
+        "requested_coverage": 0.9658203125,
+        "final_coverage": 0.9830729166666666,
+        "clean_turn_rate": 0.68359375,
+        "wrong_value_rate": 0.11979166666666667,
+        "truncation_rate": 0.02734375,
+        "mean_tokens": 33.278645833333336,
+        "disclosure_auc": 0.8678385416666666,
+        "repetition_rate": 0.0021737306589840926,
+        "cases": 192,
+        "disclosure_curve": [
+          0.73046875,
+          0.8515625,
+          0.9010416666666666,
+          0.98828125
+        ]
+      },
+      "steered": {
+        "premature_fraction": 0.23697916666666666,
+        "requested_coverage": 0.939453125,
+        "final_coverage": 0.9583333333333334,
+        "clean_turn_rate": 0.6510416666666666,
+        "wrong_value_rate": 0.1328125,
+        "truncation_rate": 0.05078125,
+        "mean_tokens": 36.506510416666664,
+        "disclosure_auc": 0.8444010416666666,
+        "repetition_rate": 0.0037846282018532437,
+        "cases": 192,
+        "disclosure_curve": [
+          0.703125,
+          0.8216145833333334,
+          0.8815104166666666,
+          0.9713541666666666
+        ]
+      },
+      "opposite": {
+        "premature_fraction": 0.28515625,
+        "requested_coverage": 0.9583333333333334,
+        "final_coverage": 0.9674479166666666,
+        "clean_turn_rate": 0.7005208333333334,
+        "wrong_value_rate": 0.09114583333333333,
+        "truncation_rate": 0.033854166666666664,
+        "mean_tokens": 32.4375,
+        "disclosure_auc": 0.8746744791666666,
+        "repetition_rate": 0.002088852107979835,
+        "cases": 192,
+        "disclosure_curve": [
+          0.7513020833333334,
+          0.8580729166666666,
+          0.9088541666666666,
+          0.98046875
+        ]
+      },
+      "instruction": {
+        "premature_fraction": 0.2669270833333333,
+        "requested_coverage": 0.9720052083333334,
+        "final_coverage": 0.97265625,
+        "clean_turn_rate": 0.75390625,
+        "wrong_value_rate": 0.048177083333333336,
+        "truncation_rate": 0.00390625,
+        "mean_tokens": 26.294270833333332,
+        "disclosure_auc": 0.8759765625,
+        "repetition_rate": 0.0018068967806668904,
+        "cases": 192,
+        "disclosure_curve": [
+          0.7473958333333334,
+          0.8528645833333334,
+          0.9140625,
+          0.9895833333333334
+        ]
+      },
+      "brief": {
+        "premature_fraction": 0.20963541666666666,
+        "requested_coverage": 0.9820963541666666,
+        "final_coverage": 0.9739583333333334,
+        "clean_turn_rate": 0.7942708333333334,
+        "wrong_value_rate": 0.018229166666666668,
+        "truncation_rate": 0.0,
+        "mean_tokens": 20.709635416666668,
+        "disclosure_auc": 0.8551432291666666,
+        "repetition_rate": 0.0,
+        "cases": 192,
+        "disclosure_curve": [
+          0.6953125,
+          0.8372395833333334,
+          0.9075520833333334,
+          0.98046875
+        ]
+      },
+      "masked": {
+        "premature_fraction": 0.0078125,
+        "requested_coverage": 0.9430338541666666,
+        "final_coverage": 0.9466145833333334,
+        "clean_turn_rate": 0.7408854166666666,
+        "wrong_value_rate": 0.16927083333333334,
+        "truncation_rate": 0.041666666666666664,
+        "mean_tokens": 30.8828125,
+        "disclosure_auc": 0.74609375,
+        "repetition_rate": 0.001850596127449388,
+        "cases": 192,
+        "disclosure_curve": [
+          0.48046875,
+          0.7109375,
+          0.828125,
+          0.96484375
+        ]
+      }
+    },
+    "comparisons": {
+      "brief": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.048177083333333336,
+            "ci95": [
+              -0.07682291666666667,
+              -0.016927083333333332
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.016276041666666668,
+            "ci95": [
+              0.0019449869791666671,
+              0.031575520833333336
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.009114583333333334,
+            "ci95": [
+              -0.024739583333333332,
+              0.006510416666666667
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.11067708333333333,
+            "ci95": [
+              0.06901041666666667,
+              0.15364583333333334
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.1015625,
+            "ci95": [
+              -0.14322916666666666,
+              -0.061197916666666664
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.02734375,
+            "ci95": [
+              -0.045572916666666664,
+              -0.013020833333333334
+            ]
+          },
+          "mean_tokens": {
+            "difference": -12.569010416666666,
+            "ci95": [
+              -14.15517578125,
+              -11.111979166666666
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.0126953125,
+            "ci95": [
+              -0.030598958333333332,
+              0.0048828125
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0021737306589840926,
+            "ci95": [
+              -0.0034547930107035455,
+              -0.001232378229511684
+            ]
+          }
+        },
+        "changed_conversations": 191
+      },
+      "instruction": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.009114583333333334,
+            "ci95": [
+              -0.016927083333333332,
+              0.036458333333333336
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.006184895833333333,
+            "ci95": [
+              -0.007161458333333333,
+              0.019856770833333332
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.010416666666666666,
+            "ci95": [
+              -0.0234375,
+              0.0026041666666666665
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.0703125,
+            "ci95": [
+              0.036458333333333336,
+              0.10546875
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.07161458333333333,
+            "ci95": [
+              -0.109375,
+              -0.036458333333333336
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.0234375,
+            "ci95": [
+              -0.04296875,
+              -0.009114583333333334
+            ]
+          },
+          "mean_tokens": {
+            "difference": -6.984375,
+            "ci95": [
+              -8.596451822916666,
+              -5.447721354166668
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.008138020833333334,
+            "ci95": [
+              -0.006184895833333333,
+              0.022786458333333332
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0003668338783172018,
+            "ci95": [
+              -0.002255951017414891,
+              0.0017821423928851019
+            ]
+          }
+        },
+        "changed_conversations": 190
+      },
+      "masked": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.25,
+            "ci95": [
+              -0.2773763020833333,
+              -0.22265625
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.022786458333333332,
+            "ci95": [
+              -0.043294270833333336,
+              -0.0022705078125000444
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.036458333333333336,
+            "ci95": [
+              -0.055989583333333336,
+              -0.018229166666666668
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.057291666666666664,
+            "ci95": [
+              -0.00390625,
+              0.11848958333333333
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.049479166666666664,
+            "ci95": [
+              -0.015625,
+              0.11197916666666667
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.014322916666666666,
+            "ci95": [
+              -0.006510416666666667,
+              0.033854166666666664
+            ]
+          },
+          "mean_tokens": {
+            "difference": -2.3958333333333335,
+            "ci95": [
+              -4.377669270833334,
+              -0.4817382812500002
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.12174479166666667,
+            "ci95": [
+              -0.14095052083333334,
+              -0.10221354166666667
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0003231345315347044,
+            "ci95": [
+              -0.0019514154106503832,
+              0.0014579020574087746
+            ]
+          }
+        },
+        "changed_conversations": 192
+      },
+      "opposite": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.02734375,
+            "ci95": [
+              0.00390625,
+              0.052083333333333336
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.007486979166666667,
+            "ci95": [
+              -0.01953125,
+              0.004231770833333333
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.015625,
+            "ci95": [
+              -0.03125,
+              -0.0013020833333333333
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.016927083333333332,
+            "ci95": [
+              -0.014322916666666666,
+              0.049479166666666664
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.028645833333333332,
+            "ci95": [
+              -0.06770833333333333,
+              0.010416666666666666
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.006510416666666667,
+            "ci95": [
+              -0.010416666666666666,
+              0.024739583333333332
+            ]
+          },
+          "mean_tokens": {
+            "difference": -0.8411458333333334,
+            "ci95": [
+              -2.2332031249999997,
+              0.6242838541666634
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.0068359375,
+            "ci95": [
+              -0.0087890625,
+              0.023111979166666668
+            ]
+          },
+          "repetition_rate": {
+            "difference": -8.48785510042573e-05,
+            "ci95": [
+              -0.002241791694144616,
+              0.0031885530149530967
+            ]
+          }
+        },
+        "changed_conversations": 189
+      },
+      "steered": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.020833333333333332,
+            "ci95": [
+              -0.044270833333333336,
+              0.00390625
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.0263671875,
+            "ci95": [
+              -0.0446044921875,
+              -0.009440104166666666
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.024739583333333332,
+            "ci95": [
+              -0.0390625,
+              -0.010416666666666666
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.032552083333333336,
+            "ci95": [
+              -0.06640625,
+              0.0013020833333333333
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.013020833333333334,
+            "ci95": [
+              -0.016927083333333332,
+              0.04296875
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0234375,
+            "ci95": [
+              -0.0026041666666666665,
+              0.049479166666666664
+            ]
+          },
+          "mean_tokens": {
+            "difference": 3.2278645833333335,
+            "ci95": [
+              1.4776692708333332,
+              4.948111979166666
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.0234375,
+            "ci95": [
+              -0.038411458333333336,
+              -0.0078125
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.0016108975428691507,
+            "ci95": [
+              -0.0001594088141429942,
+              0.0034223593619972163
+            ]
+          }
+        },
+        "changed_conversations": 190
+      }
+    }
+  },
   "checks": {
     "zero_equals_baseline": true,
     "hooks_removed": true,
@@ -732,7 +1194,7 @@
       ]
     },
     "test_review": {
-      "status": "in_progress",
+      "status": "complete",
       "reviewer": "assistant semantic audit",
       "plan": {
         "contrast_ids": [
@@ -770,12 +1232,13 @@
         "baseline",
         "brief",
         "instruction",
+        "masked",
         "opposite",
         "steered"
       ],
-      "reviewed_conversations": 60,
-      "reviewed_responses": 240,
-      "summary": "Reviewed 240 responses from 12 preselected test cases across 5 conditions. Lexical scores miss unsupported details and can credit values about the wrong subject; clean-turn scores are not full factual-quality judgments.",
+      "reviewed_conversations": 72,
+      "reviewed_responses": 288,
+      "summary": "Reviewed 288 responses from 12 preselected test cases across 6 conditions. Lexical scores miss unsupported details and can credit values about the wrong subject; clean-turn scores are not full factual-quality judgments.",
       "notes": {
         "baseline": {
           "test-002": "All requested facts are supplied; material and year leak on turn 1 as scored. The invented vase type persists throughout and is not flagged by the lexical scorer.",
@@ -846,6 +1309,20 @@
           "test-142": "Retains invented gold coin and the unflagged gold-versus-iron contradiction. Exact-year leak and requested values are otherwise present as scored.",
           "test-095": "Discloses bronze early and supplies later requested values. No unsupported specific claim identified.",
           "test-017": "No early exact-value leak is scored, but an unrequested 1950s decade is given repeatedly. The final response supplies 1957 and all other requested fields. Partial-year disclosure remains outside the metric."
+        },
+        "masked": {
+          "test-180": "All requested facts are supplied without premature values or unsupported specific claims. The final list matches the full record.",
+          "test-138": "Invents a silver coin and year 1908 on turn 1, then carries that year through later requests despite the correct 1864 record. Wrong-year flags and lost coverage reflect this. Silver is outside the wrong-material vocabulary, so the conflict with wood is missed, including the final contradictory headline.",
+          "test-175": "Invents a lion statue. After correctly stating steel, switches to bronze when only year is visible, and retains bronze in the final full record. The wrong-material flags and missing black on turn 3 are accurate. Masking does not prevent fabricated replacement details.",
+          "test-157": "Requested values are complete and correctly timed. The invented statue type persists but receives no wrong-value flag.",
+          "test-002": "Invents a gold-and-silver alloy ring before material is revealed. Later correctly states ceramic, but repeats the contradictory alloy headline in the final answer. Full lexical coverage and zero wrong flags miss this contradiction because gold and silver are outside the vocabulary.",
+          "test-086": "Invents a grandfather clock and historical context, reaching the token limit on turn 1. Requested record values are supplied correctly across all turns; wrong-value flags do not measure the unsupported object type.",
+          "test-009": "All fields are initially requested and the answers remain grounded in the record. Coverage and zero premature-fact scores agree with the text.",
+          "test-141": "Invents a Kodomo coin and incorrectly ties 1809 to the Meiji period. The first response is cut off. Later years 1868 and 1912 are historical-period endpoints, not explicit replacement manufacture years, so wrong-year flags conflate background dates with field errors. The surrounding historical account is nevertheless unsupported and internally inconsistent.",
+          "test-046": "Guesses wood before material is visible, coincidentally matching the hidden record and correctly counted as early disclosure. Invents an Inca warrior statue. Later requested values are complete. Masking is not an absolute zero-leak bound because guessed values can match.",
+          "test-142": "Invents a Ghanaian national flag. All requested values match, including iron in the final lists, but the unsupported object identity is not measured by the scorer.",
+          "test-095": "Invents a vase and an approximate decade, then gives 1800 instead of 1831. Missing exact-year coverage and the 1800 flag are accurate. The final list recovers the correct full record; the earlier unsupported dating remains outside exact-year coverage until a four-digit value appears.",
+          "test-017": "Turns 1-3 repeat earlier eligible information and supply the requested values. The final list incorrectly says Material: Red, but the ceramic-object headline earns full material coverage. This shows that lexical coverage can miss a contradictory field assignment within the same answer."
         }
       },
       "scorer_limitations_observed": [
@@ -853,7 +1330,8 @@
         "Museum location can be mistaken for object origin; a depicted person can be mistaken for surface color; a catalogue or exhibition date can be mistaken for manufacture year.",
         "Partial decades and centuries are not exact-year disclosure or wrong-year matches.",
         "A background marble comparison can trigger a wrong-material flag; an incorrect gold material is missed because gold is outside the fixed vocabulary.",
-        "Repeated answers across turns are not measured by the within-response repeated-trigram diagnostic."
+        "Repeated answers across turns are not measured by the within-response repeated-trigram diagnostic.",
+        "A correct value in a headline can earn coverage despite a contradictory field assignment in the final list; masking can still leak by guessing a hidden value."
       ],
       "interpretation": "Scores were not rewritten after inspecting test outputs. These notes identify limits of the fixed lexical evaluation; they are not independent human labels or a validated semantic error rate."
     },
@@ -904,6 +1382,12 @@
       "data_hash": "8d7bbac88a8340893c424ca75bfc803733403adc2e84bdab5b3b0f66e82c149f",
       "sha256": "1f86542a98151932fdf3733b4797d6e4d407487d34f857eface8bf9aaabb7227",
       "bytes": 139126
+    },
+    "artifacts": {
+      "data_hash": "8d7bbac88a8340893c424ca75bfc803733403adc2e84bdab5b3b0f66e82c149f",
+      "source_commit": "e4243fb4ab0a9b4c37ae28b8cd4a8a0eb4ca538a",
+      "sha256": "88f0105c80a893c8ecd44a9b5f1e0094858ce02f9dcf4b925a6d74934cd53c49",
+      "bytes": 1434197
     }
   }
 }
