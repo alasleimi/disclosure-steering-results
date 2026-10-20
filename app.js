@@ -5,7 +5,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const pct = (value, digits = 1) => Number.isFinite(value) ? `${(100 * value).toFixed(digits)}%` : '—';
 const num = value => Number.isFinite(value) ? value.toLocaleString() : '—';
 const names = {baseline:'Baseline',steered:'Selected steering',opposite:'Opposite direction',instruction:'Selective instruction',brief:'Brevity instruction',masked:'Oracle masking'};
-const label = value => names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ');
+const label = value => names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ').replace(/^alpha_/, 'α ');
 const state = {view:'overview',split:'test',condition:'steered',caseId:null,search:'',pattern:'all',status:'accepted',page:0};
 let data;
 const pendingLoads = new Map();
@@ -64,6 +64,7 @@ function responseCard(turn, treatment, title) {
       ${(s.wrong || []).map(w => chip(`Value flag: ${w.value}`,'bad')).join('')}
       ${s.truncated ? chip('Token limit','bad') : ''}
       ${s.repetition > .1 ? chip(`Repeated trigrams: ${pct(s.repetition)}`,'warn') : ''}
+      ${turn.token_repetition > .1 ? chip(`Repeated token trigrams: ${pct(turn.token_repetition)}`,'warn') : ''}
       ${details('Score evidence & requested fields',s)}
     </div></article>`;
 }
@@ -72,7 +73,8 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
   let html = '<div class="toolbar">';
   if (split) html += `<label>Split<select id="split-filter">${(outputs ? ['test','validation'] : ['train','validation','test']).map(s => option(s,s,state.split)).join('')}</select></label>`;
   if (outputs) {
-    const conditions = [...new Set(data[state.split].map(e => e.condition))];
+    const rows=state.view==='strength'?data.strength.episodes:data[state.split];
+    const conditions = [...new Set(rows.map(e => e.condition))];
     if (!conditions.includes(state.condition)) state.condition = conditions.find(c => c !== 'baseline') || 'steered';
     html += `<label>Compare baseline with<select id="condition-filter">${conditions.filter(c => c !== 'baseline').map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
   }
@@ -133,8 +135,9 @@ function overview() {
 function calcUtility(m){return m.requested_coverage-m.premature_fraction-m.wrong_value_rate-m.truncation_rate;}
 
 function outputs() {
-  let html=toolbar({split:true,patterns:true,outputs:true});
-  const available=data[state.split];
+  const stress=state.view==='strength';
+  let html=toolbar({split:!stress,patterns:true,outputs:true});
+  const available=stress?data.strength.episodes:data[state.split];
   const textMatches = new Set(available.filter(e => (e.condition==='baseline'||e.condition===state.condition) && e.turns.some(t=>t.text.toLowerCase().includes(state.search.toLowerCase()))).map(e=>e.case_id));
   const cases=data.cases.filter(c=>c.split===state.split && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
   if (!cases.length) return html+empty('No matching cases. Change your filters.');
@@ -145,7 +148,7 @@ function outputs() {
   html+='</aside><div>';
   html+=`<div class="record"><div class="record-title"><strong>${esc(chosen.id)}</strong>${chip(chosen.pattern)}</div>${facts(chosen)}<p>Green highlights mark detected fact values; orange marks first disclosure before a request. Red marks a possible wrong-value match.</p></div>`;
   const auditNotes=data.overview.audit?.test_review?.notes;
-  if(state.split==='test'&&auditNotes) {
+  if(!stress&&state.split==='test'&&auditNotes) {
     for(const condition of ['baseline',state.condition]) {
       const note=auditNotes[condition]?.[chosen.id];
       if(note)html+=`<div class="callout">${details(`Assistant transcript audit: ${label(condition)}`,note)}</div>`;
@@ -158,6 +161,17 @@ function outputs() {
   html+=details('Conversation-level scores',{baseline:base?.score,comparison:treatment?.score});
   html+=`<p class="small"><a href="${comparisonLink()}">Link to this comparison</a></p>`;
   return html+'</div></div>';
+}
+
+function strength() {
+  const s=data.strength;
+  let html=`<div class="panel"><h2>What happens at very large strength?</h2><p class="subtext">Same block ${s.layer}, same direction, same ${s.cases} validation conversations. Alpha multiplies the raw selective-minus-oversharing vector; its norm is ${s.vector_norm.toFixed(3)}. Baseline and α 1 / α 2 reuse the saved original outputs.</p><div class="callout">Exploratory follow-up on validation, with no new layer selection. Low disclosure alone is insufficient: inspect coverage, token cutoffs and the actual answers.</div><div class="table-wrap"><table><thead><tr><th>Strength</th><th class="number">Added vector norm</th><th class="number">Premature</th><th class="number">Coverage</th><th class="number">Cutoff</th><th class="number">Token repetition</th><th class="number">Mean tokens</th></tr></thead><tbody>`;
+  for(const c of s.conditions) {
+    const m=s.metrics[c.name];
+    html+=`<tr><td>${esc(label(c.name))}</td><td class="number">${(c.alpha*s.vector_norm).toFixed(2)}</td><td class="number">${pct(m.premature_fraction,2)}</td><td class="number">${pct(m.requested_coverage,2)}</td><td class="number">${pct(m.truncation_rate)}</td><td class="number">${pct(m.token_repetition_rate)}</td><td class="number">${m.mean_tokens.toFixed(1)}</td></tr>`;
+  }
+  html+=`</tbody></table></div><p>${esc(s.observations)}</p><p class="small muted">${esc(s.interpretation)}</p>${details('Token repetition definition',s.token_repetition_definition)}${s.review?details('Transcript observations',s.review):''}${details('Paired intervals against baseline',s.comparisons)}<p class="small"><a href="data/strength.json" download>Download scores and responses ↓</a> · <a href="data/strength-artifacts.zip" download>Exact prompts, tokens and run artifacts ↓</a></p></div>`;
+  return html+outputs();
 }
 
 function paginate(items, draw, pageSize=10) {
@@ -194,7 +208,7 @@ function method() {
 
 async function render() {
   const sequence = ++renderSequence;
-  const needed = state.view==='outputs' ? state.split : state.view==='contrasts' ? 'contrasts' : null;
+  const needed = state.view==='outputs' ? state.split : state.view==='contrasts' ? 'contrasts' : state.view==='strength' ? 'strength' : null;
   if (needed && !data[needed]) {
     $('#content').innerHTML='<p class="loading">Loading saved responses…</p>';
     try { await loadData(needed); }
@@ -202,17 +216,17 @@ async function render() {
     if (sequence !== renderSequence) return;
   }
   document.querySelectorAll('#navigation a').forEach(a=>a.classList.toggle('active',a.hash===`#${state.view}`));
-  const draw={overview,outputs,dataset,contrasts,method}[state.view]||overview;
+  const draw={overview,outputs,dataset,contrasts,method,strength}[state.view]||overview;
   $('#content').innerHTML=draw();
   wireToolbar();
   document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>{state.caseId=button.dataset.case;render();});
   if ($('#previous-page')) $('#previous-page').onclick=()=>{state.page--;render();$('#navigation').scrollIntoView();};
   if ($('#next-page')) $('#next-page').onclick=()=>{state.page++;render();$('#navigation').scrollIntoView();};
-  if (state.view==='outputs') history.replaceState(null,'',comparisonLink());
+  if (['outputs','strength'].includes(state.view)) history.replaceState(null,'',comparisonLink());
 }
 
 function comparisonLink() {
-  return '#outputs?' + new URLSearchParams({split:state.split,condition:state.condition,case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,condition:state.condition,case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
 }
 
 function navigate() {
@@ -224,6 +238,10 @@ function navigate() {
   if(['test','validation'].includes(params.get('split')))state.split=params.get('split');
   if(state.view==='outputs'&&!data.overview.conversation_counts.test&&data.overview.conversation_counts.validation)state.split='validation';
   if(state.view==='outputs'&&state.split==='train')state.split='test';
+  if(state.view==='strength') {
+    state.split='validation';
+    if(!params.has('condition'))state.condition='alpha_64';
+  }
   render();
 }
 

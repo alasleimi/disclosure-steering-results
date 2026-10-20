@@ -34,6 +34,28 @@ These are assistant judgments, not independent human annotations. The published 
 Compare conditions within this run: records, question families and precision differ from the original pilot.
 
 <!-- V2_RESULT_END -->
+
+<!-- STRENGTH_RESULT_START -->
+## Large-strength follow-up
+
+**Exploratory results on the same 96 validation cases**, at fixed block 11.
+Baseline and alpha 1/2 reuse original saved conversations; alpha 4/16/64/256 are new.
+This is a separate follow-up, not a replacement for the held-out results above.
+
+| Alpha | Premature fraction | Requested coverage | Token cutoff |
+|---:|---:|---:|---:|
+| 0 | 22.92% | 96.42% | 1.04% |
+| 1 | 21.09% | 96.09% | 0.52% |
+| 2 | 17.71% | 89.97% | 4.95% |
+| 4 | 19.01% | 64.32% | 22.92% |
+| 16 | 0.00% | 0.00% | 100.00% |
+| 64 | 0.00% | 0.00% | 100.00% |
+| 256 | 0.00% | 0.00% | 100.00% |
+
+[Inspect the strength sweep and outputs](https://alasleimi.github.io/disclosure-steering-results/#strength).
+Read coverage and cutoffs alongside leakage: repetitive output with no facts is not successful selective disclosure.
+<!-- STRENGTH_RESULT_END -->
+
 [All responses and scores](data/test.json) · [Complete run artifacts](data/experiment-artifacts.zip) · [Training drafts and review](data/training-drafts.zip)
 
 The study uses Qwen2.5-0.5B-Instruct on 192 training, 96 validation and 192 test
