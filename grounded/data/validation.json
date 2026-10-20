@@ -116374,18 +116374,18 @@
             }
           ],
           "evidence": {
-            "material=tin": [
-              {
-                "text": "tin",
-                "start": 49,
-                "end": 52
-              }
-            ],
             "material=wood": [
               {
                 "text": "wooden",
                 "start": 92,
                 "end": 98
+              }
+            ],
+            "material=tin": [
+              {
+                "text": "tin",
+                "start": 49,
+                "end": 52
               }
             ],
             "repair=the base was repaired": [
@@ -142238,11 +142238,11 @@
           "wrong": [
             {
               "field": "material",
-              "value": "brass"
+              "value": "bronze"
             },
             {
               "field": "material",
-              "value": "bronze"
+              "value": "brass"
             }
           ],
           "evidence": {
@@ -142267,18 +142267,18 @@
                 "end": 83
               }
             ],
-            "material=brass": [
-              {
-                "text": "brass",
-                "start": 269,
-                "end": 274
-              }
-            ],
             "material=bronze": [
               {
                 "text": "bronze",
                 "start": 278,
                 "end": 284
+              }
+            ],
+            "material=brass": [
+              {
+                "text": "brass",
+                "start": 269,
+                "end": 274
               }
             ],
             "repair=the hands were replaced": [
@@ -142330,26 +142330,14 @@
           "wrong": [
             {
               "field": "material",
-              "value": "brass"
+              "value": "bronze"
             },
             {
               "field": "material",
-              "value": "bronze"
+              "value": "brass"
             }
           ],
           "evidence": {
-            "material=brass": [
-              {
-                "text": "brass",
-                "start": 98,
-                "end": 103
-              },
-              {
-                "text": "brass",
-                "start": 180,
-                "end": 185
-              }
-            ],
             "material=bronze": [
               {
                 "text": "bronze",
@@ -142360,6 +142348,18 @@
                 "text": "bronze",
                 "start": 189,
                 "end": 195
+              }
+            ],
+            "material=brass": [
+              {
+                "text": "brass",
+                "start": 98,
+                "end": 103
+              },
+              {
+                "text": "brass",
+                "start": 180,
+                "end": 185
               }
             ],
             "repair=the hands were replaced": [
@@ -180553,6 +180553,13 @@
                 "end": 52
               }
             ],
+            "material=wood": [
+              {
+                "text": "wood",
+                "start": 142,
+                "end": 146
+              }
+            ],
             "material=brass": [
               {
                 "text": "brass",
@@ -180563,13 +180570,6 @@
                 "text": "brass",
                 "start": 151,
                 "end": 156
-              }
-            ],
-            "material=wood": [
-              {
-                "text": "wood",
-                "start": 142,
-                "end": 146
               }
             ]
           },
@@ -180647,6 +180647,13 @@
                 "end": 71
               }
             ],
+            "material=wood": [
+              {
+                "text": "wood",
+                "start": 153,
+                "end": 157
+              }
+            ],
             "material=brass": [
               {
                 "text": "brass",
@@ -180657,13 +180664,6 @@
                 "text": "brass",
                 "start": 162,
                 "end": 167
-              }
-            ],
-            "material=wood": [
-              {
-                "text": "wood",
-                "start": 153,
-                "end": 157
               }
             ],
             "repair=the finish was restored": [

@@ -1,23 +1,45 @@
 # Disclosure lab: viewer and results
 
-Interactive viewer: **https://alasleimi.github.io/disclosure-steering-results/**
+Latest experiment: **[Grounded exhibits, outputs and scores](https://alasleimi.github.io/disclosure-steering-results/grounded/)**
+
+[Previous experiment and large-strength sweep](https://alasleimi.github.io/disclosure-steering-results/).
 
 This repository contains only a static viewer and exported synthetic research
 data. The experiment implementation and model weights are not included.
 
 <!-- V3_RESULT_START -->
-## Grounded exhibits: length and prefix controls
+## Measured grounded v3 result
 
-[Open the new experiment](https://alasleimi.github.io/disclosure-steering-results/grounded/).
-The dataset contains 480 distinct records across 12 named exhibit types.
-There are 303 answer-body contrasts from 160 training records, each repeated
-under two opener families: 606 pairs with exactly matched token counts.
-Required facts and allowed context are annotated separately.
+**192 training records, 96 validation records, 192 held-out records; 9,216 evaluated responses.**
+303 answer-body contrasts from 160 training records, each under two opener families:
+606 pairs with exactly matched Qwen token counts. Block 11 and alpha 1 were fixed in advance.
 
-The viewer currently shows a progress snapshot. Block 11 and alpha 1 are fixed;
-eight conditions will be compared on 96 validation and 192 test records.
-Full-answer pooling and a same-fact length-only direction are explicit controls.
-These controls test possible biases; they do not guarantee a disentangled vector.
+| Condition | Premature fraction | Requested coverage | Token cutoff | Mean tokens |
+|---|---:|---:|---:|---:|
+| Baseline | 1.95% | 86.82% | 0.78% | 25.2 |
+| Matched steering | 9.11% | 87.27% | 13.02% | 42.9 |
+| Opposite direction | 0.65% | 87.37% | 0.00% | 18.7 |
+| Full-answer mean | 8.72% | 87.99% | 13.02% | 42.8 |
+| Same-fact brevity vector | 0.26% | 87.92% | 0.00% | 18.1 |
+| Selective instruction | 5.08% | 88.31% | 1.17% | 31.2 |
+| Brevity instruction | 2.60% | 84.86% | 0.26% | 25.3 |
+| Oracle masking | 0.00% | 85.29% | 0.26% | 24.3 |
+
+Matched steering changes **192/192 conversations**.
+Premature disclosure: +7.16 percentage points versus baseline (paired 95% interval [+4.82, +9.51]).
+Requested coverage: +0.46 percentage points versus baseline (paired 95% interval [-2.12, +3.22]).
+
+**The primary vector worsened disclosure control:** replies became longer and premature disclosure increased,
+with no clear improvement in requested coverage. This result concerns this fixed recipe and model.
+
+Opener-family cosine: **0.997**; full-answer/suffix-mean cosine: **0.9997**.
+The primary direction has cosine **-0.769** with the same-fact short-minus-long control. Matching token counts does not remove style or information-density effects.
+
+An assistant reviewed 384 responses from 12 preselected test cases across all eight conditions.
+The fixed lexical scorer can miss paraphrases and unsupported claims; this is not independent human evaluation.
+The v3 task and scorer differ from v2, so compare conditions within each experiment.
+
+[Inspect responses, scores and the dataset](https://alasleimi.github.io/disclosure-steering-results/grounded/).
 <!-- V3_RESULT_END -->
 
 <!-- V2_RESULT_START -->
@@ -71,7 +93,9 @@ This is a separate follow-up, not a replacement for the held-out results above.
 Read coverage and cutoffs alongside leakage: repetitive output with no facts is not successful selective disclosure.
 <!-- STRENGTH_RESULT_END -->
 
-[All responses and scores](data/test.json) · [Complete run artifacts](data/experiment-artifacts.zip) · [Training drafts and review](data/training-drafts.zip)
+## V2 artifacts and reproduction notes
+
+[All v2 responses and scores](data/test.json) · [Complete v2 run artifacts](data/experiment-artifacts.zip) · [V2 training drafts and review](data/training-drafts.zip)
 
 The study uses Qwen2.5-0.5B-Instruct on 192 training, 96 validation and 192 test
 museum-object records, with four turns per case. Generated contrast answers are

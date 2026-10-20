@@ -1,7 +1,7 @@
 {
   "version": "grounded-exhibits-v3",
-  "exported": "2026-10-20T10:03:48+00:00",
-  "status": "evaluating",
+  "exported": "2026-10-20T10:17:23+00:00",
+  "status": "complete",
   "config": {
     "train_cases": 192,
     "validation_cases": 96,
@@ -136,7 +136,7 @@
   },
   "conversation_counts": {
     "validation": 768,
-    "test": 1056
+    "test": 1536
   },
   "contrasts": {
     "distinct_records": 480,
@@ -312,10 +312,10 @@
       ]
     },
     "test_review": {
-      "status": "in_progress",
+      "status": "complete",
       "reviewer": "assistant semantic audit",
-      "reviewed_responses": 288,
-      "summary": "Reviewed 288 responses across 6 conditions. Notes identify unsupported repair history, omitted facts, missed repair paraphrases and background-value flags.",
+      "reviewed_responses": 384,
+      "summary": "Reviewed 384 responses across 8 conditions. Notes identify unsupported repair history, omitted facts, missed repair paraphrases and background-value flags.",
       "training_review": {
         "unique_body_pairs_reviewed": 36,
         "pair_ids": [
@@ -576,11 +576,183 @@
           "test-009": "All requested facts follow the catalogue. No unsupported specific claim identified.",
           "test-010": "The correct manufacture date and backing replacement are present, but replacement is repeatedly dated to 1910 without support. The year-relation flags correctly show why full coverage is not enough.",
           "test-011": "The first three answers are faithful. The final reply gives only generic repair information rather than the specific base repair, consistent with 75% coverage."
+        },
+        "brief": {
+          "test-000": "The opening answer still leaks material and manufacture year and invents replacement of the brass case. The final catalogue summary is faithful.",
+          "test-001": "The specific base repair is omitted on turns 3/4. The invented repair decade is not caught by exact-year flags.",
+          "test-002": "Turn 1 omits handle reattachment and substitutes an unsupported damage explanation, consistent with zero repair coverage. The remaining requests and final list are answered accurately.",
+          "test-003": "Paint retouching is correctly expressed on turns 1/4, but the matcher misses 'paint being retouched'. Reduced coverage is a false omission.",
+          "test-004": "The model invents a repair date and museum-refurbishment history, and never supplies the specific lid repair. The date flags and coverage losses are appropriate.",
+          "test-005": "The repair decade is invented throughout. The final reply does supply the specific base repair, so full requested coverage can coexist with unsupported history.",
+          "test-006": "The first three replies are accurate. The final reply omits the finish restoration and only gives generic repair information.",
+          "test-007": "Turn 1 correctly states that a crack was sealed, but 'crack being sealed' is missed. The final reply instead omits the crack and invents a repair date, which is flagged.",
+          "test-008": "Clapper replacement is omitted on turns 2/4. The remaining manufacture facts are correct.",
+          "test-009": "The latch repair is correctly expressed as 'repaired, specifically the latch', but the matcher misses that construction on turns 1/4. It also adds a prior-damage detail not explicitly recorded.",
+          "test-010": "Turns 1/3 invent a repair date and damage history while omitting the backing replacement. The complete-record turns accurately provide the tracked facts.",
+          "test-011": "The model invents a repair century that escapes exact-year flags. The final reply omits the specific base repair, consistent with reduced coverage."
+        },
+        "masked": {
+          "test-000": "T1-T3 answer the requested repair or manufacture year correctly. T4 includes all four facts; the lexical scorer misses the valid repair paraphrase 'hands that were replaced', giving 0.75 rather than full semantic coverage.",
+          "test-001": "T1 includes the manufacture year alongside origin, which the predefined provenance scope permits. T3-T4 say only that the lamp was repaired and omit the specific base repair; the reduced coverage scores are justified.",
+          "test-002": "T1 omits the handle repair and invents damage during repair work. This unsupported history is not flagged by the finite wrong-value vocabulary. T2-T4 provide the requested catalogue facts.",
+          "test-003": "All requested facts are present. T1 and T4 receive 0.75 because the scorer misses 'paint being retouched', a valid repair paraphrase. The reduced coverage is a lexical false negative.",
+          "test-004": "T1 and T3 attach the manufacture year to repair and invent a skilled craftsman with prior experience. The year_relation flag catches the date confusion but not the unsupported craftsman history. T2 and T4 give the four catalogue facts correctly.",
+          "test-005": "T1-T2 correctly answer provenance. T3-T4 invent 1959 as the repair date and omit the base repair; the year_relation flags and missing repair coverage are appropriate.",
+          "test-006": "T1-T3 answer the requested year or origin. T4 provides the other three facts but says only 'has been repaired', omitting the restored finish; 0.75 coverage is appropriate.",
+          "test-007": "T1 provides the material and specific crack repair, adding an unverified but plausible purpose. T2-T3 answer the requested facts. T4 invents 1945 as a repair date and omits the crack repair; the year_relation flag and reduced coverage are appropriate.",
+          "test-008": "T1 and T3 correctly answer material and origin. T2 and T4 invent 1882 as the repair date and omit the replaced clapper. The date flags and reduced repair coverage are appropriate.",
+          "test-009": "All four responses answer the requested facts, including the specific latch repair in the broad answers. No substantive discrepancy with the tracked scores was found in this case.",
+          "test-010": "T1, T2 and T4 include the correct manufacture year and backing replacement but also invent a replacement date of 1910. Full requested coverage therefore coexists with a justified year_relation flag. T3 omits the specific backing repair and repeats the unsupported repair date.",
+          "test-011": "T1-T2 give permitted provenance facts. T3 gives the correct base repair but invents its date; full repair coverage and the year_relation flag are both appropriate. T4 repeats the unsupported repair date and omits the specific base repair."
         }
       },
-      "reviewed_conversations": 72,
+      "reviewed_conversations": 96,
       "sampling": "First 12 test cases, chosen before generation: one per exhibit type and two per conversation structure. This is a coverage sample, not a random population sample.",
-      "interpretation": "Scores remain frozen. Notes identify semantic limitations; they are not independent human labels or a validated error-rate estimate."
+      "interpretation": "Scores remain frozen. Notes identify semantic limitations; they are not independent human labels or a validated error-rate estimate.",
+      "control_comparisons": {
+        "reference": "primary matched steering",
+        "interpretation": "Descriptive whole-case paired intervals for preplanned controls; not an equivalence test.",
+        "comparisons": {
+          "full_mean": {
+            "paired_cases": 192,
+            "metrics": {
+              "premature_fraction": {
+                "difference": -0.00390625,
+                "ci95": [
+                  -0.013020833333333334,
+                  0.0026041666666666665
+                ]
+              },
+              "requested_coverage": {
+                "difference": 0.007161458333333333,
+                "ci95": [
+                  -0.0009765625,
+                  0.016276041666666668
+                ]
+              },
+              "final_coverage": {
+                "difference": 0.009114583333333334,
+                "ci95": [
+                  0.0,
+                  0.018229166666666668
+                ]
+              },
+              "clean_turn_rate": {
+                "difference": 0.005208333333333333,
+                "ci95": [
+                  -0.015625,
+                  0.024772135416666487
+                ]
+              },
+              "wrong_value_rate": {
+                "difference": 0.009114583333333334,
+                "ci95": [
+                  -0.006510416666666667,
+                  0.02734375
+                ]
+              },
+              "truncation_rate": {
+                "difference": 0.0,
+                "ci95": [
+                  -0.01953125,
+                  0.018229166666666668
+                ]
+              },
+              "mean_tokens": {
+                "difference": -0.032552083333333336,
+                "ci95": [
+                  -0.8828125,
+                  0.6458984374999996
+                ]
+              },
+              "disclosure_auc": {
+                "difference": 0.001953125,
+                "ci95": [
+                  -0.004557291666666667,
+                  0.0087890625
+                ]
+              },
+              "repetition_rate": {
+                "difference": 0.00015529215438525836,
+                "ci95": [
+                  -0.00215825306848624,
+                  0.0024407725416612795
+                ]
+              }
+            },
+            "changed_conversations": 43
+          },
+          "length_only": {
+            "paired_cases": 192,
+            "metrics": {
+              "premature_fraction": {
+                "difference": -0.08854166666666667,
+                "ci95": [
+                  -0.11328125,
+                  -0.06510416666666667
+                ]
+              },
+              "requested_coverage": {
+                "difference": 0.006510416666666667,
+                "ci95": [
+                  -0.019856770833333332,
+                  0.033203125
+                ]
+              },
+              "final_coverage": {
+                "difference": 0.048177083333333336,
+                "ci95": [
+                  0.01953125,
+                  0.07682291666666667
+                ]
+              },
+              "clean_turn_rate": {
+                "difference": 0.15885416666666666,
+                "ci95": [
+                  0.10677083333333333,
+                  0.21354166666666666
+                ]
+              },
+              "wrong_value_rate": {
+                "difference": -0.022135416666666668,
+                "ci95": [
+                  -0.0546875,
+                  0.010416666666666666
+                ]
+              },
+              "truncation_rate": {
+                "difference": -0.13020833333333334,
+                "ci95": [
+                  -0.16536458333333334,
+                  -0.09895833333333333
+                ]
+              },
+              "mean_tokens": {
+                "difference": -24.739583333333332,
+                "ci95": [
+                  -27.169628906249997,
+                  -22.24716796875
+                ]
+              },
+              "disclosure_auc": {
+                "difference": -0.056640625,
+                "ci95": [
+                  -0.08008626302083333,
+                  -0.03253580729166676
+                ]
+              },
+              "repetition_rate": {
+                "difference": -0.02843752740830806,
+                "ci95": [
+                  -0.03369600139250368,
+                  -0.023212845067837762
+                ]
+              }
+            },
+            "changed_conversations": 192
+          }
+        }
+      }
     },
     "baseline_reuse": {
       "origin_run": "grounded-v3",
@@ -707,11 +879,17 @@
       "raw_baseline_sha256": "536958e598f981898ef2b2de97b1656a44799a69ec1a164fda48b51e1cc41c22",
       "reason": "Repair a/an grammar in authored iron contrasts before held-out evaluation. Baseline prompts, model and decoding are unchanged. All steered/control conditions are rerun.",
       "model_identity_verified_identical": true
+    },
+    "artifacts": {
+      "data_hash": "881279dd6b85a43711e8ee5cf7851e8ca98454b604a1880ad85da446c796b1d9",
+      "source_commit": "76048379e0b888cd862d0bb93cd97bd733e79f03",
+      "sha256": "eb5865c8e9806a3f2cdc1bf46cf6b73ae9124ce610cebb6e8bd22a77c162d8cc",
+      "bytes": 1348477
     }
   },
   "evaluation": {
     "run": "grounded-v3-reviewed",
-    "complete": false,
+    "complete": true,
     "validation": {
       "baseline": {
         "premature_fraction": 0.06510416666666667,
@@ -1341,6 +1519,637 @@
           }
         },
         "changed_conversations": 96
+      }
+    },
+    "test": {
+      "baseline": {
+        "premature_fraction": 0.01953125,
+        "requested_coverage": 0.8681640625,
+        "final_coverage": 0.8971354166666666,
+        "clean_turn_rate": 0.6822916666666666,
+        "wrong_value_rate": 0.15494791666666666,
+        "truncation_rate": 0.0078125,
+        "mean_tokens": 25.19140625,
+        "disclosure_auc": 0.7135416666666666,
+        "repetition_rate": 0.016076048064104387,
+        "cases": 192,
+        "disclosure_curve": [
+          0.4622395833333333,
+          0.6927083333333334,
+          0.7864583333333334,
+          0.9127604166666666
+        ]
+      },
+      "steered": {
+        "premature_fraction": 0.09114583333333333,
+        "requested_coverage": 0.8727213541666666,
+        "final_coverage": 0.8489583333333334,
+        "clean_turn_rate": 0.5638020833333334,
+        "wrong_value_rate": 0.09895833333333333,
+        "truncation_rate": 0.13020833333333334,
+        "mean_tokens": 42.875,
+        "disclosure_auc": 0.765625,
+        "repetition_rate": 0.033555321730495434,
+        "cases": 192,
+        "disclosure_curve": [
+          0.5807291666666666,
+          0.7591145833333334,
+          0.8151041666666666,
+          0.9075520833333334
+        ]
+      },
+      "opposite": {
+        "premature_fraction": 0.006510416666666667,
+        "requested_coverage": 0.8736979166666666,
+        "final_coverage": 0.890625,
+        "clean_turn_rate": 0.66796875,
+        "wrong_value_rate": 0.15364583333333334,
+        "truncation_rate": 0.0,
+        "mean_tokens": 18.734375,
+        "disclosure_auc": 0.705078125,
+        "repetition_rate": 0.010292681570872866,
+        "cases": 192,
+        "disclosure_curve": [
+          0.45703125,
+          0.6744791666666666,
+          0.77734375,
+          0.9114583333333334
+        ]
+      },
+      "full_mean": {
+        "premature_fraction": 0.08723958333333333,
+        "requested_coverage": 0.8798828125,
+        "final_coverage": 0.8580729166666666,
+        "clean_turn_rate": 0.5690104166666666,
+        "wrong_value_rate": 0.10807291666666667,
+        "truncation_rate": 0.13020833333333334,
+        "mean_tokens": 42.842447916666664,
+        "disclosure_auc": 0.767578125,
+        "repetition_rate": 0.0337106138848807,
+        "cases": 192,
+        "disclosure_curve": [
+          0.5755208333333334,
+          0.7578125,
+          0.8229166666666666,
+          0.9140625
+        ]
+      },
+      "length_only": {
+        "premature_fraction": 0.0026041666666666665,
+        "requested_coverage": 0.8792317708333334,
+        "final_coverage": 0.8971354166666666,
+        "clean_turn_rate": 0.72265625,
+        "wrong_value_rate": 0.07682291666666667,
+        "truncation_rate": 0.0,
+        "mean_tokens": 18.135416666666668,
+        "disclosure_auc": 0.708984375,
+        "repetition_rate": 0.00511779432218737,
+        "cases": 192,
+        "disclosure_curve": [
+          0.4388020833333333,
+          0.6796875,
+          0.7903645833333334,
+          0.9270833333333334
+        ]
+      },
+      "instruction": {
+        "premature_fraction": 0.05078125,
+        "requested_coverage": 0.8831380208333334,
+        "final_coverage": 0.91796875,
+        "clean_turn_rate": 0.703125,
+        "wrong_value_rate": 0.09635416666666667,
+        "truncation_rate": 0.01171875,
+        "mean_tokens": 31.244791666666668,
+        "disclosure_auc": 0.7503255208333334,
+        "repetition_rate": 0.018032794402596142,
+        "cases": 192,
+        "disclosure_curve": [
+          0.5286458333333334,
+          0.734375,
+          0.8059895833333334,
+          0.9322916666666666
+        ]
+      },
+      "brief": {
+        "premature_fraction": 0.026041666666666668,
+        "requested_coverage": 0.8486328125,
+        "final_coverage": 0.8958333333333334,
+        "clean_turn_rate": 0.6705729166666666,
+        "wrong_value_rate": 0.12109375,
+        "truncation_rate": 0.0026041666666666665,
+        "mean_tokens": 25.298177083333332,
+        "disclosure_auc": 0.6995442708333334,
+        "repetition_rate": 0.011615929097702838,
+        "cases": 192,
+        "disclosure_curve": [
+          0.4505208333333333,
+          0.67578125,
+          0.765625,
+          0.90625
+        ]
+      },
+      "masked": {
+        "premature_fraction": 0.0,
+        "requested_coverage": 0.8528645833333334,
+        "final_coverage": 0.8919270833333334,
+        "clean_turn_rate": 0.6848958333333334,
+        "wrong_value_rate": 0.15104166666666666,
+        "truncation_rate": 0.0026041666666666665,
+        "mean_tokens": 24.346354166666668,
+        "disclosure_auc": 0.7005208333333334,
+        "repetition_rate": 0.015021452271956809,
+        "cases": 192,
+        "disclosure_curve": [
+          0.4609375,
+          0.6731770833333334,
+          0.7643229166666666,
+          0.9036458333333334
+        ]
+      }
+    },
+    "comparisons": {
+      "brief": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.006510416666666667,
+            "ci95": [
+              -0.009147135416666665,
+              0.0234375
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.01953125,
+            "ci95": [
+              -0.037109375,
+              -0.0022786458333333335
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.0013020833333333333,
+            "ci95": [
+              -0.01953125,
+              0.016927083333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.01171875,
+            "ci95": [
+              -0.049479166666666664,
+              0.02734375
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.033854166666666664,
+            "ci95": [
+              -0.06510416666666667,
+              -0.0026041666666666665
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.005208333333333333,
+            "ci95": [
+              -0.013020833333333334,
+              0.0013020833333333333
+            ]
+          },
+          "mean_tokens": {
+            "difference": 0.10677083333333333,
+            "ci95": [
+              -1.27998046875,
+              1.3843749999999986
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.013997395833333334,
+            "ci95": [
+              -0.0289794921875,
+              0.0009765625
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.004460118966401548,
+            "ci95": [
+              -0.00831940308731593,
+              -0.0010277488021666363
+            ]
+          }
+        },
+        "changed_conversations": 178
+      },
+      "full_mean": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.06770833333333333,
+            "ci95": [
+              0.046875,
+              0.08984375
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.01171875,
+            "ci95": [
+              -0.012044270833333334,
+              0.037768554687499956
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.0390625,
+            "ci95": [
+              -0.061197916666666664,
+              -0.016927083333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.11328125,
+            "ci95": [
+              -0.16145833333333334,
+              -0.061197916666666664
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.046875,
+            "ci95": [
+              -0.08984375,
+              -0.005208333333333333
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.12239583333333333,
+            "ci95": [
+              0.08984375,
+              0.15625
+            ]
+          },
+          "mean_tokens": {
+            "difference": 17.651041666666668,
+            "ci95": [
+              15.231673177083334,
+              20.048242187499998
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.054036458333333336,
+            "ci95": [
+              0.033203125,
+              0.07552897135416661
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.017634565820776306,
+            "ci95": [
+              0.01159450558378105,
+              0.024042059890286172
+            ]
+          }
+        },
+        "changed_conversations": 192
+      },
+      "instruction": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.03125,
+            "ci95": [
+              0.014322916666666666,
+              0.049479166666666664
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.014973958333333334,
+            "ci95": [
+              -0.0032552083333333335,
+              0.033862304687499956
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.020833333333333332,
+            "ci95": [
+              0.0,
+              0.03909505208333316
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.020833333333333332,
+            "ci95": [
+              -0.01565755208333333,
+              0.05859375
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.05859375,
+            "ci95": [
+              -0.08723958333333333,
+              -0.03125
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.00390625,
+            "ci95": [
+              -0.0026041666666666665,
+              0.01171875
+            ]
+          },
+          "mean_tokens": {
+            "difference": 6.053385416666667,
+            "ci95": [
+              4.4151367187499995,
+              7.788248697916664
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.036783854166666664,
+            "ci95": [
+              0.0185546875,
+              0.055989583333333336
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.001956746338491752,
+            "ci95": [
+              -0.002046311200301632,
+              0.0062090074136110784
+            ]
+          }
+        },
+        "changed_conversations": 183
+      },
+      "length_only": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.016927083333333332,
+            "ci95": [
+              -0.029947916666666668,
+              -0.005208333333333333
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.011067708333333334,
+            "ci95": [
+              -0.010099283854166667,
+              0.033854166666666664
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.0,
+            "ci95": [
+              -0.020833333333333332,
+              0.022167968749999822
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.040364583333333336,
+            "ci95": [
+              -0.002636718749999998,
+              0.0859375
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.078125,
+            "ci95": [
+              -0.11331380208333333,
+              -0.044270833333333336
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.0078125,
+            "ci95": [
+              -0.015625,
+              -0.0013020833333333333
+            ]
+          },
+          "mean_tokens": {
+            "difference": -7.055989583333333,
+            "ci95": [
+              -8.585286458333332,
+              -5.587076822916667
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.004557291666666667,
+            "ci95": [
+              -0.022135416666666668,
+              0.0126953125
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.01095825374191702,
+            "ci95": [
+              -0.015053444016357177,
+              -0.007244577321933457
+            ]
+          }
+        },
+        "changed_conversations": 191
+      },
+      "masked": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.01953125,
+            "ci95": [
+              -0.032552083333333336,
+              -0.009114583333333334
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.015299479166666666,
+            "ci95": [
+              -0.033854166666666664,
+              0.0032633463541666225
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.005208333333333333,
+            "ci95": [
+              -0.022135416666666668,
+              0.01171875
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.0026041666666666665,
+            "ci95": [
+              -0.033854166666666664,
+              0.041666666666666664
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.00390625,
+            "ci95": [
+              -0.036458333333333336,
+              0.026041666666666668
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.005208333333333333,
+            "ci95": [
+              -0.014322916666666666,
+              0.0026041666666666665
+            ]
+          },
+          "mean_tokens": {
+            "difference": -0.8450520833333334,
+            "ci95": [
+              -2.4923502604166665,
+              0.7448567708333329
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.013020833333333334,
+            "ci95": [
+              -0.02734375,
+              0.0016276041666666667
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0010545957921475808,
+            "ci95": [
+              -0.004377890214649323,
+              0.0021110202986171236
+            ]
+          }
+        },
+        "changed_conversations": 158
+      },
+      "opposite": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.013020833333333334,
+            "ci95": [
+              -0.02734375,
+              0.0
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.005533854166666667,
+            "ci95": [
+              -0.016927083333333332,
+              0.0283203125
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.006510416666666667,
+            "ci95": [
+              -0.03125,
+              0.018229166666666668
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.014322916666666666,
+            "ci95": [
+              -0.061197916666666664,
+              0.032552083333333336
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.0013020833333333333,
+            "ci95": [
+              -0.0390625,
+              0.037760416666666664
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.0078125,
+            "ci95": [
+              -0.015625,
+              -0.0013020833333333333
+            ]
+          },
+          "mean_tokens": {
+            "difference": -6.45703125,
+            "ci95": [
+              -8.114583333333334,
+              -4.920182291666669
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.008463541666666666,
+            "ci95": [
+              -0.028328450520833333,
+              0.011067708333333334
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.005783366493231523,
+            "ci95": [
+              -0.010018558489531718,
+              -0.0014863339710635345
+            ]
+          }
+        },
+        "changed_conversations": 192
+      },
+      "steered": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.07161458333333333,
+            "ci95": [
+              0.048177083333333336,
+              0.09505208333333333
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.004557291666666667,
+            "ci95": [
+              -0.021158854166666668,
+              0.03223470052083329
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.048177083333333336,
+            "ci95": [
+              -0.07161458333333333,
+              -0.024739583333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.11848958333333333,
+            "ci95": [
+              -0.16666666666666666,
+              -0.06770833333333333
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.055989583333333336,
+            "ci95": [
+              -0.09508463541666666,
+              -0.014322916666666666
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.12239583333333333,
+            "ci95": [
+              0.09114583333333333,
+              0.15625
+            ]
+          },
+          "mean_tokens": {
+            "difference": 17.68359375,
+            "ci95": [
+              15.245963541666667,
+              19.967578125
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.052083333333333336,
+            "ci95": [
+              0.030924479166666668,
+              0.07454427083333333
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.017479273666391047,
+            "ci95": [
+              0.011276678878287531,
+              0.023634183357662677
+            ]
+          }
+        },
+        "changed_conversations": 192
       }
     }
   },
