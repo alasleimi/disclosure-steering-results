@@ -5083,7 +5083,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "For this exhibit, the record says that it has a iron body, and it dates from 1857.",
+        "text": "For this exhibit, the record says that it has an iron body, and it dates from 1857.",
         "tokens": 24,
         "finish_reason": "authored"
       }
@@ -5153,15 +5153,15 @@
           "year=1857": [
             {
               "text": "1857",
-              "start": 77,
-              "end": 81
+              "start": 78,
+              "end": 82
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 48,
-              "end": 52
+              "start": 49,
+              "end": 53
             }
           ]
         },
@@ -5233,7 +5233,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "The information on record is that it has a iron body, and it dates from 1857.",
+        "text": "The information on record is that it has an iron body, and it dates from 1857.",
         "tokens": 22,
         "finish_reason": "authored"
       }
@@ -5303,15 +5303,15 @@
           "year=1857": [
             {
               "text": "1857",
-              "start": 72,
-              "end": 76
+              "start": 73,
+              "end": 77
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 43,
-              "end": 47
+              "start": 44,
+              "end": 48
             }
           ]
         },
@@ -32751,7 +32751,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "According to the catalogue, it has a iron body; its country of origin is France.",
+        "text": "According to the catalogue, it has an iron body; its country of origin is France.",
         "tokens": 18,
         "finish_reason": "authored"
       }
@@ -32821,15 +32821,15 @@
           "country=France": [
             {
               "text": "France",
-              "start": 73,
-              "end": 79
+              "start": 74,
+              "end": 80
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 37,
-              "end": 41
+              "start": 38,
+              "end": 42
             }
           ]
         },
@@ -32901,7 +32901,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "The catalogue entry tells us that it has a iron body; its country of origin is France.",
+        "text": "The catalogue entry tells us that it has an iron body; its country of origin is France.",
         "tokens": 19,
         "finish_reason": "authored"
       }
@@ -32971,15 +32971,15 @@
           "country=France": [
             {
               "text": "France",
-              "start": 79,
-              "end": 85
+              "start": 80,
+              "end": 86
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 43,
-              "end": 47
+              "start": 44,
+              "end": 48
             }
           ]
         },
@@ -47031,7 +47031,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "According to the catalogue, it has a iron body, and it comes from India.",
+        "text": "According to the catalogue, it has an iron body, and it comes from India.",
         "tokens": 17,
         "finish_reason": "authored"
       }
@@ -47097,15 +47097,15 @@
           "country=India": [
             {
               "text": "India",
-              "start": 66,
-              "end": 71
+              "start": 67,
+              "end": 72
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 37,
-              "end": 41
+              "start": 38,
+              "end": 42
             }
           ]
         },
@@ -47177,7 +47177,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "The catalogue entry tells us that it has a iron body, and it comes from India.",
+        "text": "The catalogue entry tells us that it has an iron body, and it comes from India.",
         "tokens": 18,
         "finish_reason": "authored"
       }
@@ -47243,15 +47243,15 @@
           "country=India": [
             {
               "text": "India",
-              "start": 72,
-              "end": 77
+              "start": 73,
+              "end": 78
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 43,
-              "end": 47
+              "start": 44,
+              "end": 48
             }
           ]
         },
@@ -66972,7 +66972,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "The museum record says that during restoration, the clapper was replaced; it has a iron body; it comes from India.",
+        "text": "The museum record says that during restoration, the clapper was replaced; it has an iron body; it comes from India.",
         "tokens": 25,
         "finish_reason": "authored"
       }
@@ -67059,15 +67059,15 @@
           "country=India": [
             {
               "text": "India",
-              "start": 108,
-              "end": 113
+              "start": 109,
+              "end": 114
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 83,
-              "end": 87
+              "start": 84,
+              "end": 88
             }
           ],
           "repair=the clapper was replaced": [
@@ -67152,7 +67152,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "From the catalogue, we know that during restoration, the clapper was replaced; it has a iron body; it comes from India.",
+        "text": "From the catalogue, we know that during restoration, the clapper was replaced; it has an iron body; it comes from India.",
         "tokens": 27,
         "finish_reason": "authored"
       }
@@ -67239,15 +67239,15 @@
           "country=India": [
             {
               "text": "India",
-              "start": 113,
-              "end": 118
+              "start": 114,
+              "end": 119
             }
           ],
           "material=iron": [
             {
               "text": "iron",
-              "start": 88,
-              "end": 92
+              "start": 89,
+              "end": 93
             }
           ],
           "repair=the clapper was replaced": [
@@ -101220,7 +101220,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "For this exhibit, the record says that during restoration, the clapper was replaced, and France is the country identified as its place of manufacture, and it has a iron body.",
+        "text": "For this exhibit, the record says that during restoration, the clapper was replaced, and France is the country identified as its place of manufacture, and it has an iron body.",
         "tokens": 36,
         "finish_reason": "authored"
       }
@@ -101314,8 +101314,8 @@
           "material=iron": [
             {
               "text": "iron",
-              "start": 164,
-              "end": 168
+              "start": 165,
+              "end": 169
             }
           ],
           "repair=the clapper was replaced": [
@@ -101365,7 +101365,7 @@
     },
     "length_control": {
       "short": "For this exhibit, the record says that it comes from France; its body is iron.",
-      "long": "For this exhibit, the record says that France is the country identified as its place of manufacture, and it has a iron body.",
+      "long": "For this exhibit, the record says that France is the country identified as its place of manufacture, and it has an iron body.",
       "short_tokens": 18,
       "long_tokens": 26,
       "shared_prefix_tokens": 8
@@ -101400,7 +101400,7 @@
         "finish_reason": "authored"
       },
       "oversharing": {
-        "text": "The information on record is that during restoration, the clapper was replaced, and France is the country identified as its place of manufacture, and it has a iron body.",
+        "text": "The information on record is that during restoration, the clapper was replaced, and France is the country identified as its place of manufacture, and it has an iron body.",
         "tokens": 34,
         "finish_reason": "authored"
       }
@@ -101494,8 +101494,8 @@
           "material=iron": [
             {
               "text": "iron",
-              "start": 159,
-              "end": 163
+              "start": 160,
+              "end": 164
             }
           ],
           "repair=the clapper was replaced": [
@@ -101545,7 +101545,7 @@
     },
     "length_control": {
       "short": "The information on record is that it comes from France; its body is iron.",
-      "long": "The information on record is that France is the country identified as its place of manufacture, and it has a iron body.",
+      "long": "The information on record is that France is the country identified as its place of manufacture, and it has an iron body.",
       "short_tokens": 16,
       "long_tokens": 24,
       "shared_prefix_tokens": 6

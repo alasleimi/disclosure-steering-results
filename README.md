@@ -5,6 +5,21 @@ Interactive viewer: **https://alasleimi.github.io/disclosure-steering-results/**
 This repository contains only a static viewer and exported synthetic research
 data. The experiment implementation and model weights are not included.
 
+<!-- V3_RESULT_START -->
+## Grounded exhibits: length and prefix controls
+
+[Open the new experiment](https://alasleimi.github.io/disclosure-steering-results/grounded/).
+The dataset contains 480 distinct records across 12 named exhibit types.
+There are 303 answer-body contrasts from 160 training records, each repeated
+under two opener families: 606 pairs with exactly matched token counts.
+Required facts and allowed context are annotated separately.
+
+The viewer currently shows a progress snapshot. Block 11 and alpha 1 are fixed;
+eight conditions will be compared on 96 validation and 192 test records.
+Full-answer pooling and a same-fact length-only direction are explicit controls.
+These controls test possible biases; they do not guarantee a disentangled vector.
+<!-- V3_RESULT_END -->
+
 <!-- V2_RESULT_START -->
 ## Measured v2 result
 
