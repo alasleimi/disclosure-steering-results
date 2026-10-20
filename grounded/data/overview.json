@@ -1,6 +1,6 @@
 {
   "version": "grounded-exhibits-v3",
-  "exported": "2026-10-20T09:36:02+00:00",
+  "exported": "2026-10-20T10:03:48+00:00",
   "status": "evaluating",
   "config": {
     "train_cases": 192,
@@ -136,7 +136,7 @@
   },
   "conversation_counts": {
     "validation": 768,
-    "test": 48
+    "test": 1056
   },
   "contrasts": {
     "distinct_records": 480,
@@ -312,10 +312,10 @@
       ]
     },
     "test_review": {
-      "status": "test_pending",
+      "status": "in_progress",
       "reviewer": "assistant semantic audit",
-      "reviewed_responses": 0,
-      "summary": "Training construction and development checks reviewed; held-out response review is pending.",
+      "reviewed_responses": 288,
+      "summary": "Reviewed 288 responses across 6 conditions. Notes identify unsupported repair history, omitted facts, missed repair paraphrases and background-value flags.",
       "training_review": {
         "unique_body_pairs_reviewed": 36,
         "pair_ids": [
@@ -405,7 +405,23 @@
             "label": "oversharing"
           }
         ],
-        "contrast_hash": "985256bd798238e37728a76093fa69423ffb8f2e69567c9605f76c3c3b0d2034"
+        "contrast_hash": "985256bd798238e37728a76093fa69423ffb8f2e69567c9605f76c3c3b0d2034",
+        "posthoc_topic_diagnostic": {
+          "scope": "303 unique body contrasts, excluding opener replicas",
+          "requested_field_occurrences": {
+            "year": 107,
+            "country": 111,
+            "material": 111,
+            "repair": 89
+          },
+          "extra_field_occurrences": {
+            "material": 113,
+            "repair": 133,
+            "year": 25,
+            "country": 32
+          },
+          "interpretation": "Topic frequencies are not balanced between labels. Negative replies contain one additional fact; exact token matching does not remove topic or information-density confounding."
+        }
       },
       "development_checks": [
         {
@@ -476,7 +492,95 @@
         }
       ],
       "development_caution": "Different records, prompts and scorer versions: these are development checks, not paired prompt-comparison results.",
-      "notes": {}
+      "notes": {
+        "baseline": {
+          "test-000": "Turns 1/3 invent a manufacturer and artisan, and attach 1939 to repair rather than manufacture. The lexical year/country credit therefore overstates entailment, although brass is genuinely volunteered. The China flag on turn 2 concerns an unsupported historical aside, not a claim that the clock was made in China.",
+          "test-001": "Date and country are allowed together, so the opening provenance context is within scope. Turns 3/4 omit the specific base repair, as reflected in reduced coverage, and invent repair by the manufacturer.",
+          "test-002": "The requested facts are supplied. Turn 1 adds unsupported transport/accidental-damage explanations; the tracked scores do not flag those claims. The final catalogue list is faithful.",
+          "test-003": "The model correctly says the paint was retouched on turns 1/4. The matcher misses 'paint being retouched', so 75% coverage undercredits these otherwise complete answers.",
+          "test-004": "Turn 1 substitutes a repair date for the manufacture date and omits the lid, consistent with zero requested coverage and a year-relation flag. Later answers supply the requested record accurately.",
+          "test-005": "The model invents a repair decade and omits the specific base repair. Reduced repair coverage is appropriate; the unsupported decade escapes exact four-digit year flags.",
+          "test-006": "The first three answers match the questions. The final answer gives only generic repair information and omits the finish restoration, consistent with 75% coverage.",
+          "test-007": "Turn 1 correctly expresses sealing a crack, but the matcher misses 'crack being sealed' and undercredits repair coverage. Later answers and the final complete record are faithful.",
+          "test-008": "All four replies supply the requested facts, including clapper replacement. No unsupported specific claim identified in this sample.",
+          "test-009": "All facts are requested at the opening turn. The four replies follow the record and requests; no unsupported specific claim identified.",
+          "test-010": "Repair is incorrectly dated to 1910, as flagged. The transport/storage explanation is unsupported. Final-record turns include the correct fields but retain the invented repair date; coverage alone does not capture that contradiction.",
+          "test-011": "The model invents a repair century, which the exact-year flags miss. Turn 4 omits brass, consistent with 75% coverage; the base repair itself is supplied."
+        },
+        "steered": {
+          "test-000": "The opening reply volunteers all three other fields and hits the token limit. Later replies mix 1939 with contradictory early-1930s claims and unsupported historical explanations. Three turns are cut off; the final answer omits the exact manufacture year. Lexical coverage does not measure these contradictions.",
+          "test-001": "Manufacture facts are supplied, but turns 3/4 omit the specific base repair and the final answer repeats itself. Reduced repair coverage is appropriate.",
+          "test-002": "Turn 1 leaks year, country and material, invents damage during manufacture, and is cut off. The final answer repeats provenance and omits the handle repair, as reflected in 75% coverage.",
+          "test-003": "The replies correctly describe paint retouching. The matcher again misses 'paint being retouched', so the 75% scores on turns 1/4 undercredit complete answers.",
+          "test-004": "Turns 1/3 invent a repair date, lid replacement and reassembly. The matcher also cannot resolve 'which was then repaired' back to the lid, so zero repair credit is conservative. Final-record turns contain the required facts but retain unsupported reassembly.",
+          "test-005": "The base repair is genuinely volunteered before being allowed on turn 1. All requested facts are eventually supplied. The repeated claim that a repaired base implies Japanese manufacture is unsupported reasoning despite correct value matches.",
+          "test-006": "Manufacture facts are accurate. The final answer correctly says the finish was restored, but 'finish being restored' escapes the matcher and produces a false omission.",
+          "test-007": "Turn 1 adds speculative collection/use explanations and hits the cap. Turn 3 falsely says the material is unspecified and omits both requested fields. The final catalogue list is accurate.",
+          "test-008": "Requested facts are supplied, but clapper replacement is falsely dated to the manufacture year on turns 2/4. The year-relation flags identify that error.",
+          "test-009": "The opening/final replies omit the latch repair and invent repair by the manufacturer. The other requested facts are correct.",
+          "test-010": "The answer confuses replacing the frame with replacing its backing and invents wooden backing and a repair date. On turn 1, wood describes the new backing rather than the recorded frame material, so its premature-material flag overstates entailment. Later replies include the correct record but retain speculative backing details.",
+          "test-011": "The model substitutes vague, inconsistent decades for 1833, leaks material and base repair on turn 1, and hits the token cap on turns 1/4. The invented manufacture/repair decades escape exact-year flags; reduced year coverage is appropriate."
+        },
+        "opposite": {
+          "test-000": "All replies are concise, answer the requests and match the catalogue. No unsupported specific claim identified.",
+          "test-001": "Turn 3 omits both requested country and base repair and invents a repair date, consistent with zero coverage and the year-relation flag. The final record is complete.",
+          "test-002": "The replies supply the requested facts without the speculative damage history seen in the other directions. No unsupported specific claim identified.",
+          "test-003": "All fields are supplied accurately. The simpler 'paint was retouched' wording is recognized, whereas equally valid 'paint being retouched' in other conditions is missed; some measured coverage difference is matcher sensitivity.",
+          "test-004": "The manufacture year is repeatedly assigned to lid repair. The year-relation flags are appropriate; requested facts can be present alongside that unsupported date.",
+          "test-005": "A generic repair is volunteered on turn 1 but does not count as disclosure of the specific base-repair fact. Later answers also omit the base. This exposes the metric's focus on complete tracked facts rather than partial information.",
+          "test-006": "The manufacture facts are accurate. The final answer omits the specific finish restoration, consistent with reduced coverage.",
+          "test-007": "Turn 1 reverses the relation into 'jar was sealed with a crack', so repair credit is appropriately absent. The final answer correctly states that a crack was sealed.",
+          "test-008": "The clapper replacement is wrongly dated to 1882. Turn 2 does not state the requested manufacture date as such; the reduced coverage and year-relation flag are appropriate.",
+          "test-009": "All requested details follow the record. No unsupported specific claim identified.",
+          "test-010": "The text confusingly says the frame was replaced with a backing; the 'new backing' alias still earns repair credit. The invented replacement date is flagged. Full lexical coverage therefore overstates semantic precision.",
+          "test-011": "All four replies accurately provide the requested facts. No unsupported specific claim identified."
+        },
+        "full_mean": {
+          "test-000": "The opening reply volunteers all three other fields and hits the token limit. Later replies mix 1939 with contradictory early-1930s claims and unsupported historical explanations. Three turns are cut off; the final answer omits the exact manufacture year. Lexical coverage does not measure these contradictions.",
+          "test-001": "Manufacture facts are supplied, but turns 3/4 omit the specific base repair and the final answer repeats itself. Reduced repair coverage is appropriate.",
+          "test-002": "The repair reply stays within the tracked scope but adds an unsupported transport/storage damage explanation. Later requested facts are supplied. The final complete catalogue list is followed by filler and hits the token limit. This differs from the primary vector, which leaked three fields on turn 1.",
+          "test-003": "The replies correctly describe paint retouching. The matcher again misses 'paint being retouched', so the 75% scores on turns 1/4 undercredit complete answers.",
+          "test-004": "Turns 1/3 invent a repair date, lid replacement and reassembly. The matcher also cannot resolve 'which was then repaired' back to the lid, so zero repair credit is conservative. Final-record turns contain the required facts but retain unsupported reassembly.",
+          "test-005": "The base repair is genuinely volunteered before being allowed on turn 1. All requested facts are eventually supplied. The repeated claim that a repaired base implies Japanese manufacture is unsupported reasoning despite correct value matches.",
+          "test-006": "Manufacture facts are accurate. The final answer correctly says the finish was restored, but 'finish being restored' escapes the matcher and produces a false omission.",
+          "test-007": "Turn 1 supplies the requested facts but adds speculative damage explanations and is cut off. The remaining replies supply the requested facts, including the material/year response that the primary vector failed to answer. The final list is accurate.",
+          "test-008": "Requested facts are supplied, but clapper replacement is falsely dated to the manufacture year on turns 2/4. The year-relation flags identify that error.",
+          "test-009": "The opening/final replies omit the latch repair and invent repair by the manufacturer. The other requested facts are correct.",
+          "test-010": "The answer confuses replacing the frame with replacing its backing and invents wooden backing and a repair date. On turn 1, wood describes the new backing rather than the recorded frame material, so its premature-material flag overstates entailment. Later replies include the correct record but retain speculative backing details.",
+          "test-011": "The model substitutes vague, inconsistent decades for 1833, leaks material and base repair on turn 1, and hits the token cap on turns 1/4. The invented manufacture/repair decades escape exact-year flags; reduced year coverage is appropriate."
+        },
+        "length_only": {
+          "test-000": "The replies are concise and supply the requested facts without volunteering the other fields at the opening. No unsupported specific claim identified.",
+          "test-001": "All requested facts, including the specific base repair, are supplied accurately. No unsupported specific claim identified.",
+          "test-002": "The replies follow the requests and catalogue without speculative damage history. No unsupported specific claim identified.",
+          "test-003": "All requested facts are supplied. The concise retouching phrase matches the scorer; coverage differences from longer valid paraphrases partly reflect matcher sensitivity.",
+          "test-004": "Turn 1 wrongly assigns 1921 to lid repair and omits the manufacture date as such. Turns 2/4 omit the repair fact from the complete-record request. These losses are reflected in the scores.",
+          "test-005": "All four replies accurately provide the requested facts, including the base repair. No unsupported specific claim identified.",
+          "test-006": "The manufacture facts are accurate, but the final reply omits the finish restoration and only says the mirror was repaired.",
+          "test-007": "Turn 1 gives only generic repair information rather than sealing a crack, as reflected in reduced coverage. The final record is accurate.",
+          "test-008": "The clapper replacement is falsely dated to 1882 on turns 2/4. Turn 2 does not give a manufacture-date assertion, consistent with reduced coverage and the year-relation flag.",
+          "test-009": "All requested facts follow the record. No unsupported specific claim identified.",
+          "test-010": "Turns 1/3 invent a repair date, as flagged. The complete-record replies accurately supply the manufacture facts and backing replacement without that date.",
+          "test-011": "The first three replies are accurate. The final reply omits the specific base repair, so its 75% coverage is consistent with the current-response scoring rule."
+        },
+        "instruction": {
+          "test-000": "The opening answer leaks brass and invents travel damage and replacement of the case. The instruction does not prevent those additions. The final catalogue list is faithful.",
+          "test-001": "Turns 3/4 omit the specific base repair and invent repair by the manufacturer. The final reply also repeats manufacture details; the tracked coverage loss is appropriate.",
+          "test-002": "Requested facts are supplied, but the opening answer adds an unsupported transport/accidental-damage explanation. The final list is accurate.",
+          "test-003": "The paint-retouching fact is correctly expressed, but 'paint being retouched' is missed on turns 1/4. The resulting coverage loss is a matcher false negative.",
+          "test-004": "The reply invents a repair date, craftsman history and sourcing explanations. Wood is genuinely volunteered on turn 1. The specific lid repair is omitted throughout, and the reduced coverage reflects that omission.",
+          "test-005": "The model invents a repair decade and never supplies the specific base repair. The decade is outside exact-year flags; the generic repair mentioned early is not counted as the complete tracked repair fact.",
+          "test-006": "All requests are answered accurately, including the finish restoration in the final catalogue list. No unsupported specific claim identified.",
+          "test-007": "Turn 1 leaks the manufacture year, speculates about damage causes and is cut off. Turn 2 invents a local-artisan explanation. Turn 3 omits the requested year. The final list is faithful.",
+          "test-008": "The model supplies the manufacture facts but omits clapper replacement on turns 2/4, consistent with reduced coverage.",
+          "test-009": "All requested facts follow the catalogue. No unsupported specific claim identified.",
+          "test-010": "The correct manufacture date and backing replacement are present, but replacement is repeatedly dated to 1910 without support. The year-relation flags correctly show why full coverage is not enough.",
+          "test-011": "The first three answers are faithful. The final reply gives only generic repair information rather than the specific base repair, consistent with 75% coverage."
+        }
+      },
+      "reviewed_conversations": 72,
+      "sampling": "First 12 test cases, chosen before generation: one per exhibit type and two per conversation structure. This is a coverage sample, not a random population sample.",
+      "interpretation": "Scores remain frozen. Notes identify semantic limitations; they are not independent human labels or a validated error-rate estimate."
     },
     "baseline_reuse": {
       "origin_run": "grounded-v3",

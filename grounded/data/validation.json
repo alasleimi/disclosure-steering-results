@@ -116374,18 +116374,18 @@
             }
           ],
           "evidence": {
-            "material=wood": [
-              {
-                "text": "wooden",
-                "start": 92,
-                "end": 98
-              }
-            ],
             "material=tin": [
               {
                 "text": "tin",
                 "start": 49,
                 "end": 52
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wooden",
+                "start": 92,
+                "end": 98
               }
             ],
             "repair=the base was repaired": [
@@ -130979,18 +130979,18 @@
             }
           ],
           "evidence": {
-            "material=brass": [
-              {
-                "text": "brass",
-                "start": 36,
-                "end": 41
-              }
-            ],
             "material=steel": [
               {
                 "text": "steel",
                 "start": 127,
                 "end": 132
+              }
+            ],
+            "material=brass": [
+              {
+                "text": "brass",
+                "start": 36,
+                "end": 41
               }
             ]
           },
@@ -142260,6 +142260,13 @@
                 "end": 127
               }
             ],
+            "material=steel": [
+              {
+                "text": "steel",
+                "start": 78,
+                "end": 83
+              }
+            ],
             "material=brass": [
               {
                 "text": "brass",
@@ -142272,13 +142279,6 @@
                 "text": "bronze",
                 "start": 278,
                 "end": 284
-              }
-            ],
-            "material=steel": [
-              {
-                "text": "steel",
-                "start": 78,
-                "end": 83
               }
             ],
             "repair=the hands were replaced": [
@@ -180553,13 +180553,6 @@
                 "end": 52
               }
             ],
-            "material=wood": [
-              {
-                "text": "wood",
-                "start": 142,
-                "end": 146
-              }
-            ],
             "material=brass": [
               {
                 "text": "brass",
@@ -180570,6 +180563,13 @@
                 "text": "brass",
                 "start": 151,
                 "end": 156
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wood",
+                "start": 142,
+                "end": 146
               }
             ]
           },
@@ -180647,13 +180647,6 @@
                 "end": 71
               }
             ],
-            "material=wood": [
-              {
-                "text": "wood",
-                "start": 153,
-                "end": 157
-              }
-            ],
             "material=brass": [
               {
                 "text": "brass",
@@ -180664,6 +180657,13 @@
                 "text": "brass",
                 "start": 162,
                 "end": 167
+              }
+            ],
+            "material=wood": [
+              {
+                "text": "wood",
+                "start": 153,
+                "end": 157
               }
             ],
             "repair=the finish was restored": [
