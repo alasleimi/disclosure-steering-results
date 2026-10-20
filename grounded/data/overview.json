@@ -1,7 +1,7 @@
 {
   "version": "grounded-exhibits-v3",
-  "exported": "2026-10-20T09:11:43+00:00",
-  "status": "preparing",
+  "exported": "2026-10-20T09:36:02+00:00",
+  "status": "evaluating",
   "config": {
     "train_cases": 192,
     "validation_cases": 96,
@@ -135,8 +135,8 @@
     "test": 192
   },
   "conversation_counts": {
-    "validation": 96,
-    "test": 0
+    "validation": 768,
+    "test": 48
   },
   "contrasts": {
     "distinct_records": 480,
@@ -210,7 +210,24 @@
     ],
     "attempted_pairs": 606
   },
-  "extraction": {},
+  "extraction": {
+    "raw_norms": {
+      "steered": 2.379711389541626,
+      "prefix_family_0": 2.370192766189575,
+      "prefix_family_1": 2.3924427032470703,
+      "full_mean": 1.7117654085159302,
+      "length_only": 3.3196990489959717
+    },
+    "cosine_to_primary": {
+      "steered": 1.0,
+      "prefix_family_0": 0.9993191957473755,
+      "prefix_family_1": 0.9993317723274231,
+      "full_mean": 0.9996676445007324,
+      "length_only": -0.7690756320953369
+    },
+    "prefix_family_cosine": 0.9973026514053345,
+    "control_norm": 2.379711389541626
+  },
   "limitations": [
     "Exact token counts balance length, not information density or syntax.",
     "Shared prefixes remain in the causal context; only their pooling contribution is removed.",
@@ -387,7 +404,8 @@
             "pair_id": "train-176-turn-1-prefix-1",
             "label": "oversharing"
           }
-        ]
+        ],
+        "contrast_hash": "985256bd798238e37728a76093fa69423ffb8f2e69567c9605f76c3c3b0d2034"
       },
       "development_checks": [
         {
@@ -583,7 +601,765 @@
       "conversations": 96,
       "all_messages_verified_identical": true,
       "raw_baseline_sha256": "536958e598f981898ef2b2de97b1656a44799a69ec1a164fda48b51e1cc41c22",
-      "reason": "Repair a/an grammar in authored iron contrasts before held-out evaluation. Baseline prompts, model and decoding are unchanged. All steered/control conditions are rerun."
+      "reason": "Repair a/an grammar in authored iron contrasts before held-out evaluation. Baseline prompts, model and decoding are unchanged. All steered/control conditions are rerun.",
+      "model_identity_verified_identical": true
+    }
+  },
+  "evaluation": {
+    "run": "grounded-v3-reviewed",
+    "complete": false,
+    "validation": {
+      "baseline": {
+        "premature_fraction": 0.06510416666666667,
+        "requested_coverage": 0.8684895833333334,
+        "final_coverage": 0.828125,
+        "clean_turn_rate": 0.59375,
+        "wrong_value_rate": 0.140625,
+        "truncation_rate": 0.028645833333333332,
+        "mean_tokens": 31.484375,
+        "disclosure_auc": 0.728515625,
+        "repetition_rate": 0.021208510847763956,
+        "cases": 96,
+        "disclosure_curve": [
+          0.5234375,
+          0.7057291666666666,
+          0.7994791666666666,
+          0.8854166666666666
+        ]
+      },
+      "steered": {
+        "premature_fraction": 0.1015625,
+        "requested_coverage": 0.87109375,
+        "final_coverage": 0.8151041666666666,
+        "clean_turn_rate": 0.5104166666666666,
+        "wrong_value_rate": 0.09375,
+        "truncation_rate": 0.23958333333333334,
+        "mean_tokens": 48.127604166666664,
+        "disclosure_auc": 0.767578125,
+        "repetition_rate": 0.03133540324632691,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6145833333333334,
+          0.75,
+          0.8177083333333334,
+          0.8880208333333334
+        ]
+      },
+      "opposite": {
+        "premature_fraction": 0.033854166666666664,
+        "requested_coverage": 0.853515625,
+        "final_coverage": 0.8125,
+        "clean_turn_rate": 0.5833333333333334,
+        "wrong_value_rate": 0.19270833333333334,
+        "truncation_rate": 0.0,
+        "mean_tokens": 21.736979166666668,
+        "disclosure_auc": 0.7018229166666666,
+        "repetition_rate": 0.02087762011508792,
+        "cases": 96,
+        "disclosure_curve": [
+          0.4557291666666667,
+          0.6692708333333334,
+          0.7942708333333334,
+          0.8880208333333334
+        ]
+      },
+      "full_mean": {
+        "premature_fraction": 0.10416666666666667,
+        "requested_coverage": 0.865234375,
+        "final_coverage": 0.8177083333333334,
+        "clean_turn_rate": 0.5052083333333334,
+        "wrong_value_rate": 0.10677083333333333,
+        "truncation_rate": 0.23958333333333334,
+        "mean_tokens": 47.932291666666664,
+        "disclosure_auc": 0.7669270833333334,
+        "repetition_rate": 0.03152299920513135,
+        "cases": 96,
+        "disclosure_curve": [
+          0.6145833333333334,
+          0.75,
+          0.8151041666666666,
+          0.8880208333333334
+        ]
+      },
+      "length_only": {
+        "premature_fraction": 0.013020833333333334,
+        "requested_coverage": 0.84765625,
+        "final_coverage": 0.7916666666666666,
+        "clean_turn_rate": 0.5989583333333334,
+        "wrong_value_rate": 0.125,
+        "truncation_rate": 0.0,
+        "mean_tokens": 20.255208333333332,
+        "disclosure_auc": 0.6868489583333334,
+        "repetition_rate": 0.013116940240748476,
+        "cases": 96,
+        "disclosure_curve": [
+          0.4296875,
+          0.65625,
+          0.7838541666666666,
+          0.8776041666666666
+        ]
+      },
+      "instruction": {
+        "premature_fraction": 0.07552083333333333,
+        "requested_coverage": 0.8821614583333334,
+        "final_coverage": 0.8463541666666666,
+        "clean_turn_rate": 0.5885416666666666,
+        "wrong_value_rate": 0.13020833333333334,
+        "truncation_rate": 0.06770833333333333,
+        "mean_tokens": 41.231770833333336,
+        "disclosure_auc": 0.75390625,
+        "repetition_rate": 0.01905998999039396,
+        "cases": 96,
+        "disclosure_curve": [
+          0.5494791666666666,
+          0.7395833333333334,
+          0.8255208333333334,
+          0.9010416666666666
+        ]
+      },
+      "brief": {
+        "premature_fraction": 0.0703125,
+        "requested_coverage": 0.8756510416666666,
+        "final_coverage": 0.8645833333333334,
+        "clean_turn_rate": 0.6197916666666666,
+        "wrong_value_rate": 0.12239583333333333,
+        "truncation_rate": 0.036458333333333336,
+        "mean_tokens": 35.0,
+        "disclosure_auc": 0.736328125,
+        "repetition_rate": 0.018083930079348696,
+        "cases": 96,
+        "disclosure_curve": [
+          0.5390625,
+          0.7083333333333334,
+          0.7994791666666666,
+          0.8984375
+        ]
+      },
+      "masked": {
+        "premature_fraction": 0.0,
+        "requested_coverage": 0.8561197916666666,
+        "final_coverage": 0.8098958333333334,
+        "clean_turn_rate": 0.609375,
+        "wrong_value_rate": 0.15625,
+        "truncation_rate": 0.026041666666666668,
+        "mean_tokens": 28.981770833333332,
+        "disclosure_auc": 0.6966145833333334,
+        "repetition_rate": 0.01941538228943222,
+        "cases": 96,
+        "disclosure_curve": [
+          0.46875,
+          0.671875,
+          0.78125,
+          0.8645833333333334
+        ]
+      }
+    },
+    "validation_comparisons": {
+      "brief": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.005208333333333333,
+            "ci95": [
+              -0.0234375,
+              0.03125
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.007161458333333333,
+            "ci95": [
+              -0.014322916666666666,
+              0.028645833333333332
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.036458333333333336,
+            "ci95": [
+              0.005208333333333333,
+              0.06770833333333333
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.026041666666666668,
+            "ci95": [
+              -0.018229166666666668,
+              0.06770833333333333
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.018229166666666668,
+            "ci95": [
+              -0.0625,
+              0.0234375
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0078125,
+            "ci95": [
+              -0.018229166666666668,
+              0.036458333333333336
+            ]
+          },
+          "mean_tokens": {
+            "difference": 3.515625,
+            "ci95": [
+              1.2784505208333332,
+              5.742252604166667
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.0078125,
+            "ci95": [
+              -0.01953125,
+              0.034505208333333336
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.003124580768415259,
+            "ci95": [
+              -0.00958565299015086,
+              0.003114674673181345
+            ]
+          }
+        },
+        "changed_conversations": 92
+      },
+      "full_mean": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.0390625,
+            "ci95": [
+              0.0078125,
+              0.0703125
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.0032552083333333335,
+            "ci95": [
+              -0.033203125,
+              0.026692708333333332
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.010416666666666666,
+            "ci95": [
+              -0.052083333333333336,
+              0.028645833333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.08854166666666667,
+            "ci95": [
+              -0.1484375,
+              -0.026041666666666668
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.033854166666666664,
+            "ci95": [
+              -0.09375,
+              0.026041666666666668
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.2109375,
+            "ci95": [
+              0.16145833333333334,
+              0.2604166666666667
+            ]
+          },
+          "mean_tokens": {
+            "difference": 16.447916666666668,
+            "ci95": [
+              12.957682291666668,
+              20.03990885416666
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.038411458333333336,
+            "ci95": [
+              0.007796223958333334,
+              0.06966145833333333
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.010314488357367398,
+            "ci95": [
+              0.002639423875304527,
+              0.018025019372219633
+            ]
+          }
+        },
+        "changed_conversations": 96
+      },
+      "instruction": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.010416666666666666,
+            "ci95": [
+              -0.018229166666666668,
+              0.0390625
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.013671875,
+            "ci95": [
+              -0.009765625,
+              0.037760416666666664
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.018229166666666668,
+            "ci95": [
+              -0.018229166666666668,
+              0.052083333333333336
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.005208333333333333,
+            "ci95": [
+              -0.057291666666666664,
+              0.044270833333333336
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.010416666666666666,
+            "ci95": [
+              -0.06770833333333333,
+              0.044270833333333336
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0390625,
+            "ci95": [
+              0.005208333333333333,
+              0.078125
+            ]
+          },
+          "mean_tokens": {
+            "difference": 9.747395833333334,
+            "ci95": [
+              7.200520833333333,
+              12.435026041666667
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.025390625,
+            "ci95": [
+              -0.0019694010416666657,
+              0.052083333333333336
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0021485208573699933,
+            "ci95": [
+              -0.009479077935599635,
+              0.004788595818927402
+            ]
+          }
+        },
+        "changed_conversations": 93
+      },
+      "length_only": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.052083333333333336,
+            "ci95": [
+              -0.08333333333333333,
+              -0.0234375
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.020833333333333332,
+            "ci95": [
+              -0.049479166666666664,
+              0.007161458333333333
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.036458333333333336,
+            "ci95": [
+              -0.07552083333333333,
+              0.0
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.005208333333333333,
+            "ci95": [
+              -0.052083333333333336,
+              0.0625
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.015625,
+            "ci95": [
+              -0.059895833333333336,
+              0.0234375
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.028645833333333332,
+            "ci95": [
+              -0.0546875,
+              -0.0078125
+            ]
+          },
+          "mean_tokens": {
+            "difference": -11.229166666666666,
+            "ci95": [
+              -13.674544270833334,
+              -8.848893229166668
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.041666666666666664,
+            "ci95": [
+              -0.07161458333333333,
+              -0.010416666666666666
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.008091570607015479,
+            "ci95": [
+              -0.01539136415415904,
+              -0.0021210004016119165
+            ]
+          }
+        },
+        "changed_conversations": 96
+      },
+      "masked": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.06510416666666667,
+            "ci95": [
+              -0.09375,
+              -0.0390625
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.012369791666666666,
+            "ci95": [
+              -0.03387044270833333,
+              0.009130859374999911
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.018229166666666668,
+            "ci95": [
+              -0.046875,
+              0.010416666666666666
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.015625,
+            "ci95": [
+              -0.033854166666666664,
+              0.0625
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.015625,
+            "ci95": [
+              -0.033854166666666664,
+              0.06510416666666667
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.0026041666666666665,
+            "ci95": [
+              -0.028645833333333332,
+              0.026041666666666668
+            ]
+          },
+          "mean_tokens": {
+            "difference": -2.5026041666666665,
+            "ci95": [
+              -4.5208984375,
+              -0.5104166666666666
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.031901041666666664,
+            "ci95": [
+              -0.05859375,
+              -0.0078125
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0017931285583317356,
+            "ci95": [
+              -0.008031188353757227,
+              0.003718841217538782
+            ]
+          }
+        },
+        "changed_conversations": 83
+      },
+      "opposite": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.03125,
+            "ci95": [
+              -0.059895833333333336,
+              -0.005208333333333333
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.014973958333333334,
+            "ci95": [
+              -0.033854166666666664,
+              0.004557291666666667
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.015625,
+            "ci95": [
+              -0.049479166666666664,
+              0.020833333333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.010416666666666666,
+            "ci95": [
+              -0.0625,
+              0.0390625
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.052083333333333336,
+            "ci95": [
+              -0.0026041666666666665,
+              0.10677083333333333
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.028645833333333332,
+            "ci95": [
+              -0.0546875,
+              -0.0078125
+            ]
+          },
+          "mean_tokens": {
+            "difference": -9.747395833333334,
+            "ci95": [
+              -12.177148437500001,
+              -7.403320312500002
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.026692708333333332,
+            "ci95": [
+              -0.05144856770833333,
+              0.0006510416666666666
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0003308907326760374,
+            "ci95": [
+              -0.008244282945415068,
+              0.0073591350735528836
+            ]
+          }
+        },
+        "changed_conversations": 96
+      },
+      "steered": {
+        "paired_cases": 96,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.036458333333333336,
+            "ci95": [
+              0.0078125,
+              0.06510416666666667
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.0026041666666666665,
+            "ci95": [
+              -0.026041666666666668,
+              0.03061523437499991
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.013020833333333334,
+            "ci95": [
+              -0.0546875,
+              0.028645833333333332
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": -0.08333333333333333,
+            "ci95": [
+              -0.14322916666666666,
+              -0.020833333333333332
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.046875,
+            "ci95": [
+              -0.09895833333333333,
+              0.005208333333333333
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.2109375,
+            "ci95": [
+              0.15885416666666666,
+              0.265625
+            ]
+          },
+          "mean_tokens": {
+            "difference": 16.643229166666668,
+            "ci95": [
+              13.114583333333334,
+              20.099609374999996
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.0390625,
+            "ci95": [
+              0.007161458333333333,
+              0.07032877604166658
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.010126892398562952,
+            "ci95": [
+              0.0020357522805516943,
+              0.018113475148012002
+            ]
+          }
+        },
+        "changed_conversations": 96
+      }
+    }
+  },
+  "checks": {
+    "steered": {
+      "zero_equals_baseline": true,
+      "hooks_removed": true,
+      "cached_tokens_identical": true,
+      "cache_logit_comparisons": [
+        {
+          "step": 0,
+          "max_abs_error": 0.0,
+          "relative_rms_error": 0.0,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 1,
+          "max_abs_error": 1.2874603271484375e-05,
+          "relative_rms_error": 9.357170824841887e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 2,
+          "max_abs_error": 1.430511474609375e-05,
+          "relative_rms_error": 7.442554874614871e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 3,
+          "max_abs_error": 1.6689300537109375e-05,
+          "relative_rms_error": 8.077517463789263e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        }
+      ],
+      "cached_logits_close": true
+    },
+    "full_mean": {
+      "zero_equals_baseline": true,
+      "hooks_removed": true,
+      "cached_tokens_identical": true,
+      "cache_logit_comparisons": [
+        {
+          "step": 0,
+          "max_abs_error": 0.0,
+          "relative_rms_error": 0.0,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 1,
+          "max_abs_error": 8.58306884765625e-06,
+          "relative_rms_error": 4.814227168026264e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 2,
+          "max_abs_error": 1.6927719116210938e-05,
+          "relative_rms_error": 9.944077419277164e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 3,
+          "max_abs_error": 1.9550323486328125e-05,
+          "relative_rms_error": 8.761836625126307e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        }
+      ],
+      "cached_logits_close": true
+    },
+    "length_only": {
+      "zero_equals_baseline": true,
+      "hooks_removed": true,
+      "cached_tokens_identical": true,
+      "cache_logit_comparisons": [
+        {
+          "step": 0,
+          "max_abs_error": 0.0,
+          "relative_rms_error": 0.0,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 1,
+          "max_abs_error": 1.0013580322265625e-05,
+          "relative_rms_error": 6.328774020403216e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 2,
+          "max_abs_error": 2.193450927734375e-05,
+          "relative_rms_error": 1.6040785340010189e-06,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        },
+        {
+          "step": 3,
+          "max_abs_error": 2.1159648895263672e-05,
+          "relative_rms_error": 9.306316997026443e-07,
+          "max_abs_tolerance": 0.0005,
+          "relative_rms_tolerance": 0.0001,
+          "close": true
+        }
+      ],
+      "cached_logits_close": true
     }
   }
 }
