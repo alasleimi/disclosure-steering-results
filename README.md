@@ -4,6 +4,8 @@ Latest experiment: **[Grounded exhibits, outputs and scores](https://alasleimi.g
 
 [Previous experiment and large-strength sweep](https://alasleimi.github.io/disclosure-steering-results/).
 
+[One fictional flu patient: baseline, primary steering and brevity outputs](results/flu-probe-v3.md).
+
 This repository contains only a static viewer and exported synthetic research
 data. The experiment implementation and model weights are not included.
 
