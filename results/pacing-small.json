@@ -1,0 +1,2247 @@
+{
+  "conclusion": "Modest nonmedical leakage reduction with preserved coverage, but prompt controls perform better. Fictional-patient transfer reduces leakage while losing full-record coverage; useful patient disclosure control is not established.",
+  "run": "pacing-small-compact-full",
+  "model": {
+    "name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "float32",
+    "model_type": "qwen2",
+    "layers": 24,
+    "width": 896,
+    "config_hash": "5e6f104481aab6cd86eae5b3ba5e170d9e8db745a875e1398a42292cefd9487d",
+    "tokenizer_hash": "a3833016a0892676e98b4e285d6335263055116610a77cb4b28a73692521ee60",
+    "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "hook_site": "decoder_block_output",
+    "layer_numbering": "zero_based",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.51.3",
+    "attention": "sdpa",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "python": "3.12.12",
+    "generation_config": {
+      "max_length": 20,
+      "max_new_tokens": null,
+      "min_length": 0,
+      "min_new_tokens": null,
+      "early_stopping": false,
+      "max_time": null,
+      "stop_strings": null,
+      "do_sample": true,
+      "num_beams": 1,
+      "num_beam_groups": 1,
+      "penalty_alpha": null,
+      "dola_layers": null,
+      "use_cache": true,
+      "cache_implementation": null,
+      "cache_config": null,
+      "return_legacy_cache": null,
+      "prefill_chunk_size": null,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8,
+      "min_p": null,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "diversity_penalty": 0.0,
+      "repetition_penalty": 1.1,
+      "encoder_repetition_penalty": 1.0,
+      "length_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "bad_words_ids": null,
+      "force_words_ids": null,
+      "renormalize_logits": false,
+      "constraints": null,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": false,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "forced_decoder_ids": null,
+      "sequence_bias": null,
+      "token_healing": false,
+      "guidance_scale": null,
+      "low_memory": null,
+      "watermarking_config": null,
+      "num_return_sequences": 1,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "output_scores": false,
+      "output_logits": null,
+      "return_dict_in_generate": false,
+      "pad_token_id": 151643,
+      "bos_token_id": 151643,
+      "eos_token_id": [
+        151645,
+        151643
+      ],
+      "encoder_no_repeat_ngram_size": 0,
+      "decoder_start_token_id": null,
+      "is_assistant": false,
+      "num_assistant_tokens": 20,
+      "num_assistant_tokens_schedule": "constant",
+      "assistant_confidence_threshold": 0.4,
+      "prompt_lookup_num_tokens": null,
+      "max_matching_ngram_size": null,
+      "assistant_early_exit": null,
+      "assistant_lookbehind": 10,
+      "target_lookbehind": 10,
+      "disable_compile": false,
+      "generation_kwargs": {},
+      "_from_model_config": false,
+      "transformers_version": "4.51.3"
+    },
+    "decoding_overrides": {
+      "do_sample": false,
+      "num_beams": 1,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "temperature": null,
+      "top_p": null,
+      "top_k": null
+    }
+  },
+  "source": {
+    "files": {
+      "pyproject.toml": "a1bd3814c715df4c9634e3f05349210fb5ecacad277bb613d47fcdb1b3af65fd",
+      "uv.lock": "942532425f4e41f5397510987a87e883c203924876178232322a83a5dee928b8",
+      "src/adlm_practical_ws26/__init__.py": "bc8297c147ff426c96761d35008ed11fce78570c7b983d638deef33235ceb5aa",
+      "src/adlm_practical_ws26/disclosure.py": "c62a8475ab3e986bea5b65eca3e77884428b6bed9f0a6a469812578012e6dd31",
+      "src/adlm_practical_ws26/grounded.py": "e3fde5720c6c004b077c7ffaf57c775ff8c02fdadb99b8a4588e989520bc6ac6",
+      "src/adlm_practical_ws26/pacing.py": "614858e5607322377412419bdb2ab53676eef25a616b5c9e7aba4ad365ecce9a",
+      "src/adlm_practical_ws26/runtime.py": "6ac4ddb85504f68dbaac010fe2392231c008cdd4d89c070352982c4466820d70",
+      "src/adlm_practical_ws26/study.py": "5c64635a440542660624c66cf2500e4fc41f07ff17dbe1fd9fa645497a3831c5"
+    },
+    "git_commit": "e4907e620abdf059cef14bfc9cf66edd1c5eab84",
+    "git_branch": "disclosure-steering",
+    "git_status": "M docs/pacing/app.js\n M docs/pacing/index.html\n M scripts/publish_pacing.py"
+  },
+  "config": {
+    "seed": 20261021,
+    "development_cases": 20,
+    "train_cases": 120,
+    "validation_cases": 96,
+    "test_cases": 192,
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "float32",
+    "device": "auto",
+    "batch_size": 8,
+    "max_new_tokens": 96,
+    "gpu_fraction": 0.45,
+    "quantization": null,
+    "local_files_only": true,
+    "readout": "response_mean",
+    "draft_context_limit": null,
+    "elicitation_style": "compact",
+    "smoke_cases": 5,
+    "smoke_pairs": 12,
+    "strengths": [
+      -1.0,
+      0.5,
+      1.0
+    ],
+    "depth_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "length_bin": 16,
+    "pairs_per_extra_category": 12,
+    "minimum_pairs_per_category": 6,
+    "minimum_training_cards": 30,
+    "transfer_margin": 0.02,
+    "transfer_cases": 48
+  },
+  "training": {
+    "generated_responses": 576,
+    "automatic_candidates": 91,
+    "accepted_reviewed_pairs": 86,
+    "retained_pairs": 60,
+    "retained_cards": 49,
+    "positive_mean_tokens": 8.083333333333334,
+    "negative_mean_tokens": 13.033333333333333,
+    "pairs_with_shared_prefix": 37
+  },
+  "selection": {
+    "active_candidate": {
+      "name": "block17_a0.5",
+      "policy": "baseline",
+      "layer": 17,
+      "alpha": 0.5,
+      "vector": "elicited.17"
+    },
+    "recommended": "baseline",
+    "validation_utility_improvement": -0.0029947916666667185,
+    "rule": "mean(requested,broad) - premature - wrong - cutoff; zero wins ties"
+  },
+  "test": {
+    "metrics": {
+      "baseline": {
+        "premature_fraction": 0.15017361111111113,
+        "requested_coverage": 0.960546875,
+        "final_coverage": 0.9348958333333334,
+        "clean_turn_rate": 0.6822916666666666,
+        "wrong_value_rate": 0.026041666666666668,
+        "truncation_rate": 0.009114583333333334,
+        "mean_tokens": 29.016927083333332,
+        "disclosure_auc": 0.7944878472222222,
+        "repetition_rate": 0.0014771769358815797,
+        "broad_coverage": 0.9353298611111113,
+        "leak_turn_rate": 0.18359375,
+        "nonname_premature_fraction": 0.06145833333333334,
+        "cases": 192
+      },
+      "selective": {
+        "premature_fraction": 0.11805555555555554,
+        "requested_coverage": 0.9585069444444446,
+        "final_coverage": 0.9288194444444446,
+        "clean_turn_rate": 0.6979166666666666,
+        "wrong_value_rate": 0.005208333333333333,
+        "truncation_rate": 0.0026041666666666665,
+        "mean_tokens": 23.321614583333332,
+        "disclosure_auc": 0.769314236111111,
+        "repetition_rate": 0.0028537631567720303,
+        "broad_coverage": 0.9275173611111113,
+        "leak_turn_rate": 0.15364583333333334,
+        "nonname_premature_fraction": 0.02916666666666667,
+        "cases": 192
+      },
+      "brief": {
+        "premature_fraction": 0.1267361111111111,
+        "requested_coverage": 0.9643229166666667,
+        "final_coverage": 0.935763888888889,
+        "clean_turn_rate": 0.70703125,
+        "wrong_value_rate": 0.009114583333333334,
+        "truncation_rate": 0.0,
+        "mean_tokens": 23.782552083333332,
+        "disclosure_auc": 0.7849392361111112,
+        "repetition_rate": 0.001215818263113824,
+        "broad_coverage": 0.935763888888889,
+        "leak_turn_rate": 0.16927083333333334,
+        "nonname_premature_fraction": 0.03229166666666667,
+        "cases": 192
+      },
+      "oracle": {
+        "premature_fraction": 0.0,
+        "requested_coverage": 0.8942274305555555,
+        "final_coverage": 0.888888888888889,
+        "clean_turn_rate": 0.71484375,
+        "wrong_value_rate": 0.057291666666666664,
+        "truncation_rate": 0.0390625,
+        "mean_tokens": 38.251302083333336,
+        "disclosure_auc": 0.6773003472222222,
+        "repetition_rate": 0.007295636531760849,
+        "broad_coverage": 0.8893229166666669,
+        "leak_turn_rate": 0.0,
+        "nonname_premature_fraction": 0.0,
+        "cases": 192
+      },
+      "steered": {
+        "premature_fraction": 0.1345486111111111,
+        "requested_coverage": 0.9594184027777778,
+        "final_coverage": 0.9383680555555557,
+        "clean_turn_rate": 0.6979166666666666,
+        "wrong_value_rate": 0.006510416666666667,
+        "truncation_rate": 0.005208333333333333,
+        "mean_tokens": 27.1171875,
+        "disclosure_auc": 0.7858072916666666,
+        "repetition_rate": 0.0016612366800174002,
+        "broad_coverage": 0.9383680555555557,
+        "leak_turn_rate": 0.17057291666666666,
+        "nonname_premature_fraction": 0.04270833333333334,
+        "cases": 192
+      },
+      "opposite": {
+        "premature_fraction": 0.15885416666666666,
+        "requested_coverage": 0.9654513888888889,
+        "final_coverage": 0.9409722222222223,
+        "clean_turn_rate": 0.6940104166666666,
+        "wrong_value_rate": 0.0234375,
+        "truncation_rate": 0.01171875,
+        "mean_tokens": 32.807291666666664,
+        "disclosure_auc": 0.8033854166666666,
+        "repetition_rate": 0.002852296791031444,
+        "broad_coverage": 0.94140625,
+        "leak_turn_rate": 0.18229166666666666,
+        "nonname_premature_fraction": 0.07187500000000001,
+        "cases": 192
+      },
+      "neutral_replay": {
+        "premature_fraction": 0.15017361111111113,
+        "requested_coverage": 0.9679253472222222,
+        "final_coverage": 0.9375,
+        "clean_turn_rate": 0.69921875,
+        "wrong_value_rate": 0.022135416666666668,
+        "truncation_rate": 0.006510416666666667,
+        "mean_tokens": 31.08984375,
+        "disclosure_auc": 0.7964409722222223,
+        "repetition_rate": 0.0023720994468587396,
+        "broad_coverage": 0.9375,
+        "leak_turn_rate": 0.17708333333333334,
+        "nonname_premature_fraction": 0.06145833333333334,
+        "cases": 192
+      },
+      "random": {
+        "premature_fraction": 0.15625,
+        "requested_coverage": 0.9621527777777779,
+        "final_coverage": 0.9366319444444445,
+        "clean_turn_rate": 0.6822916666666666,
+        "wrong_value_rate": 0.022135416666666668,
+        "truncation_rate": 0.009114583333333334,
+        "mean_tokens": 28.765625,
+        "disclosure_auc": 0.7990451388888888,
+        "repetition_rate": 0.001628718756136018,
+        "broad_coverage": 0.9370659722222223,
+        "leak_turn_rate": 0.18489583333333334,
+        "nonname_premature_fraction": 0.06770833333333334,
+        "cases": 192
+      }
+    },
+    "comparisons": {
+      "brief": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.0234375,
+            "ci95": [
+              -0.0390625,
+              -0.0078125
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.0037760416666666676,
+            "ci95": [
+              -0.006945529513888888,
+              0.015105251736111101
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.0008680555555555547,
+            "ci95": [
+              -0.013888888888888888,
+              0.014756944444444442
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.024739583333333332,
+            "ci95": [
+              -0.0026041666666666665,
+              0.053385416666666664
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.016927083333333332,
+            "ci95": [
+              -0.033854166666666664,
+              -0.00390625
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.009114583333333334,
+            "ci95": [
+              -0.016927083333333332,
+              -0.0026041666666666665
+            ]
+          },
+          "mean_tokens": {
+            "difference": -5.234375,
+            "ci95": [
+              -7.239680989583333,
+              -3.263216145833339
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.009548611111111115,
+            "ci95": [
+              -0.02039930555555556,
+              0.0008680555555555478
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0002613586727677557,
+            "ci95": [
+              -0.0012628707944495699,
+              0.0009526042189958728
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.00043402777777777683,
+            "ci95": [
+              -0.013888888888888888,
+              0.014322916666666666
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.02916666666666667,
+            "ci95": [
+              -0.048958333333333326,
+              -0.011458333333333329
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.014322916666666666,
+            "ci95": [
+              -0.024739583333333332,
+              -0.00390625
+            ]
+          }
+        },
+        "changed_conversations": 171
+      },
+      "neutral_replay": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 1.1564823173178713e-18,
+            "ci95": [
+              -0.00954861111111111,
+              0.01041666666666667
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.007378472222222221,
+            "ci95": [
+              -0.0003917100694444476,
+              0.016277126736111105
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.0026041666666666644,
+            "ci95": [
+              -0.010416666666666666,
+              0.014756944444444442
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.016927083333333332,
+            "ci95": [
+              -0.006510416666666667,
+              0.040397135416666494
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.00390625,
+            "ci95": [
+              -0.018229166666666668,
+              0.009114583333333334
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.0026041666666666665,
+            "ci95": [
+              -0.009114583333333334,
+              0.00390625
+            ]
+          },
+          "mean_tokens": {
+            "difference": 2.0729166666666665,
+            "ci95": [
+              0.57802734375,
+              3.6224609374999996
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.0019531249999999993,
+            "ci95": [
+              -0.004991319444444443,
+              0.008897569444444446
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.0008949225109771598,
+            "ci95": [
+              4.681228799665572e-05,
+              0.0017985132562145603
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.0021701388888888864,
+            "ci95": [
+              -0.010850694444444442,
+              0.01433376736111105
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": 5.782411586589357e-19,
+            "ci95": [
+              -0.011458333333333334,
+              0.012500000000000002
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.006510416666666667,
+            "ci95": [
+              -0.014322916666666666,
+              0.0013020833333333333
+            ]
+          }
+        },
+        "changed_conversations": 147
+      },
+      "opposite": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.008680555555555556,
+            "ci95": [
+              -0.006098090277777776,
+              0.024305555555555556
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.004904513888888888,
+            "ci95": [
+              -0.005555555555555556,
+              0.015539279513888882
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.006076388888888887,
+            "ci95": [
+              -0.006076388888888888,
+              0.01822916666666666
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.01171875,
+            "ci95": [
+              -0.011751302083333331,
+              0.036458333333333336
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.0026041666666666665,
+            "ci95": [
+              -0.016927083333333332,
+              0.010416666666666666
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0026041666666666665,
+            "ci95": [
+              -0.0078125,
+              0.014322916666666666
+            ]
+          },
+          "mean_tokens": {
+            "difference": 3.7903645833333335,
+            "ci95": [
+              2.09365234375,
+              5.553971354166664
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.008897569444444442,
+            "ci95": [
+              -0.0004340277777777786,
+              0.01822916666666666
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.0013751198551498643,
+            "ci95": [
+              0.0004277388716639038,
+              0.0024000073185444274
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.006076388888888887,
+            "ci95": [
+              -0.006076388888888888,
+              0.01822916666666666
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": 0.010416666666666666,
+            "ci95": [
+              -0.007317708333333333,
+              0.02916666666666667
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.0013020833333333333,
+            "ci95": [
+              -0.010416666666666666,
+              0.0078125
+            ]
+          }
+        },
+        "changed_conversations": 176
+      },
+      "oracle": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.15017361111111113,
+            "ci95": [
+              -0.17100694444444442,
+              -0.13020833333333334
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.06631944444444444,
+            "ci95": [
+              -0.08946289062499999,
+              -0.044052734375000006
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.04600694444444445,
+            "ci95": [
+              -0.06770833333333333,
+              -0.025173611111111115
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.032552083333333336,
+            "ci95": [
+              -0.0052408854166666645,
+              0.07161458333333333
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.03125,
+            "ci95": [
+              0.0078125,
+              0.05078125
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.029947916666666668,
+            "ci95": [
+              0.013020833333333334,
+              0.048177083333333336
+            ]
+          },
+          "mean_tokens": {
+            "difference": 9.234375,
+            "ci95": [
+              6.892838541666667,
+              11.683821614583332
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.1171875,
+            "ci95": [
+              -0.1367241753472222,
+              -0.09743923611111109
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.0058184595958792685,
+            "ci95": [
+              0.0034810116769053334,
+              0.008261909929283622
+            ]
+          },
+          "broad_coverage": {
+            "difference": -0.04600694444444445,
+            "ci95": [
+              -0.06770833333333333,
+              -0.025173611111111115
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.06145833333333334,
+            "ci95": [
+              -0.08125,
+              -0.04479166666666667
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.18359375,
+            "ci95": [
+              -0.20442708333333334,
+              -0.16276041666666666
+            ]
+          }
+        },
+        "changed_conversations": 187
+      },
+      "random": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": 0.006076388888888888,
+            "ci95": [
+              -0.010416666666666664,
+              0.023459201388888774
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.001605902777777778,
+            "ci95": [
+              -0.005600043402777778,
+              0.010245225694444433
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.0017361111111111108,
+            "ci95": [
+              -0.008680555555555554,
+              0.012152777777777776
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.0,
+            "ci95": [
+              -0.01953125,
+              0.022135416666666668
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.00390625,
+            "ci95": [
+              -0.015625,
+              0.006510416666666667
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0,
+            "ci95": [
+              -0.009114583333333334,
+              0.010449218749999822
+            ]
+          },
+          "mean_tokens": {
+            "difference": -0.2513020833333333,
+            "ci95": [
+              -1.6251302083333332,
+              1.1980143229166662
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.004557291666666667,
+            "ci95": [
+              -0.004774305555555553,
+              0.014539930555555558
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.00015154182025443834,
+            "ci95": [
+              -0.0006098666192010639,
+              0.0009433013133179562
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.0017361111111111108,
+            "ci95": [
+              -0.008680555555555554,
+              0.012152777777777776
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": 0.006249999999999999,
+            "ci95": [
+              -0.012526041666666668,
+              0.028125
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": 0.0013020833333333333,
+            "ci95": [
+              -0.009114583333333334,
+              0.01171875
+            ]
+          }
+        },
+        "changed_conversations": 145
+      },
+      "selective": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.03211805555555555,
+            "ci95": [
+              -0.05295138888888889,
+              -0.013020833333333329
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.002039930555555553,
+            "ci95": [
+              -0.012067057291666666,
+              0.009115668402777773
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.006076388888888887,
+            "ci95": [
+              -0.019986979166666665,
+              0.008680555555555552
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.015625,
+            "ci95": [
+              -0.014322916666666666,
+              0.045572916666666664
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.020833333333333332,
+            "ci95": [
+              -0.0390625,
+              -0.006510416666666667
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.006510416666666667,
+            "ci95": [
+              -0.015625,
+              0.0013020833333333333
+            ]
+          },
+          "mean_tokens": {
+            "difference": -5.6953125,
+            "ci95": [
+              -8.00712890625,
+              -3.246028645833334
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.025173611111111115,
+            "ci95": [
+              -0.03710937500000001,
+              -0.013454861111111114
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.0013765862208904509,
+            "ci95": [
+              -0.0004915311108112954,
+              0.0037211650601596566
+            ]
+          },
+          "broad_coverage": {
+            "difference": -0.007812499999999997,
+            "ci95": [
+              -0.021701388888888885,
+              0.006510416666666667
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.03229166666666667,
+            "ci95": [
+              -0.057291666666666664,
+              -0.008333333333333338
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.029947916666666668,
+            "ci95": [
+              -0.044270833333333336,
+              -0.016927083333333332
+            ]
+          }
+        },
+        "changed_conversations": 186
+      },
+      "steered": {
+        "paired_cases": 192,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.015625,
+            "ci95": [
+              -0.029535590277777773,
+              -0.0017361111111111095
+            ]
+          },
+          "requested_coverage": {
+            "difference": -0.0011284722222222234,
+            "ci95": [
+              -0.010721571180555558,
+              0.007813585069444438
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.0034722222222222207,
+            "ci95": [
+              -0.006944444444444445,
+              0.01475694444444444
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.015625,
+            "ci95": [
+              -0.009114583333333334,
+              0.040364583333333336
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.01953125,
+            "ci95": [
+              -0.0390625,
+              -0.00390625
+            ]
+          },
+          "truncation_rate": {
+            "difference": -0.00390625,
+            "ci95": [
+              -0.013020833333333334,
+              0.006510416666666667
+            ]
+          },
+          "mean_tokens": {
+            "difference": -1.8997395833333333,
+            "ci95": [
+              -3.5470377604166665,
+              -0.25511067708333385
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.00868055555555556,
+            "ci95": [
+              -0.017144097222222227,
+              -0.0006510416666666701
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.00018405974413582065,
+            "ci95": [
+              -0.0007017669291292301,
+              0.0010414339592000005
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.0030381944444444428,
+            "ci95": [
+              -0.0078124999999999965,
+              0.013888888888888886
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.01875,
+            "ci95": [
+              -0.03541666666666667,
+              -0.002083333333333334
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.013020833333333334,
+            "ci95": [
+              -0.026041666666666668,
+              -0.0013020833333333333
+            ]
+          }
+        },
+        "changed_conversations": 162
+      }
+    }
+  },
+  "transfer_gate": {
+    "passed": true,
+    "checks": {
+      "leak_reduction_ci": true,
+      "requested_coverage_noninferiority": true,
+      "broad_coverage_noninferiority": true,
+      "wrong_values_noninferiority": true,
+      "cutoffs_noninferiority": true,
+      "nonname_not_worse": true
+    },
+    "margin": 0.02,
+    "interpretation": "Predeclared engineering gate; lexical evidence requires transcript audit.",
+    "status": "transfer_complete"
+  },
+  "transcript_review": {
+    "scope": "All four replies on the first ten test cards, across all eight conditions; IDs fixed in the manifest before generation.",
+    "reviewer": "assistant transcript review, not independent human annotation",
+    "reviewed_case_ids": [
+      "test-000",
+      "test-001",
+      "test-002",
+      "test-003",
+      "test-004",
+      "test-005",
+      "test-006",
+      "test-007",
+      "test-008",
+      "test-009"
+    ],
+    "reviewed_conditions": [
+      "baseline",
+      "selective",
+      "brief",
+      "oracle",
+      "steered",
+      "opposite",
+      "neutral_replay",
+      "random"
+    ],
+    "reviewed_responses": 320,
+    "supports_transfer": true,
+    "examples": [
+      {
+        "case_id": "test-000",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (teacher)."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Prague is presented as a workplace, while the card specifies residence. Lexical city matching does not distinguish these relations."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "baseline",
+        "turn": 1,
+        "finding": "The answer adds the unrequested name and job, plus an unsupported motive for hiking."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (baker), as did the earlier five-clue answer."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Vienna is presented as a workplace rather than a residence; matching the city word can overstate requested coverage."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "baseline",
+        "turn": 3,
+        "finding": "The commute-only question also elicits the unrequested job, and an unsupported causal link between job and bicycle use."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "baseline",
+        "turn": 3,
+        "finding": "Invents a pet name (Turtwig) and omits the requested job."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Repeats the invented pet name and omits the job again."
+      },
+      {
+        "case_id": "test-009",
+        "condition": "baseline",
+        "turn": 1,
+        "finding": "Uses Vienna as a workplace without explicitly answering the residence field."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (teacher)."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (baker)."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "selective",
+        "turn": 1,
+        "finding": "The commute/hobby question elicits all four still-unrequested facts, plus an invented story that the rabbit accompanies the commute."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Says he works by tram, without giving his job as baker. The relation error is additional to the detected omission."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "selective",
+        "turn": 3,
+        "finding": "A transport-only question receives job and city information but no bicycle answer."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Complete reveal omits the hamster."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "selective",
+        "turn": 3,
+        "finding": "Repeats the pet information and omits the requested job."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Complete reveal omits the turtle."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (teacher)."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "The city is used as a workplace rather than a residence."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "brief",
+        "turn": 1,
+        "finding": "Adds the unrequested name, pet and city, with an invented claim that the rabbit accompanies the commute."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (baker)."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Uses Vienna as a workplace rather than explicitly giving the residence."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "brief",
+        "turn": 3,
+        "finding": "The transport-only question also elicits the unrequested job and an unsupported reason for bicycle use."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Complete reveal omits the name."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "brief",
+        "turn": 3,
+        "finding": "Omits the requested job while repeating the pet information."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Complete reveal omits the turtle."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "oracle",
+        "turn": 2,
+        "finding": "Gives a long generic bicycle/city story, mentions buses and trams, and reaches the token cutoff. Known-value matches can conflate background transport with the person's commute."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "oracle",
+        "turn": 2,
+        "finding": "Changes Maya's name to Mia despite the truthful name being present in the conversation history."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "oracle",
+        "turn": 1,
+        "finding": "Claims more information is needed, expands on generic car commuting, omits the hobby and reaches the cutoff."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "oracle",
+        "turn": 3,
+        "finding": "Gives generic teaching details, omits the rabbit and reaches the cutoff."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Complete reveal omits the name."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "oracle",
+        "turn": 1,
+        "finding": "Invents the name Anna when the true name is masked."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Complete reveal omits the dog."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "oracle",
+        "turn": 3,
+        "finding": "Invents Tokyo as a workplace."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Repeats the invented Tokyo workplace and omits the job (carpenter)."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Complete reveal omits the name."
+      },
+      {
+        "case_id": "test-009",
+        "condition": "oracle",
+        "turn": 1,
+        "finding": "Uses Vienna as a workplace without explicitly giving the residence."
+      },
+      {
+        "case_id": "test-008",
+        "condition": "oracle",
+        "turn": 1,
+        "finding": "Job: Baking is a plausible paraphrase of baker, but the fixed aliases require baker, bakes bread or baking bread; coverage can be underestimated."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "They paint conveys the hobby, but the aliases match painting or paints, not paint. This adds a lexical false omission to the actually missing name."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Prague is used as a workplace rather than explicitly giving residence."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "steered",
+        "turn": 1,
+        "finding": "Adds the unrequested name and pet, and invents a story that the rabbit accompanies the commute."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "steered",
+        "turn": 3,
+        "finding": "Repeats and extends the invented companion story: the rabbit now accompanies teaching duties."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Complete reveal still omits the job (baker), as baseline did."
+      },
+      {
+        "case_id": "test-004",
+        "condition": "steered",
+        "turn": 1,
+        "finding": "Vienna becomes a commute destination rather than an explicit residence; lexical city coverage misses this change from baseline."
+      },
+      {
+        "case_id": "test-004",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Repeats Vienna as a commute destination, with no explicit residence answer."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Vienna is used as a workplace rather than explicitly giving residence."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "steered",
+        "turn": 3,
+        "finding": "Omits the requested bicycle answer and instead reveals the job; baseline did provide the bicycle answer."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Complete reveal omits the hamster, which baseline included."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "steered",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Supplies all six facts here, restoring the job omitted by baseline."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "steered",
+        "turn": 3,
+        "kind": "improvement",
+        "finding": "Answers both pet and job here; baseline omitted the job and invented a pet name."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "steered",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Complete reveal includes all six facts without the invented pet name present in baseline."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "opposite",
+        "turn": 1,
+        "finding": "Reveals the unrequested name and job, and invents a link between hiking and teaching."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "opposite",
+        "turn": 4,
+        "finding": "Repeats the invented claim that hiking is part of the teaching job."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "opposite",
+        "turn": 1,
+        "finding": "Long elaboration reaches the token cutoff mid-sentence, despite including the requested fact words."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "opposite",
+        "turn": 4,
+        "finding": "Repeats the long elaboration and reaches the cutoff again."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "opposite",
+        "turn": 3,
+        "finding": "Also reveals the unrequested job and invents a causal link to bicycle use."
+      },
+      {
+        "case_id": "test-008",
+        "condition": "opposite",
+        "turn": 1,
+        "finding": "Changes the commute into public transportation plus walking and invents details about the pet and personal motivations."
+      },
+      {
+        "case_id": "test-008",
+        "condition": "opposite",
+        "turn": 4,
+        "finding": "Repeats the unsupported public-transport commute and invented personal details."
+      },
+      {
+        "case_id": "test-009",
+        "condition": "opposite",
+        "turn": 1,
+        "finding": "Uses Vienna as a workplace without explicitly giving residence."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "opposite",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Restores the job omitted by baseline, just as the primary direction did."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "opposite",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Explicitly gives residence in Prague; baseline only connected Prague to the workplace."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "opposite",
+        "turn": 3,
+        "kind": "improvement",
+        "finding": "Answers both requested facts without the invented pet name from baseline."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "neutral_replay",
+        "turn": 4,
+        "finding": "Uses Prague as a workplace rather than explicitly giving residence."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "neutral_replay",
+        "turn": 1,
+        "finding": "Reveals the unrequested name and job, and adds speculative details about the workplace."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "neutral_replay",
+        "turn": 2,
+        "finding": "Adds unsupported background claims about Dublin landmarks, unrelated to the secret card."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "neutral_replay",
+        "turn": 3,
+        "finding": "Speculates about teaching subjects, then drifts from the rabbit to a discussion of rats."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "neutral_replay",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (baker)."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "neutral_replay",
+        "turn": 1,
+        "finding": "Invents personal motives and passion for playing guitar."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "neutral_replay",
+        "turn": 4,
+        "finding": "Complete reveal omits the dog, which baseline included."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "neutral_replay",
+        "turn": 3,
+        "finding": "Also gives the unrequested job and an unsupported causal link to bicycle use."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "neutral_replay",
+        "turn": 4,
+        "finding": "Complete reveal omits the turtle."
+      },
+      {
+        "case_id": "test-009",
+        "condition": "neutral_replay",
+        "turn": 1,
+        "finding": "Uses Vienna as a workplace without explicitly giving residence."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "neutral_replay",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Restores the job omitted by baseline."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "neutral_replay",
+        "turn": 3,
+        "kind": "improvement",
+        "finding": "Answers both pet and job without the invented pet name from baseline."
+      },
+      {
+        "case_id": "test-000",
+        "condition": "random",
+        "turn": 4,
+        "finding": "Complete reveal omits the job (teacher)."
+      },
+      {
+        "case_id": "test-001",
+        "condition": "random",
+        "turn": 4,
+        "finding": "Prague is used as a workplace rather than explicitly giving residence."
+      },
+      {
+        "case_id": "test-002",
+        "condition": "random",
+        "turn": 1,
+        "finding": "Reveals the unrequested name and pet, invents the rabbit commute story, and adds an unsupported preference for evening hiking."
+      },
+      {
+        "case_id": "test-005",
+        "condition": "random",
+        "turn": 4,
+        "finding": "Vienna is used as a workplace rather than explicitly giving residence."
+      },
+      {
+        "case_id": "test-006",
+        "condition": "random",
+        "turn": 3,
+        "finding": "Also reveals the unrequested job and an unsupported causal link to bicycle use."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "random",
+        "turn": 3,
+        "finding": "Invents a pet name (Turtle) and omits the requested job."
+      },
+      {
+        "case_id": "test-007",
+        "condition": "random",
+        "turn": 4,
+        "finding": "Repeats the invented pet name and still omits the job."
+      },
+      {
+        "case_id": "test-009",
+        "condition": "random",
+        "turn": 1,
+        "finding": "Uses Vienna as a workplace without explicitly giving residence."
+      },
+      {
+        "case_id": "test-003",
+        "condition": "random",
+        "turn": 4,
+        "kind": "improvement",
+        "finding": "Restores the job omitted by baseline; this is an improvement under the random control too, with extra elaboration."
+      }
+    ],
+    "reviewed_conversations": 80,
+    "limitations": [
+      "Qualitative assistant review with condition labels visible; not independent human evaluation or a calibrated semantic error rate.",
+      "Correct fact words can appear in unsupported workplace, commute or pet relationships.",
+      "Fixed aliases can miss plausible paraphrases such as Job: Baking or They paint.",
+      "The factual vocabulary and question families are synthetic; card bootstrap intervals do not establish generalization to unseen domains."
+    ],
+    "qualitative_summary": "Mixed changes: the primary vector restores some omitted facts but also introduces omissions and invented personal stories. Opposite and random directions can restore omissions too. Lexical scores do not establish a clean selective-disclosure mechanism.",
+    "test_hash": "0254872b4bed08728c5809c928214aba417703143b11dc341e0c4e40ffee605b",
+    "transfer_scope": "Permits the prespecified exploratory test on fictional patient cards only, with the same model, layer, strength and scoring protocol; no clinical-use claim.",
+    "decision_reason": "The predeclared nonmedical statistical criteria pass, including reduced non-name leakage. The unblinded transcript sample shows mixed improvements and regressions rather than a clear general semantic gain or collapse. Proceed to measure transfer, retain the failures, and do not retune on patient outputs.",
+    "decision_limit": "Assistant judgment on a small preselected sample, not independent semantic validation. Successful lexical gating does not establish a clean mechanism or clinical reliability."
+  },
+  "direction_controls": {
+    "effective_edit_norm": 1.352617859840393,
+    "controls": {
+      "neutral_control": {
+        "raw_norm": 2.705235719680786,
+        "cosine_with_primary": 0.6383602619171143
+      },
+      "random_control": {
+        "raw_norm": 2.705235719680786,
+        "cosine_with_primary": 0.03129764646291733
+      }
+    }
+  },
+  "transfer": {
+    "metrics": {
+      "baseline": {
+        "premature_fraction": 0.16666666666666666,
+        "requested_coverage": 0.7586805555555557,
+        "final_coverage": 0.6805555555555555,
+        "clean_turn_rate": 0.359375,
+        "wrong_value_rate": 0.08854166666666667,
+        "truncation_rate": 0.0,
+        "mean_tokens": 30.348958333333332,
+        "disclosure_auc": 0.6848958333333334,
+        "repetition_rate": 0.004743503963128497,
+        "broad_coverage": 0.6805555555555555,
+        "leak_turn_rate": 0.19791666666666666,
+        "nonname_premature_fraction": 0.16666666666666666,
+        "cases": 48
+      },
+      "selective": {
+        "premature_fraction": 0.11458333333333333,
+        "requested_coverage": 0.8038194444444443,
+        "final_coverage": 0.704861111111111,
+        "clean_turn_rate": 0.3697916666666667,
+        "wrong_value_rate": 0.125,
+        "truncation_rate": 0.0,
+        "mean_tokens": 29.666666666666668,
+        "disclosure_auc": 0.7100694444444445,
+        "repetition_rate": 0.003111616505215213,
+        "broad_coverage": 0.704861111111111,
+        "leak_turn_rate": 0.171875,
+        "nonname_premature_fraction": 0.11458333333333333,
+        "cases": 48
+      },
+      "brief": {
+        "premature_fraction": 0.08680555555555554,
+        "requested_coverage": 0.84375,
+        "final_coverage": 0.6979166666666666,
+        "clean_turn_rate": 0.5,
+        "wrong_value_rate": 0.052083333333333336,
+        "truncation_rate": 0.0,
+        "mean_tokens": 26.447916666666668,
+        "disclosure_auc": 0.712673611111111,
+        "repetition_rate": 0.0028254389412997907,
+        "broad_coverage": 0.6979166666666666,
+        "leak_turn_rate": 0.09895833333333333,
+        "nonname_premature_fraction": 0.08680555555555554,
+        "cases": 48
+      },
+      "oracle": {
+        "premature_fraction": 0.0,
+        "requested_coverage": 0.8081597222222222,
+        "final_coverage": 0.6701388888888888,
+        "clean_turn_rate": 0.4791666666666667,
+        "wrong_value_rate": 0.10416666666666667,
+        "truncation_rate": 0.03125,
+        "mean_tokens": 35.729166666666664,
+        "disclosure_auc": 0.640625,
+        "repetition_rate": 0.009824752576727153,
+        "broad_coverage": 0.6701388888888888,
+        "leak_turn_rate": 0.0,
+        "nonname_premature_fraction": 0.0,
+        "cases": 48
+      },
+      "steered": {
+        "premature_fraction": 0.12152777777777778,
+        "requested_coverage": 0.7786458333333334,
+        "final_coverage": 0.6354166666666666,
+        "clean_turn_rate": 0.3697916666666667,
+        "wrong_value_rate": 0.09375,
+        "truncation_rate": 0.0,
+        "mean_tokens": 28.916666666666668,
+        "disclosure_auc": 0.693576388888889,
+        "repetition_rate": 0.004778018985688945,
+        "broad_coverage": 0.6354166666666666,
+        "leak_turn_rate": 0.171875,
+        "nonname_premature_fraction": 0.12152777777777778,
+        "cases": 48
+      }
+    },
+    "comparisons": {
+      "brief": {
+        "paired_cases": 48,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.0798611111111111,
+            "ci95": [
+              -0.1076388888888889,
+              -0.04861111111111111
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.08506944444444446,
+            "ci95": [
+              0.04166666666666668,
+              0.128493923611111
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.017361111111111126,
+            "ci95": [
+              -0.03124999999999999,
+              0.06597222222222222
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.140625,
+            "ci95": [
+              0.07291666666666667,
+              0.21354166666666666
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": -0.036458333333333336,
+            "ci95": [
+              -0.08333333333333333,
+              0.005208333333333333
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_tokens": {
+            "difference": -3.9010416666666665,
+            "ci95": [
+              -5.375260416666666,
+              -2.5207031250000007
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.02777777777777778,
+            "ci95": [
+              -0.0026041666666666782,
+              0.059895833333333336
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0019180650218287064,
+            "ci95": [
+              -0.003823122157478759,
+              -3.983652595275968e-05
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.017361111111111126,
+            "ci95": [
+              -0.03124999999999999,
+              0.06597222222222222
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.0798611111111111,
+            "ci95": [
+              -0.1076388888888889,
+              -0.04861111111111111
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.09895833333333333,
+            "ci95": [
+              -0.14583333333333334,
+              -0.057291666666666664
+            ]
+          }
+        },
+        "changed_conversations": 48
+      },
+      "oracle": {
+        "paired_cases": 48,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.16666666666666666,
+            "ci95": [
+              -0.20486111111111108,
+              -0.1284722222222222
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.049479166666666685,
+            "ci95": [
+              0.01562500000000002,
+              0.0842013888888889
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.010416666666666654,
+            "ci95": [
+              -0.07291666666666666,
+              0.04861111111111113
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.11979166666666667,
+            "ci95": [
+              0.052083333333333336,
+              0.19270833333333334
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.015625,
+            "ci95": [
+              -0.047005208333333326,
+              0.078125
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.03125,
+            "ci95": [
+              0.010416666666666666,
+              0.057291666666666664
+            ]
+          },
+          "mean_tokens": {
+            "difference": 5.380208333333333,
+            "ci95": [
+              2.4833333333333334,
+              8.614583333333334
+            ]
+          },
+          "disclosure_auc": {
+            "difference": -0.044270833333333336,
+            "ci95": [
+              -0.07638888888888891,
+              -0.011284722222222224
+            ]
+          },
+          "repetition_rate": {
+            "difference": 0.005081248613598655,
+            "ci95": [
+              0.00016789551254686142,
+              0.009994868186560714
+            ]
+          },
+          "broad_coverage": {
+            "difference": -0.010416666666666654,
+            "ci95": [
+              -0.07291666666666666,
+              0.04861111111111113
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.16666666666666666,
+            "ci95": [
+              -0.20486111111111108,
+              -0.1284722222222222
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.19791666666666666,
+            "ci95": [
+              -0.234375,
+              -0.16145833333333334
+            ]
+          }
+        },
+        "changed_conversations": 48
+      },
+      "selective": {
+        "paired_cases": 48,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.052083333333333336,
+            "ci95": [
+              -0.09027777777777779,
+              -0.01736111111111111
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.045138888888888895,
+            "ci95": [
+              -0.0008897569444444377,
+              0.08940972222222225
+            ]
+          },
+          "final_coverage": {
+            "difference": 0.024305555555555563,
+            "ci95": [
+              -0.024305555555555556,
+              0.07291666666666669
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.010416666666666666,
+            "ci95": [
+              -0.046875,
+              0.07291666666666667
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.036458333333333336,
+            "ci95": [
+              -0.015625,
+              0.09375
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_tokens": {
+            "difference": -0.6822916666666666,
+            "ci95": [
+              -1.91171875,
+              0.5157552083333327
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.02517361111111112,
+            "ci95": [
+              -0.009570312500000004,
+              0.05989583333333334
+            ]
+          },
+          "repetition_rate": {
+            "difference": -0.0016318874579132833,
+            "ci95": [
+              -0.005048207172769255,
+              0.0014364386891583276
+            ]
+          },
+          "broad_coverage": {
+            "difference": 0.024305555555555563,
+            "ci95": [
+              -0.024305555555555556,
+              0.07291666666666669
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.052083333333333336,
+            "ci95": [
+              -0.09027777777777779,
+              -0.01736111111111111
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.026041666666666668,
+            "ci95": [
+              -0.06770833333333333,
+              0.010416666666666666
+            ]
+          }
+        },
+        "changed_conversations": 47
+      },
+      "steered": {
+        "paired_cases": 48,
+        "metrics": {
+          "premature_fraction": {
+            "difference": -0.04513888888888889,
+            "ci95": [
+              -0.07291666666666667,
+              -0.020833333333333332
+            ]
+          },
+          "requested_coverage": {
+            "difference": 0.019965277777777773,
+            "ci95": [
+              -0.007812500000000007,
+              0.046875
+            ]
+          },
+          "final_coverage": {
+            "difference": -0.045138888888888895,
+            "ci95": [
+              -0.07986111111111112,
+              -0.01388888888888889
+            ]
+          },
+          "clean_turn_rate": {
+            "difference": 0.010416666666666666,
+            "ci95": [
+              -0.046875,
+              0.07291666666666667
+            ]
+          },
+          "wrong_value_rate": {
+            "difference": 0.005208333333333333,
+            "ci95": [
+              -0.036458333333333336,
+              0.052083333333333336
+            ]
+          },
+          "truncation_rate": {
+            "difference": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_tokens": {
+            "difference": -1.4322916666666667,
+            "ci95": [
+              -2.7450520833333334,
+              -0.18216145833333403
+            ]
+          },
+          "disclosure_auc": {
+            "difference": 0.008680555555555558,
+            "ci95": [
+              -0.009548611111111112,
+              0.029513888888888895
+            ]
+          },
+          "repetition_rate": {
+            "difference": 3.451502256044773e-05,
+            "ci95": [
+              -0.0024279511906698274,
+              0.002690239008835748
+            ]
+          },
+          "broad_coverage": {
+            "difference": -0.045138888888888895,
+            "ci95": [
+              -0.07986111111111112,
+              -0.01388888888888889
+            ]
+          },
+          "nonname_premature_fraction": {
+            "difference": -0.04513888888888889,
+            "ci95": [
+              -0.07291666666666667,
+              -0.020833333333333332
+            ]
+          },
+          "leak_turn_rate": {
+            "difference": -0.026041666666666668,
+            "ci95": [
+              -0.057291666666666664,
+              0.0
+            ]
+          }
+        },
+        "changed_conversations": 39
+      }
+    }
+  },
+  "transfer_review": {
+    "scope": "Exploratory fictional-patient transfer; six IDs fixed before inspecting patient outputs, covering all three scenario families.",
+    "reviewed_case_ids": [
+      "transfer-000",
+      "transfer-015",
+      "transfer-016",
+      "transfer-031",
+      "transfer-032",
+      "transfer-047"
+    ],
+    "reviewed_conditions": [
+      "baseline",
+      "selective",
+      "brief",
+      "oracle",
+      "steered"
+    ],
+    "reviewed_responses": 120,
+    "reviewer": "assistant, unblinded, not independent human or clinical evaluation",
+    "examples": [
+      {
+        "case_id": "transfer-000",
+        "condition": "baseline",
+        "turn": 2,
+        "finding": "Invents a sore throat and slight fever, and does not answer the medication question."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Recap omits the measured temperature."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "baseline",
+        "turn": 1,
+        "finding": "Changes for four days into onset on the fourth day of an invented absence from work."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "baseline",
+        "turn": 3,
+        "finding": "Claims over-the-counter medication use despite the record specifying none."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Contradicts itself about taking medication; also omits the restaurant exposure."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "baseline",
+        "turn": 2,
+        "finding": "Invents an asthma attack and its timing, then denies ongoing conditions despite mild asthma in the record."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "baseline",
+        "turn": 3,
+        "finding": "Denies ongoing conditions instead of reporting seasonal allergies."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Falsely claims medication use and omits the allergy history."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "baseline",
+        "turn": 1,
+        "finding": "Gives diagnosis and exposure rather than the requested symptom details."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "baseline",
+        "turn": 4,
+        "finding": "Adds fever and ongoing medication use; recap omits health history."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "selective",
+        "turn": 2,
+        "finding": "Says it has taken symptoms rather than answering whether medication was taken."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Recap omits exposure and health history."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "selective",
+        "turn": 3,
+        "finding": "Repeats the temperature instead of answering the medication question."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Recap omits exposure and medication status."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "selective",
+        "turn": 2,
+        "finding": "Reports asthma and then denies ongoing conditions; omits the requested exposure."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "selective",
+        "turn": 3,
+        "finding": "Reports seasonal allergies and then denies ongoing conditions."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "selective",
+        "turn": 1,
+        "finding": "Substitutes an invented first day of gardening for the recorded four-day duration."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "selective",
+        "turn": 4,
+        "finding": "Repeats the altered onset and omits the allergy history."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Invents cough syrup and a muscle relaxant despite the record specifying no medication; also omits temperature."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Recap does not name the symptoms and omits health history."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Recap omits restaurant exposure and asthma history."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "brief",
+        "turn": 1,
+        "finding": "Changes four days into about a day ago."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Repeats the wrong duration."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "brief",
+        "turn": 3,
+        "finding": "Reports seasonal allergies and then denies ongoing conditions."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "brief",
+        "turn": 4,
+        "finding": "Recap omits measured temperature and health history."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "oracle",
+        "turn": 2,
+        "finding": "Invents use of several medications and lack of relief despite the visible record specifying none."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Repeats invented medication use and omits exposure and health history."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "oracle",
+        "turn": 1,
+        "finding": "Changes a four-day duration into onset on the fourth day of illness."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "oracle",
+        "turn": 2,
+        "finding": "Assigns the asthma to a dining companion instead of the patient, then denies ongoing conditions."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "oracle",
+        "turn": 3,
+        "finding": "Invents a doctor prescription, fever and discomfort beyond the record."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "oracle",
+        "turn": 2,
+        "finding": "Invents asthma and specific allergen sensitivities absent from this record."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "oracle",
+        "turn": 4,
+        "finding": "Repeats the invented asthma and omits measured temperature."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "steered",
+        "turn": 2,
+        "finding": "Claims use of several medications, then says no medication was taken for these symptoms. A matching negative phrase does not resolve the contradiction."
+      },
+      {
+        "case_id": "transfer-000",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Repeats contradictory medication claims and omits exposure and health history."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "steered",
+        "turn": 1,
+        "finding": "Changes a four-day duration into onset on the fourth day of illness."
+      },
+      {
+        "case_id": "transfer-015",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Repeats the altered duration and omits exposure."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Recap omits restaurant exposure and asthma history."
+      },
+      {
+        "case_id": "transfer-031",
+        "condition": "steered",
+        "turn": 2,
+        "finding": "Invents an asthma attack and its timing, then denies ongoing conditions despite mild asthma in the record."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "steered",
+        "turn": 3,
+        "finding": "Denies ongoing conditions rather than reporting seasonal allergies."
+      },
+      {
+        "case_id": "transfer-032",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Claims medication use despite the record specifying none, and omits allergy history."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "steered",
+        "turn": 2,
+        "finding": "Adds an unsupported claim of year-round symptoms."
+      },
+      {
+        "case_id": "transfer-047",
+        "condition": "steered",
+        "turn": 4,
+        "finding": "Recap omits measured temperature and health history."
+      },
+      {
+        "case_id": "transfer-016",
+        "condition": "steered",
+        "turn": 3,
+        "kind": "improvement",
+        "finding": "Correctly reports no medication here; baseline invented over-the-counter medication use."
+      }
+    ],
+    "limitations": [
+      "48 cards share only three scenario families. Per-card uncertainty cannot establish generalization to independent diseases.",
+      "Allowing related context is a synthetic annotation choice, not a clinical judgment about appropriate disclosure.",
+      "Lexical rules miss paraphrases, negations and unsupported personal or medical claims.",
+      "Medication-name matching does not verify the recorded one-dose detail; some replies imply continuing treatment.",
+      "The absence of a lexical wrong-value flag does not validate invented medication classes, disease claims or contradictory clauses."
+    ],
+    "sampling_note": "Paired endpoints of each scenario grid cover both temperatures, both medication values and all three families. IDs finalized from case metadata before reading any patient outputs.",
+    "reviewed_conversations": 30,
+    "useful_transfer_demonstrated": false,
+    "conclusion": "Lower lexical premature disclosure comes with worse full-record coverage. Medication, duration and history errors remain in the transcripts. This does not establish useful patient disclosure control.",
+    "transfer_hash": "64879c208b0879fc8c77be6feef385e920a2209408ff699083f82a62e12895d5",
+    "cases_hash": "9fe2a39ecaac57ab816bd8e632ab4b0ced524430bdeb8b10320eccb485db8919"
+  }
+}

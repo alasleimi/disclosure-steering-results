@@ -1,11 +1,26 @@
 # Disclosure lab: viewer and results
 
-Current study: **[Question-driven pacing](https://alasleimi.github.io/disclosure-steering-results/pacing/)**.
-Local work uses Qwen2.5-0.5B. The viewer separates a completed 160-response harness
-diagnostic (authored fixtures) from model-generated contrast trials. Trait prompts
-yielded 0/36 eligible pairs; compact prompts yielded 9/36. The larger compact
-training pass and validation/test study are running on the same small model.
-There is no held-out pacing result yet; previous experiments remain unchanged.
+Current study: **[Question-driven pacing: outputs, scores and audits](https://alasleimi.github.io/disclosure-steering-results/pacing/)**.
+
+All new runs use **Qwen2.5-0.5B-Instruct**. The completed study contains 12,096
+evaluated responses: 96 validation cards, 192 held-out nonmedical cards and 48
+fictional patient cards. Training retained 60 reviewed model-generated contrast
+pairs from 49 cards. Authored harness fixtures and elicitation probes are separate
+runs in the viewer.
+
+On the nonmedical test, premature fact fraction fell **15.02% to 13.45%**
+(-1.56 pp; paired 95% interval [-2.95, -0.17]), with requested coverage **96.05%
+vs 95.94%**. Validation preferred zero; block 17 at strength 0.5 was the best
+active setting. Selective and brevity prompts had lower leakage than the vector.
+
+The frozen fictional-patient transfer reduced leakage **16.67% to 12.15%**, but
+full-record coverage fell **68.06% to 63.54%**. Invented medication, incorrect
+durations and contradictory histories remain. Useful patient disclosure control
+is not established. These 48 cards share only three scenario families.
+
+[Full report](results/pacing-small.txt) ? [Metrics and audits](results/pacing-small.json).
+The assistant audits cover 320 nonmedical and 120 patient responses; they are not
+independent human evaluation. The viewer places findings beside affected replies.
 
 Previous experiment: **[Grounded exhibits, outputs and scores](https://alasleimi.github.io/disclosure-steering-results/grounded/)**
 

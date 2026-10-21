@@ -1,0 +1,64 @@
+Qwen2.5-0.5B: question-driven pacing
+
+Modest nonmedical leakage reduction with preserved coverage, but prompt controls perform better. Fictional-patient transfer reduces leakage while losing full-record coverage; useful patient disclosure control is not established.
+
+120 training records; 96 validation and 192 held-out test cards.
+576 model-generated contrast answers; 91 candidates reviewed, 86 accepted.
+60 retained pairs from 49 cards; ten pairs per extra category.
+11,136 evaluated responses (validation and test), with a 96-token ceiling.
+Capture: mean decoder-block output across generated answer tokens, excluding EOS.
+All 24 layers captured under elicitation and neutral-replay contexts; card-equal averages.
+Injection: after the final prompt token and after each generated token at the selected block.
+
+Validation recommendation: baseline
+Active candidate: {"name": "block17_a0.5", "policy": "baseline", "layer": 17, "alpha": 0.5, "vector": "elicited.17"}
+
+Condition | Premature fact fraction | Requested coverage | Full reveal | Known wrong | Cutoff | Tokens
+baseline | 15.02% | 96.05% | 93.53% | 2.60% | 0.91% | 29.0
+selective | 11.81% | 95.85% | 92.75% | 0.52% | 0.26% | 23.3
+brief | 12.67% | 96.43% | 93.58% | 0.91% | 0.00% | 23.8
+oracle | 0.00% | 89.42% | 88.93% | 5.73% | 3.91% | 38.3
+steered | 13.45% | 95.94% | 93.84% | 0.65% | 0.52% | 27.1
+opposite | 15.89% | 96.55% | 94.14% | 2.34% | 1.17% | 32.8
+neutral_replay | 15.02% | 96.79% | 93.75% | 2.21% | 0.65% | 31.1
+random | 15.62% | 96.22% | 93.71% | 2.21% | 0.91% | 28.8
+
+Changed conversations: 162/192
+Selected vector minus baseline (paired card bootstrap, 95% interval):
+premature_fraction: -1.56 pp [-2.95, -0.17]
+requested_coverage: -0.11 pp [-1.07, +0.78]
+broad_coverage: +0.30 pp [-0.78, +1.39]
+nonname_premature_fraction: -1.88 pp [-3.54, -0.21]
+
+Transfer gate: transfer_complete
+
+Training still has length, prefix and formatting confounds: retained selective
+answers average 8.08 tokens vs 13.03 oversharing tokens (EOS excluded); 37/60
+pairs share an answer prefix. Explicit field/value lists were accepted, not
+rewritten into artificial equal-length prose. Category quotas balance pair
+counts, whereas equal card weighting gives categories unequal effective weight.
+
+The separate five-card, authored-fixture smoke is a harness check, not this test.
+Compact elicitation includes the initial twelve probe contexts; it is an expanded
+training pass, not an independent replication. No model weights were changed.
+
+Scores use fixed lexical rules, not semantic ground truth. The accompanying
+assistant audit covers the first ten prespecified test cards in all conditions
+(320 responses). It is not independent human evaluation.
+
+Viewer: https://alasleimi.github.io/disclosure-steering-results/pacing/
+Source branch: disclosure-steering
+Source commit: e4907e620abdf059cef14bfc9cf66edd1c5eab84
+
+Exploratory fictional-patient transfer: 48 cards from three scenario families,
+five conditions, 960 replies. Same model, vector, block and strength; no retuning.
+120 replies reviewed across six prespecified cards spanning all three families.
+Condition | Premature fact fraction | Requested coverage | Full reveal | Known wrong | Cutoff | Tokens
+baseline | 16.67% | 75.87% | 68.06% | 8.85% | 0.00% | 30.3
+selective | 11.46% | 80.38% | 70.49% | 12.50% | 0.00% | 29.7
+brief | 8.68% | 84.38% | 69.79% | 5.21% | 0.00% | 26.4
+oracle | 0.00% | 80.82% | 67.01% | 10.42% | 3.12% | 35.7
+steered | 12.15% | 77.86% | 63.54% | 9.38% | 0.00% | 28.9
+
+Three scenario families do not provide 48 independent disease tests.
+Scores are lexical; the transfer transcript audit is essential.
