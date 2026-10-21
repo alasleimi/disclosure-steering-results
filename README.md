@@ -1,6 +1,13 @@
 # Disclosure lab: viewer and results
 
-Latest experiment: **[Grounded exhibits, outputs and scores](https://alasleimi.github.io/disclosure-steering-results/grounded/)**
+Current study: **[Question-driven pacing](https://alasleimi.github.io/disclosure-steering-results/pacing/)**.
+Local work uses Qwen2.5-0.5B. The viewer separates a completed 160-response harness
+diagnostic (authored fixtures) from model-generated contrast trials. Trait prompts
+yielded 0/36 eligible pairs; compact prompts yielded 9/36. The larger compact
+training pass and validation/test study are running on the same small model.
+There is no held-out pacing result yet; previous experiments remain unchanged.
+
+Previous experiment: **[Grounded exhibits, outputs and scores](https://alasleimi.github.io/disclosure-steering-results/grounded/)**
 
 [Previous experiment and large-strength sweep](https://alasleimi.github.io/disclosure-steering-results/).
 
