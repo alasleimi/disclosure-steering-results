@@ -180,7 +180,9 @@ function outputs() {
   const availableIds=new Set(available.map(e=>e.case_id));
   const matchingCases=data.cases.filter(c=>c.split===state.split && availableIds.has(c.id) && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
   const cases=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
-  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p></div>`;
+  const hiddenCount=matchingCases.length-cases.length;
+  const filterFeedback=!matchingCases.length?"No cards match the current search and filters.":hiddenCount===0?"0 cards hidden. No matching card passes every turn for both selected conditions.":`${hiddenCount} ${hiddenCount===1?"card":"cards"} hidden: both conditions pass every turn.`;
+  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p>${state.hidePerfectCards?`<p id="perfect-card-filter-result" role="status"><strong>${esc(filterFeedback)}</strong></p>`:""}</div>`;
   if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search or turn off the fully correct card filter.');}
   if (!cases.some(c=>c.id===state.caseId)) state.caseId=cases[0].id;
   const chosen=cases.find(c=>c.id===state.caseId);
@@ -197,7 +199,13 @@ function outputs() {
   }
   const reference=episodeFor(chosen,state.reference);
   const treatment=episodeFor(chosen,state.condition);
-  html+=`<div class="condition-heads"><div>${esc(label(state.reference))}</div><div>${esc(label(state.condition))}</div></div>`;
+  const conversationChecks=e=>{
+    const events=(e?.turns||[]).map(t=>t.score), total=chosen.questions.length;
+    const passed=events.filter(event=>event?.clean===true).length;
+    const scored=events.filter(event=>typeof event?.clean==="boolean").length;
+    return `${passed}/${total} turns pass all checks${scored<total?` (${total-scored} unscored)`:""}`;
+  };
+  html+=`<p class="small" id="conversation-checks"><strong>Whole conversation:</strong> ${esc(label(state.reference))}: <strong>${conversationChecks(reference)}</strong>; ${esc(label(state.condition))}: <strong>${conversationChecks(treatment)}</strong>.</p><div class="condition-heads"><div>${esc(label(state.reference))}</div><div>${esc(label(state.condition))}</div></div>`;
   chosen.questions.forEach((q,i)=>{html+=`<div class="turn"><div class="question"><span class="turn-number">TURN ${i+1}</span><span>${esc(q.text)}</span></div><div class="responses">${responseCard(reference?.turns[i],false,label(state.reference))}${responseCard(treatment?.turns[i],true,label(state.condition))}</div></div>`;});
   html+=details('Conversation-level scores',{left:{condition:state.reference,score:reference?.score},right:{condition:state.condition,score:treatment?.score}});
   html+=`<p class="small"><a href="${comparisonLink()}">Link to this comparison</a></p>`;
