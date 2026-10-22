@@ -7,10 +7,22 @@ const num = value => Number.isFinite(value) ? value.toLocaleString() : '—';
 const names = {baseline:'Baseline',steered:'Selected steering',opposite:'Opposite direction',instruction:'Selective instruction',brief:'Brevity instruction',masked:'Oracle masking',full_mean:'Full-answer mean',length_only:'Same-fact brevity vector'};
 const grounded = () => data?.overview.version === 'grounded-exhibits-v3';
 const label = value => grounded() && value==='steered' ? 'Matched steering' : names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ').replace(/^alpha_/, 'α ');
-const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hidePerfectCards:false,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
+const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hidePerfectCards:false,leakFilter:'all',focusTurn:0,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
 let data;
 const pendingLoads = new Map();
 let renderSequence = 0;
+
+const leakOptions = {all:"All cards",either:"Either condition",left:"Left condition",right:"Right condition",both:"Both conditions"};
+const scoreEvents = e => e?.score?.events || (e?.turns||[]).map(t=>t.score);
+const prematureFields = e => [...new Set(scoreEvents(e).flatMap(event=>event?.premature||[]))];
+function matchesPremature(left,right){
+  const a=prematureFields(left).length>0, b=prematureFields(right).length>0;
+  return state.leakFilter==="left"?a:state.leakFilter==="right"?b:state.leakFilter==="both"?a&&b:state.leakFilter==="either"?a||b:true;
+}
+function prematureOverview(left,right){
+  return `<div class="leak-index"><strong>Premature disclosure in this card</strong><p class="small muted">Jump to a flagged turn. Orange highlights show the matched fact text; earlier turns remain available for context.</p>${[...new Map([[state.reference,left],[state.condition,right]])].map(([condition,e])=>`<div><strong>${esc(label(condition))}</strong> ${scoreEvents(e).map((event,i)=>event?.premature?.length?`<button type="button" data-turn="${i+1}" aria-label="Jump to turn ${i+1}: ${esc(label(condition))}; premature ${esc(event.premature.join(', '))}">Turn ${i+1} · ${esc(event.premature.join(', '))}</button>`:"").join("")||`<span class="muted">${e?"No premature facts recorded.":"No saved response."}</span>`}</div>`).join("")}</div>`;
+}
+
 
 async function loadData(name) {
   if (data[name]) return data[name];
@@ -78,7 +90,7 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
     const conditions = [...new Set(rows.map(e => e.condition))];
     if (!conditions.includes(state.reference)) state.reference = conditions.includes('baseline') ? 'baseline' : conditions[0];
     if (!conditions.includes(state.condition)) state.condition = conditions.find(c => c !== 'baseline') || 'steered';
-    html += `<label>Left condition<select id="reference-filter">${conditions.map(c => option(c,label(c),state.reference)).join('')}</select></label><label>Right condition<select id="condition-filter">${conditions.map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
+    html += `<label>Premature disclosure<select id="leak-filter" aria-describedby="leak-filter-help">${Object.entries(leakOptions).map(([k,v])=>option(k,v,state.leakFilter)).join('')}</select></label><label>Left condition<select id="reference-filter">${conditions.map(c => option(c,label(c),state.reference)).join('')}</select></label><label>Right condition<select id="condition-filter">${conditions.map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
   }
   if (patterns) html += `<label>Conversation structure<select id="pattern-filter">${option('all','All structures',state.pattern)}${[...new Set(data.cases.map(c => c.pattern))].map(p => option(p,p,state.pattern)).join('')}</select></label>`;
   if (contrasts) html += `<label>Pair status<select id="status-filter">${['accepted','rejected','all'].map(s => option(s,s,state.status)).join('')}</select></label>`;
@@ -87,16 +99,16 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
 }
 
 function wireToolbar() {
-  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['reference-filter','reference'],['condition-filter','condition']]) {
+  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['reference-filter','reference'],['condition-filter','condition'],['leak-filter','leakFilter']]) {
     const input = $(`#${id}`);
-    if (input) input.onchange = () => {state[key] = input.value;state.page=0;render();};
+    if (input) input.onchange = () => {state[key] = input.value;state.page=0;state.focusTurn=0;render();};
   }
   const perfectCardFilter = $('#hide-perfect-cards');
-  if (perfectCardFilter) perfectCardFilter.onchange = () => {state.hidePerfectCards=perfectCardFilter.checked;render();};
+  if (perfectCardFilter) perfectCardFilter.onchange = () => {state.hidePerfectCards=perfectCardFilter.checked;state.focusTurn=0;render();};
   const search = $('#search-filter');
   if (search) search.oninput = () => {
     const value=search.value, start=search.selectionStart;
-    state.search=value;state.page=0;render();
+    state.search=value;state.page=0;state.focusTurn=0;render();
     const next=$('#search-filter');next.focus();next.setSelectionRange(start,start);
   };
 }
@@ -179,13 +191,15 @@ function outputs() {
   const textMatches = new Set(available.filter(e => (e.condition===state.reference||e.condition===state.condition) && e.turns.some(t=>t.text.toLowerCase().includes(state.search.toLowerCase()))).map(e=>e.case_id));
   const availableIds=new Set(available.map(e=>e.case_id));
   const matchingCases=data.cases.filter(c=>c.split===state.split && availableIds.has(c.id) && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
-  const cases=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
-  const hiddenCount=matchingCases.length-cases.length;
+  const afterPerfect=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
+  const cases=afterPerfect.filter(c=>matchesPremature(episodeFor(c,state.reference),episodeFor(c,state.condition)));
+  const hiddenCount=matchingCases.length-afterPerfect.length;
   const filterFeedback=!matchingCases.length?"No cards match the current search and filters.":hiddenCount===0?"0 cards hidden. No matching card passes every turn for both selected conditions.":`${hiddenCount} ${hiddenCount===1?"card":"cards"} hidden: both conditions pass every turn.`;
-  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p>${state.hidePerfectCards?`<p id="perfect-card-filter-result" role="status"><strong>${esc(filterFeedback)}</strong></p>`:""}</div>`;
-  if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search or turn off the fully correct card filter.');}
-  if (!cases.some(c=>c.id===state.caseId)) state.caseId=cases[0].id;
+  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="leak-filter-help">Show cards with at least one newly premature fact in the chosen condition(s). Badges count distinct premature facts; scores use the saved lexical checks.</p><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p>${state.hidePerfectCards?`<p id="perfect-card-filter-result" role="status"><strong>${esc(filterFeedback)}</strong></p>`:""}</div>`;
+  if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search, disclosure filter or fully correct card filter.');}
+  if (!cases.some(c=>c.id===state.caseId)) {state.caseId=cases[0].id;state.focusTurn=0;}
   const chosen=cases.find(c=>c.id===state.caseId);
+  if(state.focusTurn>chosen.questions.length)state.focusTurn=0;
   html+='<div class="case-layout"><aside class="case-list" aria-label="Cases">';
   for (const c of cases) html+=`<button class="case-item ${c.id===chosen.id?'active':''}" data-case="${esc(c.id)}"><strong>${esc(c.id)}</strong><small>${esc(Object.values(c.facts).join(' · '))}</small></button>`;
   html+='</aside><div>';
@@ -205,10 +219,10 @@ function outputs() {
     const scored=events.filter(event=>typeof event?.clean==="boolean").length;
     return `${passed}/${total} turns pass all checks${scored<total?` (${total-scored} unscored)`:""}`;
   };
-  html+=`<p class="small" id="conversation-checks"><strong>Whole conversation:</strong> ${esc(label(state.reference))}: <strong>${conversationChecks(reference)}</strong>; ${esc(label(state.condition))}: <strong>${conversationChecks(treatment)}</strong>.</p><div class="condition-heads"><div>${esc(label(state.reference))}</div><div>${esc(label(state.condition))}</div></div>`;
-  chosen.questions.forEach((q,i)=>{html+=`<div class="turn"><div class="question"><span class="turn-number">TURN ${i+1}</span><span>${esc(q.text)}</span></div><div class="responses">${responseCard(reference?.turns[i],false,label(state.reference))}${responseCard(treatment?.turns[i],true,label(state.condition))}</div></div>`;});
+  html+=`<p class="small" id="conversation-checks"><strong>Whole conversation:</strong> ${esc(label(state.reference))}: <strong>${conversationChecks(reference)}</strong>; ${esc(label(state.condition))}: <strong>${conversationChecks(treatment)}</strong>.</p>${prematureOverview(reference,treatment)}<div class="condition-heads"><div>${esc(label(state.reference))}</div><div>${esc(label(state.condition))}</div></div>`;
+  chosen.questions.forEach((q,i)=>{const flagged=[reference,treatment].some(e=>e?.turns[i]?.score?.premature?.length);html+=`<div id="turn-${i+1}" tabindex="-1" class="turn ${flagged?"has-premature":""}"><div class="question"><span class="turn-number">TURN ${i+1}</span><span>${esc(q.text)}</span>${flagged?chip("Premature disclosure","warn"):""}</div><div class="responses">${responseCard(reference?.turns[i],false,label(state.reference))}${responseCard(treatment?.turns[i],true,label(state.condition))}</div></div>`;});
   html+=details('Conversation-level scores',{left:{condition:state.reference,score:reference?.score},right:{condition:state.condition,score:treatment?.score}});
-  html+=`<p class="small"><a href="${comparisonLink()}">Link to this comparison</a></p>`;
+  html+=`<p class="small"><a id="comparison-link" href="${comparisonLink()}">Link to this comparison</a></p>`;
   return html+'</div></div>';
 }
 
@@ -269,14 +283,25 @@ async function render() {
   const draw={overview,outputs,dataset,contrasts,method,strength}[state.view]||overview;
   $('#content').innerHTML=draw();
   wireToolbar();
-  document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>{state.caseId=button.dataset.case;render();});
+  document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>{state.caseId=button.dataset.case;state.focusTurn=0;render();});
+  document.querySelectorAll('[data-turn]').forEach(button=>button.onclick=()=>jumpToTurn(Number(button.dataset.turn)));
   if ($('#previous-page')) $('#previous-page').onclick=()=>{state.page--;render();$('#navigation').scrollIntoView();};
   if ($('#next-page')) $('#next-page').onclick=()=>{state.page++;render();$('#navigation').scrollIntoView();};
-  if (['outputs','strength'].includes(state.view)) history.replaceState(null,'',comparisonLink());
+  if (['outputs','strength'].includes(state.view)) {
+    history.replaceState(null,'',comparisonLink());
+    if(state.focusTurn)jumpToTurn(state.focusTurn);
+  }
 }
 
 function comparisonLink() {
-  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,hidePerfectCards:state.hidePerfectCards?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,leaks:state.leakFilter,turn:state.focusTurn||'',hidePerfectCards:state.hidePerfectCards?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+}
+
+function jumpToTurn(turn) {
+  const target=$('#turn-'+turn);if(!target)return;
+  state.focusTurn=turn;target.scrollIntoView({block:'start'});target.focus({preventScroll:true});
+  history.replaceState(null,'',comparisonLink());
+  if($('#comparison-link'))$('#comparison-link').href=comparisonLink();
 }
 
 function navigate() {
@@ -286,6 +311,8 @@ function navigate() {
   if(params.has('case'))state.caseId=params.get('case');
   if(params.has('condition'))state.condition=params.get('condition');
   if(params.has('reference'))state.reference=params.get('reference');
+  if(Object.hasOwn(leakOptions,params.get('leaks')))state.leakFilter=params.get('leaks');
+  const turn=Number(params.get('turn'));state.focusTurn=Number.isSafeInteger(turn)&&turn>0?turn:0;
   const perfectFilter=params.get('hidePerfectCards')??params.get('hideFullCoverage');
   if(perfectFilter!==null)state.hidePerfectCards=perfectFilter==='1';
   if(['test','validation'].includes(params.get('split')))state.split=params.get('split');
