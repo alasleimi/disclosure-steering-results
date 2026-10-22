@@ -7,7 +7,7 @@ const num = value => Number.isFinite(value) ? value.toLocaleString() : '—';
 const names = {baseline:'Baseline',steered:'Selected steering',opposite:'Opposite direction',instruction:'Selective instruction',brief:'Brevity instruction',masked:'Oracle masking',full_mean:'Full-answer mean',length_only:'Same-fact brevity vector'};
 const grounded = () => data?.overview.version === 'grounded-exhibits-v3';
 const label = value => grounded() && value==='steered' ? 'Matched steering' : names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ').replace(/^alpha_/, 'α ');
-const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hideFullCoverage:false,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
+const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hidePerfectCards:false,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
 let data;
 const pendingLoads = new Map();
 let renderSequence = 0;
@@ -91,8 +91,8 @@ function wireToolbar() {
     const input = $(`#${id}`);
     if (input) input.onchange = () => {state[key] = input.value;state.page=0;render();};
   }
-  const coverageFilter = $('#hide-full-coverage');
-  if (coverageFilter) coverageFilter.onchange = () => {state.hideFullCoverage=coverageFilter.checked;render();};
+  const perfectCardFilter = $('#hide-perfect-cards');
+  if (perfectCardFilter) perfectCardFilter.onchange = () => {state.hidePerfectCards=perfectCardFilter.checked;render();};
   const search = $('#search-filter');
   if (search) search.oninput = () => {
     const value=search.value, start=search.selectionStart;
@@ -172,16 +172,16 @@ function outputs() {
   const available=stress?data.strength.episodes:data[state.split];
   const byCaseCondition=new Map(available.map(e=>[`${e.case_id}:${e.condition}`,e]));
   const episodeFor=(c,condition)=>byCaseCondition.get(`${c.id}:${condition}`);
-  const fullCoverage=(c,condition)=>{
+  const perfectCard=(c,condition)=>{
     const e=episodeFor(c,condition);
-    return c.questions.length>0&&e?.turns.length===c.questions.length&&e.turns.every(t=>t.score?.coverage===1);
+    return c.questions.length>0&&e?.turns.length===c.questions.length&&e.turns.every(t=>t.score?.clean===true);
   };
   const textMatches = new Set(available.filter(e => (e.condition===state.reference||e.condition===state.condition) && e.turns.some(t=>t.text.toLowerCase().includes(state.search.toLowerCase()))).map(e=>e.case_id));
   const availableIds=new Set(available.map(e=>e.case_id));
   const matchingCases=data.cases.filter(c=>c.split===state.split && availableIds.has(c.id) && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
-  const cases=matchingCases.filter(c=>!state.hideFullCoverage||!fullCoverage(c,state.reference)||!fullCoverage(c,state.condition));
-  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-full-coverage" ${state.hideFullCoverage?'checked':''} aria-describedby="coverage-filter-help">Hide cards where both have 100% coverage</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="coverage-filter-help">100% means every requested fact was matched on every turn in both selected conditions. Early disclosure and other errors may still occur. This filter only changes the card list; result tables use all cards.</p></div>`;
-  if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search or turn off the coverage filter.');}
+  const cases=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
+  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p></div>`;
+  if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search or turn off the fully correct card filter.');}
   if (!cases.some(c=>c.id===state.caseId)) state.caseId=cases[0].id;
   const chosen=cases.find(c=>c.id===state.caseId);
   html+='<div class="case-layout"><aside class="case-list" aria-label="Cases">';
@@ -268,7 +268,7 @@ async function render() {
 }
 
 function comparisonLink() {
-  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,hideFullCoverage:state.hideFullCoverage?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,hidePerfectCards:state.hidePerfectCards?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
 }
 
 function navigate() {
@@ -278,7 +278,8 @@ function navigate() {
   if(params.has('case'))state.caseId=params.get('case');
   if(params.has('condition'))state.condition=params.get('condition');
   if(params.has('reference'))state.reference=params.get('reference');
-  if(params.has('hideFullCoverage'))state.hideFullCoverage=params.get('hideFullCoverage')==='1';
+  const perfectFilter=params.get('hidePerfectCards')??params.get('hideFullCoverage');
+  if(perfectFilter!==null)state.hidePerfectCards=perfectFilter==='1';
   if(['test','validation'].includes(params.get('split')))state.split=params.get('split');
   if(state.view==='outputs'&&grounded()&&data.overview.status!=='complete'&&!params.has('split'))state.split='validation';
   if(state.view==='outputs'&&!data.overview.conversation_counts.test&&data.overview.conversation_counts.validation)state.split='validation';

@@ -10,7 +10,7 @@ const details = (title, value) => `<details><summary>${esc(title)}</summary><pre
 const facts = c => `<div class="record"><div class="record-title"><strong>${esc(c.id)}</strong>${chip(c.split)}</div>${Object.entries(c.facts).map(([k,v])=>chip(`${k}: ${v}`)).join("")}</div>`;
 const options = (values,selected,display=x=>x) => values.map(v=>`<option value="${esc(v)}" ${v===selected?"selected":""}>${esc(display(v))}</option>`).join("");
 let data, development, archive, runs;
-let state = {split:"test",reference:"baseline",condition:"steered",hideFullCoverage:false,caseId:"",search:"",pairFilter:"retained",pairIndex:0,devIndex:0};
+let state = {split:"test",reference:"baseline",condition:"steered",hidePerfectCards:false,caseId:"",search:"",pairFilter:"retained",pairIndex:0,devIndex:0};
 const table = metrics => `<div class="table-wrap"><table><thead><tr><th>Condition</th><th>Cards</th><th>Premature ↓</th><th>Non-name ↓</th><th>Requested ↑</th><th>Full reveal ↑</th><th>Known wrong ↓</th><th>Cutoff ↓</th><th>Tokens</th></tr></thead><tbody>${Object.entries(metrics).map(([k,m])=>`<tr class="${k==="steered"?"selected":""}"><td>${esc(label(k))}</td><td>${m.cases}</td>${[m.premature_fraction,m.nonname_premature_fraction,m.requested_coverage,m.broad_coverage,m.wrong_value_rate,m.truncation_rate].map(v=>`<td class="number">${pct(v)}</td>`).join("")}<td class="number">${num(m.mean_tokens)}</td></tr>`).join("")}</tbody></table></div>`;
 function overview(){
   const evaluation=data.evaluation||{}, test=evaluation.test, diagnostic=evaluation.diagnostic, validation=evaluation.validation, gate=data.transfer_gate;
@@ -51,16 +51,16 @@ function outputs(source=data,dev=false){
   if(!conditions.includes(state.condition))state.condition=conditions.includes("selective")?"selective":conditions[0];
   const byCaseCondition=new Map(available.map(e=>[`${e.case_id}:${e.condition}`,e]));
   const episodeFor=(c,condition)=>byCaseCondition.get(`${c.id}:${condition}`);
-  const fullCoverage=(c,condition)=>{
+  const perfectCard=(c,condition)=>{
     const e=episodeFor(c,condition);
-    return c.questions.length>0&&e?.turns.length===c.questions.length&&e.score?.events?.length===c.questions.length&&e.score.events.every(event=>event.coverage===1);
+    return c.questions.length>0&&e?.turns.length===c.questions.length&&e.score?.events?.length===c.questions.length&&e.score.events.every(event=>event.clean===true);
   };
   const matchingCases=source.cases.filter(c=>c.split===split&&JSON.stringify(c).toLowerCase().includes(state.search.toLowerCase()));
-  const cases=matchingCases.filter(c=>!state.hideFullCoverage||!fullCoverage(c,state.reference)||!fullCoverage(c,state.condition));
+  const cases=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
   if(!cases.some(c=>c.id===state.caseId))state.caseId=cases[0]?.id||"";
   const c=cases.find(c=>c.id===state.caseId);
-  let html=`<div class="toolbar">${!dev?`<label>Evaluation split<select id="split">${options(splits,split)}</select></label>`:""}<label>Left condition<select id="reference">${options(conditions,state.reference,label)}</select></label><label>Right condition<select id="condition">${options(conditions,state.condition,label)}</select></label><label class="grow">Find a card<input id="search" value="${esc(state.search)}" placeholder="Name, job, case ID…"></label></div><div class="comparison-filters"><label><input type="checkbox" id="hide-full-coverage" ${state.hideFullCoverage?"checked":""} aria-describedby="coverage-filter-help">Hide cards where both have 100% coverage</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="coverage-filter-help">100% means every requested fact was matched on every turn in both selected conditions. Early disclosure and other errors may still occur. This filter only changes the card list; result tables use all cards.</p></div><div class="case-layout"><aside class="case-list" aria-label="Choose a card">${cases.map(c=>`<button class="case-item ${c.id===state.caseId?"active":""}" data-case="${esc(c.id)}"><strong>${esc(c.id)}</strong><small>${esc(c.facts.name||c.facts.symptoms||"")} · ${esc(c.pattern||"patient")}</small></button>`).join("")}</aside><div>`;
-  if(!c)return html+`<div class="empty">No matching cards. Change your search or turn off the coverage filter.</div></div></div>`;
+  let html=`<div class="toolbar">${!dev?`<label>Evaluation split<select id="split">${options(splits,split)}</select></label>`:""}<label>Left condition<select id="reference">${options(conditions,state.reference,label)}</select></label><label>Right condition<select id="condition">${options(conditions,state.condition,label)}</select></label><label class="grow">Find a card<input id="search" value="${esc(state.search)}" placeholder="Name, job, case ID…"></label></div><div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?"checked":""} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p></div><div class="case-layout"><aside class="case-list" aria-label="Choose a card">${cases.map(c=>`<button class="case-item ${c.id===state.caseId?"active":""}" data-case="${esc(c.id)}"><strong>${esc(c.id)}</strong><small>${esc(c.facts.name||c.facts.symptoms||"")} · ${esc(c.pattern||"patient")}</small></button>`).join("")}</aside><div>`;
+  if(!c)return html+`<div class="empty">No matching cards. Change your search or turn off the fully correct card filter.</div></div></div>`;
   const reference=episodeFor(c,state.reference);
   const treatment=episodeFor(c,state.condition);
   const auditNotes=(condition,index)=>[...(source.diagnostic_review?.examples||[]),...(source.test_review?.examples||[]),...(source.transfer_review?.examples||[])].filter(n=>n.case_id===c.id&&n.condition===condition&&n.turn===index+1);
@@ -108,7 +108,7 @@ function render(){
  $("#content").innerHTML=({overview,outputs,dataset,contrasts,development:developmentView,method}[view]||overview)();
  document.querySelectorAll("#navigation a").forEach(a=>a.classList.toggle("active",a.hash==="#"+view));
  for(const [id,key] of [["split","split"],["reference","reference"],["condition","condition"],["pair-filter","pairFilter"]])$("#"+id)?.addEventListener("change",e=>{state[key]=e.target.value;state.pairIndex=0;render();});
- $("#hide-full-coverage")?.addEventListener("change",e=>{state.hideFullCoverage=e.target.checked;render();});
+ $("#hide-perfect-cards")?.addEventListener("change",e=>{state.hidePerfectCards=e.target.checked;render();});
  $("#search")?.addEventListener("change",e=>{state.search=e.target.value;state.pairIndex=0;render();});
  $("#dev-run")?.addEventListener("change",e=>{state.devIndex=Number(e.target.value);state.caseId="";render();});
  document.querySelectorAll("[data-case]").forEach(b=>b.addEventListener("click",()=>{state.caseId=b.dataset.case;render();}));
@@ -117,7 +117,7 @@ function render(){
 }
 function selectRun(index){
  data=runs[index];
- state={split:data.smoke?"diagnostic":"test",reference:"baseline",condition:"steered",hideFullCoverage:false,caseId:"",search:"",pairFilter:data.extraction?"retained":"all",pairIndex:0,devIndex:0};
+ state={split:data.smoke?"diagnostic":"test",reference:"baseline",condition:"steered",hidePerfectCards:false,caseId:"",search:"",pairFilter:data.extraction?"retained":"all",pairIndex:0,devIndex:0};
  $("#run-badge").textContent=`${data.manifest.config.model} · ${data.manifest.config.quantization||"unquantized"} / ${data.manifest.config.dtype}\n${data.run}`;
  $("#notice").textContent=data.smoke?"Completed harness diagnostic: five development cards, authored fixtures, no held-out result. Read the audit alongside the lexical scores.":data.evaluation?.transfer?`Completed: ${data.manifest.config.test_cases} held-out nonmedical cards and ${data.manifest.config.transfer_cases} fictional patient cards. Read the coverage tradeoffs and transcript audits alongside the lexical scores.`:data.evaluation?.test?`Held-out nonmedical results on ${data.manifest.config.test_cases} cards. Compare coverage and disclosure together, and read the transcript audit for semantic errors the lexical scores miss.`:data.extraction?"Model-generated contrasts have been reviewed and extracted. Validation/test generation is in progress; no final conclusion yet.":"Small-model elicitation trial: generated attempts and filtering results. This run has no validation, test or patient outputs.";
  render();
