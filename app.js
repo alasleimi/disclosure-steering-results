@@ -7,7 +7,7 @@ const num = value => Number.isFinite(value) ? value.toLocaleString() : '—';
 const names = {baseline:'Baseline',steered:'Selected steering',opposite:'Opposite direction',instruction:'Selective instruction',brief:'Brevity instruction',masked:'Oracle masking',full_mean:'Full-answer mean',length_only:'Same-fact brevity vector'};
 const grounded = () => data?.overview.version === 'grounded-exhibits-v3';
 const label = value => grounded() && value==='steered' ? 'Matched steering' : names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ').replace(/^alpha_/, 'α ');
-const state = {view:'overview',split:'test',condition:'steered',caseId:null,search:'',pattern:'all',status:'accepted',page:0};
+const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hideFullCoverage:false,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
 let data;
 const pendingLoads = new Map();
 let renderSequence = 0;
@@ -76,8 +76,9 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
   if (outputs) {
     const rows=state.view==='strength'?data.strength.episodes:data[state.split];
     const conditions = [...new Set(rows.map(e => e.condition))];
+    if (!conditions.includes(state.reference)) state.reference = conditions.includes('baseline') ? 'baseline' : conditions[0];
     if (!conditions.includes(state.condition)) state.condition = conditions.find(c => c !== 'baseline') || 'steered';
-    html += `<label>Compare baseline with<select id="condition-filter">${conditions.filter(c => c !== 'baseline').map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
+    html += `<label>Left condition<select id="reference-filter">${conditions.map(c => option(c,label(c),state.reference)).join('')}</select></label><label>Right condition<select id="condition-filter">${conditions.map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
   }
   if (patterns) html += `<label>Conversation structure<select id="pattern-filter">${option('all','All structures',state.pattern)}${[...new Set(data.cases.map(c => c.pattern))].map(p => option(p,p,state.pattern)).join('')}</select></label>`;
   if (contrasts) html += `<label>Pair status<select id="status-filter">${['accepted','rejected','all'].map(s => option(s,s,state.status)).join('')}</select></label>`;
@@ -86,10 +87,12 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
 }
 
 function wireToolbar() {
-  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['condition-filter','condition']]) {
+  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['reference-filter','reference'],['condition-filter','condition']]) {
     const input = $(`#${id}`);
-    if (input) input.onchange = () => {state[key] = input.value;state.page=0;state.caseId=null;render();};
+    if (input) input.onchange = () => {state[key] = input.value;state.page=0;render();};
   }
+  const coverageFilter = $('#hide-full-coverage');
+  if (coverageFilter) coverageFilter.onchange = () => {state.hideFullCoverage=coverageFilter.checked;render();};
   const search = $('#search-filter');
   if (search) search.oninput = () => {
     const value=search.value, start=search.selectionStart;
@@ -167,9 +170,18 @@ function outputs() {
   const stress=state.view==='strength';
   let html=toolbar({split:!stress,patterns:true,outputs:true});
   const available=stress?data.strength.episodes:data[state.split];
-  const textMatches = new Set(available.filter(e => (e.condition==='baseline'||e.condition===state.condition) && e.turns.some(t=>t.text.toLowerCase().includes(state.search.toLowerCase()))).map(e=>e.case_id));
-  const cases=data.cases.filter(c=>c.split===state.split && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
-  if (!cases.length) return html+empty('No matching cases. Change your filters.');
+  const byCaseCondition=new Map(available.map(e=>[`${e.case_id}:${e.condition}`,e]));
+  const episodeFor=(c,condition)=>byCaseCondition.get(`${c.id}:${condition}`);
+  const fullCoverage=(c,condition)=>{
+    const e=episodeFor(c,condition);
+    return c.questions.length>0&&e?.turns.length===c.questions.length&&e.turns.every(t=>t.score?.coverage===1);
+  };
+  const textMatches = new Set(available.filter(e => (e.condition===state.reference||e.condition===state.condition) && e.turns.some(t=>t.text.toLowerCase().includes(state.search.toLowerCase()))).map(e=>e.case_id));
+  const availableIds=new Set(available.map(e=>e.case_id));
+  const matchingCases=data.cases.filter(c=>c.split===state.split && availableIds.has(c.id) && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
+  const cases=matchingCases.filter(c=>!state.hideFullCoverage||!fullCoverage(c,state.reference)||!fullCoverage(c,state.condition));
+  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-full-coverage" ${state.hideFullCoverage?'checked':''} aria-describedby="coverage-filter-help">Hide cards where both have 100% coverage</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="coverage-filter-help">100% means every requested fact was matched on every turn in both selected conditions. Early disclosure and other errors may still occur. This filter only changes the card list; result tables use all cards.</p></div>`;
+  if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search or turn off the coverage filter.');}
   if (!cases.some(c=>c.id===state.caseId)) state.caseId=cases[0].id;
   const chosen=cases.find(c=>c.id===state.caseId);
   html+='<div class="case-layout"><aside class="case-list" aria-label="Cases">';
@@ -178,16 +190,16 @@ function outputs() {
   html+=`<div class="record"><div class="record-title"><strong>${esc(chosen.id)}</strong>${chip(chosen.pattern)}</div>${facts(chosen)}<p>Green highlights mark detected fact values; orange marks first disclosure before ${grounded()?'it is allowed':'a request'}. Red marks a possible wrong-value match.</p></div>`;
   const auditNotes=data.overview.audit?.test_review?.notes;
   if(!stress&&state.split==='test'&&auditNotes) {
-    for(const condition of ['baseline',state.condition]) {
+    for(const condition of new Set([state.reference,state.condition])) {
       const note=auditNotes[condition]?.[chosen.id];
       if(note)html+=`<div class="callout">${details(`Assistant transcript audit: ${label(condition)}`,note)}</div>`;
     }
   }
-  const base=available.find(e=>e.case_id===chosen.id&&e.condition==='baseline');
-  const treatment=available.find(e=>e.case_id===chosen.id&&e.condition===state.condition);
-  html+=`<div class="condition-heads"><div>Baseline</div><div>${esc(label(state.condition))}</div></div>`;
-  chosen.questions.forEach((q,i)=>{html+=`<div class="turn"><div class="question"><span class="turn-number">TURN ${i+1}</span><span>${esc(q.text)}</span></div><div class="responses">${responseCard(base?.turns[i],false,'Baseline')}${responseCard(treatment?.turns[i],true,label(state.condition))}</div></div>`;});
-  html+=details('Conversation-level scores',{baseline:base?.score,comparison:treatment?.score});
+  const reference=episodeFor(chosen,state.reference);
+  const treatment=episodeFor(chosen,state.condition);
+  html+=`<div class="condition-heads"><div>${esc(label(state.reference))}</div><div>${esc(label(state.condition))}</div></div>`;
+  chosen.questions.forEach((q,i)=>{html+=`<div class="turn"><div class="question"><span class="turn-number">TURN ${i+1}</span><span>${esc(q.text)}</span></div><div class="responses">${responseCard(reference?.turns[i],false,label(state.reference))}${responseCard(treatment?.turns[i],true,label(state.condition))}</div></div>`;});
+  html+=details('Conversation-level scores',{left:{condition:state.reference,score:reference?.score},right:{condition:state.condition,score:treatment?.score}});
   html+=`<p class="small"><a href="${comparisonLink()}">Link to this comparison</a></p>`;
   return html+'</div></div>';
 }
@@ -256,7 +268,7 @@ async function render() {
 }
 
 function comparisonLink() {
-  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,condition:state.condition,case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,hideFullCoverage:state.hideFullCoverage?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
 }
 
 function navigate() {
@@ -265,6 +277,8 @@ function navigate() {
   state.view=view||'overview';state.page=0;state.search=params.get('search')||'';state.pattern=params.get('pattern')||'all';
   if(params.has('case'))state.caseId=params.get('case');
   if(params.has('condition'))state.condition=params.get('condition');
+  if(params.has('reference'))state.reference=params.get('reference');
+  if(params.has('hideFullCoverage'))state.hideFullCoverage=params.get('hideFullCoverage')==='1';
   if(['test','validation'].includes(params.get('split')))state.split=params.get('split');
   if(state.view==='outputs'&&grounded()&&data.overview.status!=='complete'&&!params.has('split'))state.split='validation';
   if(state.view==='outputs'&&!data.overview.conversation_counts.test&&data.overview.conversation_counts.validation)state.split='validation';
