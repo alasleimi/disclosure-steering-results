@@ -7,17 +7,30 @@ const num = value => Number.isFinite(value) ? value.toLocaleString() : '—';
 const names = {baseline:'Baseline',steered:'Selected steering',opposite:'Opposite direction',instruction:'Selective instruction',brief:'Brevity instruction',masked:'Oracle masking',full_mean:'Full-answer mean',length_only:'Same-fact brevity vector'};
 const grounded = () => data?.overview.version === 'grounded-exhibits-v3';
 const label = value => grounded() && value==='steered' ? 'Matched steering' : names[value] || value.replace('response_mean.block_', 'Block ').replace('.mean.a', ' · α ').replace(/^alpha_/, 'α ');
-const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hidePerfectCards:false,leakFilter:'all',focusTurn:0,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
+const state = {view:'overview',split:'test',reference:'baseline',condition:'steered',hidePerfectCards:false,prematureLeft:'all',prematureRight:'all',focusTurn:0,caseId:null,search:'',pattern:'all',status:'accepted',page:0};
 let data;
 const pendingLoads = new Map();
 let renderSequence = 0;
 
-const leakOptions = {all:"All cards",either:"Either condition",left:"Left condition",right:"Right condition",both:"Both conditions"};
+const prematureOptions = {all:"All",yes:"Yes",no:"No"};
 const scoreEvents = e => e?.score?.events || (e?.turns||[]).map(t=>t.score);
 const prematureFields = e => [...new Set(scoreEvents(e).flatMap(event=>event?.premature||[]))];
-function matchesPremature(left,right){
-  const a=prematureFields(left).length>0, b=prematureFields(right).length>0;
-  return state.leakFilter==="left"?a:state.leakFilter==="right"?b:state.leakFilter==="both"?a&&b:state.leakFilter==="either"?a||b:true;
+function matchesPremature(left,right,expectedTurns){
+  const matchesSide=(episode,choice)=>{
+    if(choice==="all")return true;
+    const events=scoreEvents(episode), hasPremature=prematureFields(episode).length>0;
+    if(choice==="yes")return hasPremature;
+    return expectedTurns>0&&episode?.turns.length===expectedTurns&&events.length===expectedTurns&&events.every(event=>Array.isArray(event?.premature))&&!hasPremature;
+  };
+  return matchesSide(left,state.prematureLeft)&&matchesSide(right,state.prematureRight);
+}
+function readPrematureFilters(params){
+  const legacy=params.get("leaks");
+  if(["all","left","right","both"].includes(legacy)){
+    state.prematureLeft=["left","both"].includes(legacy)?"yes":"all";
+    state.prematureRight=["right","both"].includes(legacy)?"yes":"all";
+  }
+  for(const key of ["prematureLeft","prematureRight"])if(Object.hasOwn(prematureOptions,params.get(key)))state[key]=params.get(key);
 }
 function prematureOverview(left,right){
   return `<div class="leak-index"><strong>Premature disclosure in this card</strong><p class="small muted">Jump to a flagged turn. Orange highlights show the matched fact text; earlier turns remain available for context.</p>${[...new Map([[state.reference,left],[state.condition,right]])].map(([condition,e])=>`<div><strong>${esc(label(condition))}</strong> ${scoreEvents(e).map((event,i)=>event?.premature?.length?`<button type="button" data-turn="${i+1}" aria-label="Jump to turn ${i+1}: ${esc(label(condition))}; premature ${esc(event.premature.join(', '))}">Turn ${i+1} · ${esc(event.premature.join(', '))}</button>`:"").join("")||`<span class="muted">${e?"No premature facts recorded.":"No saved response."}</span>`}</div>`).join("")}</div>`;
@@ -90,7 +103,7 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
     const conditions = [...new Set(rows.map(e => e.condition))];
     if (!conditions.includes(state.reference)) state.reference = conditions.includes('baseline') ? 'baseline' : conditions[0];
     if (!conditions.includes(state.condition)) state.condition = conditions.find(c => c !== 'baseline') || 'steered';
-    html += `<label>Premature disclosure<select id="leak-filter" aria-describedby="leak-filter-help">${Object.entries(leakOptions).map(([k,v])=>option(k,v,state.leakFilter)).join('')}</select></label><label>Left condition<select id="reference-filter">${conditions.map(c => option(c,label(c),state.reference)).join('')}</select></label><label>Right condition<select id="condition-filter">${conditions.map(c => option(c,label(c),state.condition)).join('')}</select></label>`;
+    html += `<label>Left condition<select id="reference-filter">${conditions.map(c => option(c,label(c),state.reference)).join('')}</select></label><label>Premature left<select id="premature-left" aria-describedby="leak-filter-help">${Object.entries(prematureOptions).map(([k,v])=>option(k,v,state.prematureLeft)).join('')}</select></label><label>Right condition<select id="condition-filter">${conditions.map(c => option(c,label(c),state.condition)).join('')}</select></label><label>Premature right<select id="premature-right" aria-describedby="leak-filter-help">${Object.entries(prematureOptions).map(([k,v])=>option(k,v,state.prematureRight)).join('')}</select></label>`;
   }
   if (patterns) html += `<label>Conversation structure<select id="pattern-filter">${option('all','All structures',state.pattern)}${[...new Set(data.cases.map(c => c.pattern))].map(p => option(p,p,state.pattern)).join('')}</select></label>`;
   if (contrasts) html += `<label>Pair status<select id="status-filter">${['accepted','rejected','all'].map(s => option(s,s,state.status)).join('')}</select></label>`;
@@ -99,7 +112,7 @@ function toolbar({split = false, patterns = false, contrasts = false, outputs = 
 }
 
 function wireToolbar() {
-  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['reference-filter','reference'],['condition-filter','condition'],['leak-filter','leakFilter']]) {
+  for (const [id,key] of [['split-filter','split'],['pattern-filter','pattern'],['status-filter','status'],['reference-filter','reference'],['condition-filter','condition'],['premature-left','prematureLeft'],['premature-right','prematureRight']]) {
     const input = $(`#${id}`);
     if (input) input.onchange = () => {state[key] = input.value;state.page=0;state.focusTurn=0;render();};
   }
@@ -192,10 +205,10 @@ function outputs() {
   const availableIds=new Set(available.map(e=>e.case_id));
   const matchingCases=data.cases.filter(c=>c.split===state.split && availableIds.has(c.id) && (state.pattern==='all'||c.pattern===state.pattern) && (matches(c)||textMatches.has(c.id)));
   const afterPerfect=matchingCases.filter(c=>!state.hidePerfectCards||!perfectCard(c,state.reference)||!perfectCard(c,state.condition));
-  const cases=afterPerfect.filter(c=>matchesPremature(episodeFor(c,state.reference),episodeFor(c,state.condition)));
+  const cases=afterPerfect.filter(c=>matchesPremature(episodeFor(c,state.reference),episodeFor(c,state.condition),c.questions.length));
   const hiddenCount=matchingCases.length-afterPerfect.length;
   const filterFeedback=!matchingCases.length?"No cards match the current search and filters.":hiddenCount===0?"0 cards hidden. No matching card passes every turn for both selected conditions.":`${hiddenCount} ${hiddenCount===1?"card":"cards"} hidden: both conditions pass every turn.`;
-  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="leak-filter-help">Show cards with at least one newly premature fact in the chosen condition(s). Badges count distinct premature facts; scores use the saved lexical checks.</p><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p>${state.hidePerfectCards?`<p id="perfect-card-filter-result" role="status"><strong>${esc(filterFeedback)}</strong></p>`:""}</div>`;
+  html+=`<div class="comparison-filters"><label><input type="checkbox" id="hide-perfect-cards" ${state.hidePerfectCards?'checked':''} aria-describedby="perfect-card-filter-help">Hide cards where both are fully correct</label><span class="count" role="status">${cases.length} / ${matchingCases.length} cards</span><p id="leak-filter-help">Each side is independent: Yes = at least one premature fact; No = none across a complete scored conversation; All = no restriction. Both filters must match. Badges count distinct premature facts.</p><p id="perfect-card-filter-help">Both selected conditions must pass every tracked check on every turn: full requested coverage, no premature disclosure, no wrong-value flags and no token cutoffs. Only the card list is filtered; result tables use all cards.</p>${state.hidePerfectCards?`<p id="perfect-card-filter-result" role="status"><strong>${esc(filterFeedback)}</strong></p>`:""}</div>`;
   if (!cases.length) {state.caseId=null;return html+empty('No matching cases. Change your search, disclosure filter or fully correct card filter.');}
   if (!cases.some(c=>c.id===state.caseId)) {state.caseId=cases[0].id;state.focusTurn=0;}
   const chosen=cases.find(c=>c.id===state.caseId);
@@ -294,7 +307,7 @@ async function render() {
 }
 
 function comparisonLink() {
-  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,leaks:state.leakFilter,turn:state.focusTurn||'',hidePerfectCards:state.hidePerfectCards?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
+  return `#${state.view==='strength'?'strength':'outputs'}?` + new URLSearchParams({split:state.split,reference:state.reference,condition:state.condition,prematureLeft:state.prematureLeft,prematureRight:state.prematureRight,turn:state.focusTurn||'',hidePerfectCards:state.hidePerfectCards?'1':'0',case:state.caseId||'',search:state.search,pattern:state.pattern}).toString();
 }
 
 function jumpToTurn(turn) {
@@ -311,7 +324,7 @@ function navigate() {
   if(params.has('case'))state.caseId=params.get('case');
   if(params.has('condition'))state.condition=params.get('condition');
   if(params.has('reference'))state.reference=params.get('reference');
-  if(Object.hasOwn(leakOptions,params.get('leaks')))state.leakFilter=params.get('leaks');
+  readPrematureFilters(params);
   const turn=Number(params.get('turn'));state.focusTurn=Number.isSafeInteger(turn)&&turn>0?turn:0;
   const perfectFilter=params.get('hidePerfectCards')??params.get('hideFullCoverage');
   if(perfectFilter!==null)state.hidePerfectCards=perfectFilter==='1';
